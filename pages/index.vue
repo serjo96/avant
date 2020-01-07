@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <DescriptionSection />
     <Advantages />
 
@@ -81,7 +81,7 @@
         </div></div>
       </div>
     </div>
-  </v-app>
+  </div>
 </template>
 
 <script>
