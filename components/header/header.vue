@@ -5,12 +5,14 @@
                <NuxtLink class="header__logo" to="/">
                    <img src="~/assets/logo.png" alt="">
                </NuxtLink>
-               <nav>
-                   <ul>
-                       <li>
-                           <a class="header__link" href="#">Sign in</a>
-                       </li>
-                   </ul>
+               <nav class="nav">
+                   <span class="nav__item">
+                       <a class="header__link" href="#">Sign in</a>
+                   </span>
+
+                   <span class="nav__item">
+                       <a class="header__link" href="#">Sign up</a>
+                   </span>
                </nav>
            </div>
         </div>
