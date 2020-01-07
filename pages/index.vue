@@ -3,6 +3,7 @@
     <DescriptionSection />
     <Advantages />
 
+    <VideoSection />
     <div class="sub_bg_3">
         <div class="top_5">
       <div class="container ">
@@ -89,11 +90,13 @@
 
 import DescriptionSection from "~/components/home-page/description-section/description-section.vue";
 import Advantages from "~/components/home-page/advantages/advantages.vue";
+import VideoSection from "~/components/home-page/video-section/video-section.vue";
 
 export default {
   components: {
     DescriptionSection,
-    Advantages
+    Advantages,
+    VideoSection
   }
 }
 </script>
