@@ -3,37 +3,37 @@
     <DescriptionSection />
     <Advantages />
 
-    <VideoSection />
-    <div class="sub_bg_3">
-        <div class="top_5">
-      <div class="container ">
+<!--    <VideoSection />-->
+<!--    <div class="sub_bg_3">-->
+<!--        <div class="top_5">-->
+<!--      <div class="container ">-->
 
 
-        <div class="sixteen columns  ">
-          <div class="bottom25"><div class="patients_titre">What our patients say about us</div>
-            <div class="sous_header bottom_50"></div></div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="eight columns  alpha border_say">
+<!--        <div class="sixteen columns  ">-->
+<!--          <div class="bottom25"><div class="patients_titre">What our patients say about us</div>-->
+<!--            <div class="sous_header bottom_50"></div></div>-->
+<!--          <div class="clearfix"></div>-->
+<!--        </div>-->
+<!--        <div class="eight columns  alpha border_say">-->
 
-          <div class=" three columns  alpha "><img src="~assets/Untitldddded-7.jpg" alt=""></div>
-          <div class="five columns  omega"><div><span class="patients_font">" I found both the clinic and the staff fantastic. great team "</span></div>
-            <div><span class="maria">Mark brown ,40 years old</span></div>
+<!--          <div class=" three columns  alpha "><img src="~assets/Untitldddded-7.jpg" alt=""></div>-->
+<!--          <div class="five columns  omega"><div><span class="patients_font">" I found both the clinic and the staff fantastic. great team "</span></div>-->
+<!--            <div><span class="maria">Mark brown ,40 years old</span></div>-->
 
-          </div>
+<!--          </div>-->
 
-        </div>
+<!--        </div>-->
 
-        <div class="eight columns  omega border_say ">
-          <div class="three columns alpha"><img src="~assets/Happy_Patient.jpg" alt=""></div>
-          <div class="five columns  omega"><div><span class="patients_font">" I found both the clinic and the staff fantastic. great team "</span></div>
-            <div><span class="maria">Maria Ron ,32 years old</span></div>
-          </div>
+<!--        <div class="eight columns  omega border_say ">-->
+<!--          <div class="three columns alpha"><img src="~assets/Happy_Patient.jpg" alt=""></div>-->
+<!--          <div class="five columns  omega"><div><span class="patients_font">" I found both the clinic and the staff fantastic. great team "</span></div>-->
+<!--            <div><span class="maria">Maria Ron ,32 years old</span></div>-->
+<!--          </div>-->
 
-        </div>
-        </div>
-      </div>
-    </div>
+<!--        </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class="sub_bg_1 contact_section">
       <div class="top_5">
