@@ -7,11 +7,11 @@
                </NuxtLink>
                <nav class="nav">
                    <span class="nav__item">
-                       <a class="header__link" href="#">Sign in</a>
+                       <nuxt-link class="header__link" to="sign-in">Sign in</nuxt-link>
                    </span>
 
                    <span class="nav__item">
-                       <a class="header__link" href="#">Sign up</a>
+                       <nuxt-link class="header__link" to="sign-up">Sign up</nuxt-link>
                    </span>
                </nav>
            </div>
