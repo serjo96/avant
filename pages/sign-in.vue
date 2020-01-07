@@ -1,56 +1,59 @@
 <template>
     <div class="auth">
-        <div class="login">
-            <div class="login__title">Login</div>
-            <v-form
-                    ref="form"
-            >
-                <div class="login__inputs">
-                    <div class="login__input">
-                        <v-text-field
-                                label="E-mail"
-                                type="email"
-                                required
-                                color="light-blue darken-1"
-                                prepend-inner-icon="email"
-                                solo
-                                dark
-                        ></v-text-field>
-                    </div>
-                    <div class="login__input">
-                        <v-text-field
-                                name="password"
-                                label="Password"
-                                color="light-blue darken-1"
-                                solo
-                                dark
-                                prepend-inner-icon="lock"
-                        ></v-text-field>
-                    </div>
-                </div>
+        <div class="auth__form">
 
-                <v-btn
-                        color="light-blue darken-1"
-                        class="login__button"
-                        block
+            <div class="login">
+                <div class="login__title">Login</div>
+                <v-form
+                        ref="form"
                 >
-                    Login
-                </v-btn>
+                    <div class="login__inputs">
+                        <div class="login__input">
+                            <v-text-field
+                                    label="E-mail"
+                                    type="email"
+                                    required
+                                    color="light-blue darken-1"
+                                    prepend-inner-icon="email"
+                                    solo
+                                    dark
+                            ></v-text-field>
+                        </div>
+                        <div class="login__input">
+                            <v-text-field
+                                    name="password"
+                                    label="Password"
+                                    color="light-blue darken-1"
+                                    solo
+                                    dark
+                                    prepend-inner-icon="lock"
+                            ></v-text-field>
+                        </div>
+                    </div>
+
+                    <v-btn
+                            color="light-blue darken-1"
+                            class="login__button"
+                            block
+                    >
+                        Login
+                    </v-btn>
 
 
-            </v-form>
-            <button
-                    class="login__reset-password-button"
-            >
-                Forgot your password?
-            </button>
+                </v-form>
+                <button
+                        class="login__reset-password-button"
+                >
+                    Forgot your password?
+                </button>
 
-<!--            <v-btn-->
-<!--                    key="signUp"-->
-<!--                    block-->
-<!--                    color="green"-->
-<!--            >Sign up-->
-<!--            </v-btn>-->
+    <!--            <v-btn-->
+    <!--                    key="signUp"-->
+    <!--                    block-->
+    <!--                    color="green"-->
+    <!--            >Sign up-->
+    <!--            </v-btn>-->
+            </div>
         </div>
     </div>
 </template>
