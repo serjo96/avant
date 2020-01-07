@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="description-section__button">
-                <nuxt-link :to="{ path: '/', hash:'#contact'}">CONTACT US NOW</nuxt-link>
+                <nuxt-link :to="{ path: '/', hash:'#contact_form'}">CONTACT US NOW</nuxt-link>
             </div>
         </div>
     </section>
