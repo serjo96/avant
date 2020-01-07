@@ -1,6 +1,58 @@
 .description-section {
   background: url('~assets/descr-bg.jpg')
   background-attachment: fixed
+  background-size: cover;
+  background-position: top center
   padding-top: 90px;
   padding-bottom: 90px;
+  color: #fff
+  &__content {
+    display: flex
+    justify-content: space-between
+  }
+
+  &__icon {
+    width: 400px
+    margin-left: 10px
+    margin-top: 30px
+  }
+
+  &__button {
+    a {
+      color: #fff
+      text-decoration: none
+      display: inline-block
+      text-transform: uppercase
+      padding: 20px 30px
+      border: 3px solid #fff
+      font-weight: bold
+      font-size: 18px
+      text-align: center
+      margin-right: 5px
+      border-radius: 4px
+      -webkit-transition: all 0.2s linear
+      &:hover {
+        color: #3e70bb
+        background: #fff
+      }
+    }
+  }
+}
+
+
+.description {
+  max-width: 520px
+  &__title {
+    font-size: 32px
+    font-weight: bold
+    line-height: 50px
+    margin-bottom: 50px
+  }
+  &__text {
+    font-size: 20px
+    color: #d3d3d3
+    text-align: left
+    margin-bottom: 30px
+    line-height: 30px
+  }
 }
