@@ -2,11 +2,9 @@
     <header class="header">
         <div class="container">
            <div class="header__container">
-               <div class="header__logo">
-                   <NuxtLink to="/">
-                        <img src="~/assets/logo.png" alt="">
-                   </NuxtLink>
-               </div>
+               <NuxtLink class="header__logo" to="/">
+                   <img src="~/assets/logo.png" alt="">
+               </NuxtLink>
                <nav>
                    <ul>
                        <li>
