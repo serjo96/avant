@@ -24,6 +24,7 @@
     "vuex-module-decorators": "^0.11.0"
   },
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.9.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",

@@ -14,6 +14,10 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600&display=swap' }
     ]
   },
+  buildModules: [
+    // Simple usage
+    '@nuxtjs/vuetify',
+  ],
   /*
   ** Customize the progress bar color
   */
