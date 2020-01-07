@@ -72,12 +72,10 @@
 
             <div><span class="contact_font">Important Info</span> </div>
             <div><ul class="info_font">
-              <li><span>phone: +36 765 465 54</span></li>
-              <li><span>email: info@myclinic.eu</span></li>
-              <li><span>address: 6748, Northway the woods 100</span></li></ul>
+              <li><span>email: info@gopherprotocol.com</span></li>
+              <li><span>GBT Technologies.2500 Broadway, Suite F-125 Santa Monica, CA 90404 USA</span></li></ul>
             </div>
-            <div class="iframe_center"><iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6049.113340004045!2d-74.00314519957925!3d40.70576047781836!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1393707192173" width="390" height="420" style="border:0"></iframe></div>
-
+            <div class="iframe_center"><iframe width="390px" height="420px" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=2500%20Broadway%2C%20Suite%20F-125%20Santa%20Monica%2090404%20USA+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div>
             <div class="clearfix"></div>
           </div>
         </div></div>
