@@ -2,7 +2,11 @@
     <header class="header">
         <div class="container">
            <div class="header__container">
-               <div class="header__logo"><img src="~/assets/logo.png" alt=""></div>
+               <div class="header__logo">
+                   <NuxtLink to="/">
+                        <img src="~/assets/logo.png" alt="">
+                   </NuxtLink>
+               </div>
                <nav>
                    <ul>
                        <li>
@@ -15,5 +19,5 @@
     </header>
 </template>
 
-<script src="./Header.js"></script>
+<script src="./header.js"></script>
 <style src="./header.styl" lang="stylus" scoped></style>
