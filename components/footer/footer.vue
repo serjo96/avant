@@ -1,6 +1,6 @@
 <template>
     <footer>
-        its a footer
+        All rights reserved Copyright © 2020 Advanta
     </footer>
 </template>
 
