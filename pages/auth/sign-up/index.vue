@@ -57,7 +57,7 @@
 
 
                 <v-btn
-                        :block="true"
+                        block
                         @click="onSubmit"
                         color="success">
                     SignUp
@@ -65,8 +65,10 @@
             </v-form>
             <v-btn
                     block
-                    @click="changeComponent('Login')"
-                    color="light-blue darken-1">
+                    color="light-blue darken-1"
+                    nuxt
+                    to="sign-in"
+            >
                 Login
             </v-btn>
         </div>

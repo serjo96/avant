@@ -60,6 +60,8 @@
                     key="signUp"
                     block
                     color="green"
+                    nuxt
+                    to="sign-up"
                 >Sign up
             </v-btn>
         </div>
