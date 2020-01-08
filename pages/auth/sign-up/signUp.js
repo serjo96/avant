@@ -9,6 +9,8 @@ import { Action, Mutation } from 'vuex-class';
 })
 class SignUp extends Vue {
     valid = true;
+    sex = ['male', 'female'];
+    ages = ['25+', '35+', '45+'];
     emailRules = [
         v => !!v || 'E-mail is required',
         v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
