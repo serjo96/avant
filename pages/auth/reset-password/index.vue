@@ -23,14 +23,14 @@
                 <v-btn
                         block
                         @click="onSubmit"
-                        color="blue-grey lighten-4"
-                        class="login__button">
+                        color="blue-grey lighten-5"
+                        class="login__button mb-3">
                     Reset password
                 </v-btn>
             </v-form>
 
             <v-btn
-                    class="reset-password__buck-navigate"
+                    class="reset-password__buck-navigate white--text"
                     color="light-blue darken-1"
                     nuxt
                     to="sign-in"

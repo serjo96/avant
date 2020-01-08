@@ -8,8 +8,6 @@
   &__reset-password-button{
     margin: 5px 0
     display: block
-    outline none;
-    color: #000
     &:hover{
       text-decoration: underline
     }

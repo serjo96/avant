@@ -49,7 +49,7 @@
                 <v-btn
                         @click="login"
                         color="light-blue darken-1"
-                        class="login__button"
+                        class="login__button white--text"
                         block
                 >
                     Login
@@ -59,7 +59,7 @@
             </v-form>
             <nuxt-link
                     to="reset-password"
-                    class="login__reset-password-button"
+                    class="login__reset-password-button grey--text text--darken-5"
             >
                 Forgot your password?
             </nuxt-link>
@@ -68,6 +68,7 @@
                     key="signUp"
                     block
                     color="green"
+                    class="white--text"
                     nuxt
                     to="sign-up"
                 >Sign up
