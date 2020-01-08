@@ -1,5 +1,13 @@
 <template>
     <div class="auth__form">
+        <v-btn
+                nuxt
+                to="/"
+                icon
+                color="black"
+        >
+            <v-icon>mdi-arrow-left</v-icon>
+        </v-btn>
         <div class="sign-up">
             <div class="sign-up__header">
                 <div class="sign-up__header-title">Hello there!</div>
@@ -55,11 +63,28 @@
 
                 </div>
 
+                <v-select
+                        label="sex"
+                        :items="sex"
+                        lrequired
+                        solo
+                        dark
+                ></v-select>
+
+
+                <v-select
+                        label="age"
+                        :items="ages"
+                        lrequired
+                        solo
+                        dark
+                ></v-select>
 
                 <v-btn
                         block
                         @click="onSubmit"
-                        color="success">
+                        color="success"
+                >
                     SignUp
                 </v-btn>
             </v-form>
@@ -67,6 +92,7 @@
                     block
                     color="light-blue darken-1"
                     nuxt
+                    class="my-3"
                     to="sign-in"
             >
                 Login
@@ -76,5 +102,4 @@
 </template>
 
 <script src="./signUp.js"></script>
-
 <style src="./sign-up.stylus" lang="stylus" scoped></style>
