@@ -6,7 +6,7 @@ import { Action, Mutation } from 'vuex-class';
 
 @Component({
 })
-class Login extends Vue {
+class SignIn extends Vue {
     valid = true;
     emailRules = [
         v => !!v || 'E-mail is required',
@@ -41,4 +41,4 @@ class Login extends Vue {
 
 }
 
-export default Login;
+export default SignIn;

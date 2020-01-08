@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="auth__form">
         <div class="sign-up">
             <div class="sign-up__header">
                 <div class="sign-up__header-title">Hello there!</div>

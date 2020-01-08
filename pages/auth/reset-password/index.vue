@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="auth__form">
         <div class="reset-password">
             <div class="reset-password__title">Reset password</div>
 
@@ -8,11 +8,8 @@
                     v-model="valid"
             >
                 <v-text-field
-                        :value="restPasswordMessage ? email : ''"
                         :rules="emailRules"
-                        :success-messages="restPasswordMessage"
                         @input="onInput"
-                        :error-messages="AuthError.message"
                         label="E-mail"
                         type="email"
                         required
@@ -35,7 +32,9 @@
             <v-btn
                     class="reset-password__buck-navigate"
                     color="light-blue darken-1"
-                    @click="changeComponent('Login')">
+                    nuxt
+                    to="sign-in"
+                   >
                 <v-icon left dark>arrow_back_ios</v-icon>
                 Buck to login
             </v-btn>

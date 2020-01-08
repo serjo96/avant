@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import { Prop, Component } from 'vue-property-decorator'
 import { Action, Mutation, Getter } from 'vuex-class';
-import { ResponseError } from '@/Core/Interfaces/Global';
 
 
 
@@ -49,3 +48,5 @@ class ResetPassword extends Vue {
     // }
 
 }
+
+export default ResetPassword;

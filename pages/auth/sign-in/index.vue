@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="auth__form">
         <div class="login">
             <div class="login__title">Login</div>
             <v-form
@@ -24,8 +24,6 @@
                     <div class="login__input">
                         <v-text-field
                                 @click:append="showPassword = !showPassword"
-                                @input="clearErrorData"
-                                :error-messages="AuthError.message"
                                 :type="showPassword ? 'text' : 'password'"
                                 :rules="[passwordRules.required]"
                                 v-model="password"
@@ -51,17 +49,16 @@
 
 
             </v-form>
-            <button
+            <nuxt-link
+                    to="reset-password"
                     class="login__reset-password-button"
-                    @click="changeComponent('ResetPassword')"
             >
                 Forgot your password?
-            </button>
+            </nuxt-link>
 
             <v-btn
                     key="signUp"
                     block
-                    @click="changeComponent('SignUp')"
                     color="green"
                 >Sign up
             </v-btn>
@@ -69,6 +66,5 @@
     </div>
 </template>
 
-<script src="./login.js"></script>
-
+<script src="./sign-in.js"></script>
 <style src="./login.stylus" lang="stylus" scoped></style>
