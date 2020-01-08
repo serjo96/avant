@@ -1,5 +1,13 @@
 <template>
     <div class="auth__form">
+        <v-btn
+                nuxt
+                to="/"
+                icon
+                color="black"
+        >
+            <v-icon>mdi-arrow-left</v-icon>
+        </v-btn>
         <div class="login">
             <div class="login__title">Login</div>
             <v-form
