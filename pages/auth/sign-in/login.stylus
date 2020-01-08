@@ -7,9 +7,11 @@
   }
   &__reset-password-button{
     margin: 5px 0
+    display: block
     outline none;
+    color: #000
     &:hover{
-      opacity: .8
+      text-decoration: underline
     }
   }
 }
