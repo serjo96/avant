@@ -4,7 +4,7 @@
                 nuxt
                 to="/"
                 icon
-                color="black"
+                color="grey lighten-3"
         >
             <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
