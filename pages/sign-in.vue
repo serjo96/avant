@@ -47,12 +47,12 @@
                     Forgot your password?
                 </button>
 
-    <!--            <v-btn-->
-    <!--                    key="signUp"-->
-    <!--                    block-->
-    <!--                    color="green"-->
-    <!--            >Sign up-->
-    <!--            </v-btn>-->
+                <v-btn
+                        key="signUp"
+                        block
+                        color="green"
+                >Sign up
+                </v-btn>
             </div>
         </div>
     </div>
