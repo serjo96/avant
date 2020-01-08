@@ -60,7 +60,8 @@
 
 <script>
 	export default {
-		name: "sign-in"
+		name: "sign-in",
+		layout: 'auth'
 	}
 </script>
 
