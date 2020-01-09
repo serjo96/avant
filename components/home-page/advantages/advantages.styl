@@ -5,13 +5,20 @@
   &__container {
     display: flex
     justify-content: center
-    flex-wrap: wrap
+    @media (max-width: 880px) {
+      flex-wrap: wrap
+      padding: 0 10px
+    }
   }
 }
 
 .advantage {
   display: flex
   align-items: center
+  @media (max-width: 880px) {
+    flex: 1 auto
+    justify-content: center
+  }
   &__icon {
     width: 100px
   }
