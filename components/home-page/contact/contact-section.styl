@@ -4,6 +4,42 @@
   @media (max-width: 870px) {
     padding: 0
   }
+  &__title {
+    margin: 50px;
+    padding-bottom: 30px;
+    position: relative;
+    &:before {
+      position: absolute;
+      content: "";
+      width: 50%;
+      height: 2px;
+      background: #6BC2F1;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    &:after {
+      position: absolute;
+      content: "\FA41";
+      bottom: 0;
+      font: normal normal normal 24px/1 "Material Design Icons";
+      font-size: 28px;
+      color: #6BC2F1;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: 30px;
+      height: 15px;
+      background: #fff;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 24px;
+      color: #34495E;
+      position: relative
+    }
+  }
 }
 
 .contact-container {
@@ -17,24 +53,32 @@
   }
 }
 
-.contact-form {
-  &__form {
-    margin-top: 30px
-  }
-
-  &__subtitle{
-    margin-top: 10px
-    color: rgb(128, 128, 128)
-  }
+.address-info {
+  padding: 41px 10px;
+  text-align: left;
+  height: 100%
+  box-shadow: 0px 0px 25px #d7d7d7;
 }
 
-.contact-title {
-  font-size: 36px;
-}
-
-.contact-list {
-  margin-bottom: 25px
-  &__item {
-    margin-top: 10px
+.single-address {
+  display: flex
+  align-items: baseline;
+  margin-bottom: 40px
+  &__icon {
+    border: 1px solid #fff;
+    border-radius: 100%;
+    color: #fefefe;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 10px
+    //margin: 0 25px;
+    text-align: center;
+    width: 50px;
+    font-size: 16px;
+  }
+  &__info {
+    color: #fff
+    flex: 1
   }
 }
