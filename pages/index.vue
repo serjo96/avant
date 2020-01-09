@@ -7,7 +7,8 @@
 
 <!--    <InfoSection />-->
     <ContactSection />
-
+    <MapSection />
+    <Social />
   </div>
 </template>
 
@@ -18,6 +19,8 @@ import Advantages from "~/components/home-page/advantages/advantages.vue";
 import VideoSection from "~/components/home-page/video-section/video-section.vue";
 import ContactSection from "~/components/home-page/contact/contact-section.vue";
 import InfoSection from "~/components/home-page/info-section/info-section.vue";
+import MapSection from "~/components/home-page/map-section/map-section.vue";
+import Social from "~/components/social/social.vue";
 
 export default {
   components: {
@@ -26,6 +29,8 @@ export default {
     VideoSection,
     ContactSection,
     InfoSection,
+    MapSection,
+    Social,
   }
 }
 </script>
