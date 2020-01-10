@@ -11,6 +11,12 @@
     padding: 0 15px;
     display: flex
     align-items: center
+    @media (max-width: 350px) {
+      flex-wrap: wrap
+      padding: 0
+      margin-top: 10px
+      margin-left: -10px
+    }
     i{
       font-size: 14px
     }
@@ -19,6 +25,9 @@
     display: block;
     text-transform: capitalize;
     font-size: 1.5rem;
+    @media (max-width: 350px) {
+      flex: 1;
+    }
   }
 }
 
@@ -28,8 +37,14 @@
   @media (min-width: 980px) {
     justify-content: flex-end
   }
+  @media (max-width: 350px) {
+    flex-wrap: wrap
+  }
   &__title {
     margin-right: 10px
+    @media (max-width: 350px) {
+      margin-bottom: 10px
+    }
   }
   &__form {
     display: flex
@@ -41,6 +56,9 @@
   display: flex
   align-items: center
   padding: 10px 0
+  @media (max-width: 350px) {
+    flex-wrap: wrap
+  }
 }
 
 .brdr {
