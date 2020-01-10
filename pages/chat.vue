@@ -7,22 +7,7 @@
                     <h2>Welcome in our chat!</h2>
                 </div>
             </div>
-            <div class="landbot__bot">
-                <script src="https://static.landbot.io/landbot-widget/landbot-widget-1.0.0.js"></script>
-                <div id="landbot-1545150687890" class="landbot__bot">
-                    <div class="LandbotFrameWidget">
-                        <div class="LandbotFrame">
-                            <iframe class="LandbotFrame__frame__content" frameborder="0" width="100%" height="100%" src="https://landbot.io/u/H-113274-ZDK8S4BDEWLLBO4U/index.html" name="+dNj4J4GKoM"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <script>
-					var myLandbotFrame = new LandbotFrameWidget({
-						container: '#landbot-1545150687890',
-						index: 'https://landbot.io/u/H-113274-ZDK8S4BDEWLLBO4U/index.html',
-					});
-                </script>
-            </div>
+                <object type="text/html" id="bot" data="https://landbot.io/u/H-25531-0WYHN5OX5DBFTPIG/index.html" width="100%" style="height: 938px;"></object>
             </div>
         </section>
     </div>
@@ -38,6 +23,7 @@
     .chat-page{
         background: #fff
         padding: 30px 0
+        height: 100%
     }
 
     .landbot__bot {
