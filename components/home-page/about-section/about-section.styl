@@ -2,6 +2,9 @@
   padding-top: 50px
 }
 .about-content {
+   @media (max-width: 960px) {
+     padding: 0 20px
+   }
   &__title {
     text-transform: uppercase;
     color: #6BC2F1;
@@ -15,5 +18,11 @@
 
   &__text {
     margin-bottom: 65px;
+  }
+}
+
+.about-image {
+  @media (max-width: 960px) {
+    display: none
   }
 }
