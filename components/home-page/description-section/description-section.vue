@@ -5,13 +5,22 @@
                 <div class="description">
                     <h1 class="description__title">Hippocrates AI system </h1>
                     <p class="description__text">Hippocrates AI system performs as a health care medical doctor advisor. Users may provide symptoms, ask medical questions and describe conditions in order to get diagnosis advise, including known medication and treatments. The system emulates MD.</p>
+                    <div class="description-section__button">
+                        <v-btn
+                                tile
+                                nuxt
+                                large
+                                color="white"
+                                class="font-weight-light"
+                                to="chat"
+                        >
+                            get started now
+                        </v-btn>
+                    </div>
                 </div>
                 <div class="description-section__icon">
                     <img src="~assets/heart.png" alt="">
                 </div>
-            </div>
-            <div class="description-section__button">
-                <nuxt-link :to="{ path: '/', hash:'#contact_form'}">CONTACT US NOW</nuxt-link>
             </div>
         </div>
     </section>
