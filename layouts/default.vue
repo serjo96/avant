@@ -1,27 +1,14 @@
 <template>
   <v-app dark>
-    <Header />
+    <Header :onShowProfileSettings="onShowProfileSettings" />
     <v-content>
       <nuxt/>
     </v-content>
-    <Profile />
+    <Profile v-model="showProfileSettings" />
     <Footer />
   </v-app>
 </template>
 
-<script>
-  import Header from '~/components/header/header.vue';
-  import Footer from '~/components/footer/footer.vue';
-  import Profile from "~/components/profile/profile.vue";
-
-  export default {
-    components: {
-      Header,
-      Footer,
-      Profile
-    }
-  }
-</script>
-
+<script src="./default/default.js"></script>
 <style src="./global.styl" lang="stylus"></style>
 
