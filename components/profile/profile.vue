@@ -72,6 +72,7 @@
                     <v-btn
                         text
                         large
+                        @click="closeModal()"
                     >
                         Cancel
                     </v-btn>
@@ -79,6 +80,7 @@
                     <v-btn
                             large
                             color="primary"
+                            @click="closeModal(true)"
                     >
                         Save
                     </v-btn>

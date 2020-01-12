@@ -29,6 +29,14 @@ class Profile extends Vue {
 		this.$emit('input', dialog)
 	}
 
+	closeModal(save) {
+		if(save){
+
+		}
+		this.$emit('input', false);
+		// save data here
+	}
+
 }
 
 export default Profile;
