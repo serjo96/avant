@@ -25,6 +25,17 @@
                            Sign up
                        </v-btn>
                    </span>
+
+                   <span class="nav__item">
+                       <v-btn
+                               class="header__link"
+                               fab
+                               small
+                               @click="onShowProfileSettings"
+                       >
+                           <v-icon>mdi-account</v-icon>
+                       </v-btn>
+                   </span>
                </nav>
            </div>
         </div>

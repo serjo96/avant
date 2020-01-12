@@ -1,6 +1,6 @@
 <template>
     <v-dialog
-            v-model="dialog"
+            v-model="dialogModal"
             width="500"
     >
             <v-card class="profile-settings">
@@ -72,10 +72,16 @@
                     <v-btn
                         text
                         large
-                    >Cancel</v-btn>
+                    >
+                        Cancel
+                    </v-btn>
+
                     <v-btn
                             large
-                            color="primary">Save</v-btn>
+                            color="primary"
+                    >
+                        Save
+                    </v-btn>
                 </v-card-actions>
             </v-card>
     </v-dialog>
