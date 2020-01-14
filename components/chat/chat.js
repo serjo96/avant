@@ -11,34 +11,34 @@ class Chat extends Vue {
 	user = null;
 	messages = [
 		{
-			id: 1,
+			userId: 1,
 			date: new Date(),
 			type: 'outgoing',
 			message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aliquid amet aperiam aspernatur aut consequatur cupiditate debitis ducimus explicabo illum incidunt ipsum iusto laborum modi officiis ratione recusandae sequi tenetur?',
 			avatar: 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297',
 		},
 		{
-			id: 2,
+			userId: 2,
 			date: new Date(),
 			type: 'incoming',
 			message: 'Great!',
 		},
 		{
-			id: 1,
+			userId: 1,
 			date: new Date(),
 			type: 'outgoing',
 			message: 'I’ll be your guide for today. 🙂',
 			avatar: 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297',
 		},
 		{
-			id: 1,
+			userId: 1,
 			date: new Date(),
 			type: 'outgoing',
 			message: 'I’ll be your guide for today. 🙂',
 			avatar: 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297',
 		},
 		{
-			id: 1,
+			userId: 1,
 			date: new Date(),
 			type: 'outgoing',
 			message: 'I’ll be your guide for today. 🙂',

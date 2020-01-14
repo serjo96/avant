@@ -4,7 +4,7 @@
             <Message
                     v-for="(message, index) in messages"
                     :key="index"
-                    :groupMessage="validateMessages(message.id)"
+                    :groupMessage="validateMessages(message.userId)"
                     :messageType="message.type"
                     :messageData="message"
             >
