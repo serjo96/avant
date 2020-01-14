@@ -10,6 +10,8 @@
                        <v-btn
                                class="header__link"
                                nuxt
+                               tile
+                               depressed
                                to="auth/sign-in"
                        >
                            Sign in
@@ -20,6 +22,8 @@
                        <v-btn
                            class="header__link"
                            nuxt
+                           tile
+                           depressed
                            to="auth/sign-up"
                        >
                            Sign up
@@ -30,7 +34,8 @@
                        <v-btn
                                class="header__link"
                                fab
-                               small
+                               x-small
+                               depressed
                                @click="onShowProfileSettings"
                        >
                            <v-icon>mdi-account</v-icon>
