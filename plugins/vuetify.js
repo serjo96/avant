@@ -4,6 +4,7 @@ import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import colors from "vuetify/es5/util/colors";
 import "vuetify/src/components/VGrid/VGrid.sass";
+import "vuetify/src/components/VGrid/_grid.sass";
 Vue.use(Vuetify);
 
 export default ctx => {
