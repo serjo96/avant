@@ -1,7 +1,7 @@
 <template>
     <section class="contact-section">
         <div id="contact_form" class="container contact-container">
-            <div class="container">
+
                 <div class="row justify-center">
                     <div class="col-md-6">
                         <div class="section-title text-center">
@@ -80,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 </template>
