@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader version "^2.1.1" ,
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import colors from "vuetify/es5/util/colors";
+import "vuetify/src/components/VGrid/VGrid.sass";
 Vue.use(Vuetify);
 
 export default ctx => {
