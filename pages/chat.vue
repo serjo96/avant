@@ -2,11 +2,7 @@
     <div class="chat-page">
         <section class="module landbot">
             <div class="container">
-            <div class="landbot__header">
-                <div class="section-title text-center">
-                    <h2>Welcome in our chat!</h2>
-                </div>
-            </div>
+                <Chat />
                 <object type="text/html" id="bot" data="https://landbot.io/u/H-25531-0WYHN5OX5DBFTPIG/index.html" width="100%" style="height: 938px;"></object>
             </div>
         </section>
@@ -14,9 +10,12 @@
 </template>
 
 <script>
-	import 'material-design-icons-iconfont/dist/material-design-icons.css'
+	import Chat from "~/components/chat/chat.vue";
 	export default {
-		name: "chat"
+		name: "chat",
+        components: {
+			Chat
+        }
 	}
 </script>
 
