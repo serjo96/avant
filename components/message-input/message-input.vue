@@ -35,6 +35,23 @@
                             </v-btn>
                         </div>
                     </div>
+
+                    <div class="hu-textarea-heavy empty">
+                        <div class="hu-textarea-input-container hu-background-color_textarea-background hu-border-color_textarea-border text">
+                            <div class="hu-textarea hu-color_textarea-text" contenteditable="true" tabindex="1"
+                                 placeholder="Type here..." suppresscontenteditablewarning="true"
+                                 data-gramm_editor="false"></div>
+                            <div class="hu-textarea-buttons">
+                                <button class="send hu-display-flex" tabindex="2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" x="3650" y="3688">
+                                        <path fill=""
+                                              d="M1.1 21.757l22.7-9.73L1.1 2.3l.012 7.912 13.623 1.816-13.623 1.817-.01 7.912z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="hu-textarea-footer-info hu-not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">
+                            Press enter to send</p></div>
                 </div>
             </div>
         </div>
