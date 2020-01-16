@@ -1,4 +1,7 @@
 module.exports = {
+  server: {
+    port: 8080,
+  },
   /*
   ** Headers of the page
   */
@@ -11,14 +14,26 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:200,400,700,300,600&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:200,400,700,300,600&display=swap', crossOrigin: 'anonymous' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons', crossOrigin: 'anonymous'}
     ]
   },
   buildModules: [
     // Simple usage
     '@nuxtjs/vuetify',
   ],
+  modules: [
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:8000',
+    }
+  },
   /*
   ** Customize the progress bar color
   */
