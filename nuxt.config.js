@@ -2,6 +2,7 @@ module.exports = {
   server: {
     port: 8080,
   },
+  plugins: ['@/plugins/my-components'],
   /*
   ** Headers of the page
   */
@@ -24,14 +25,22 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/proxy',
-    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
-  axios: {
-    proxy: true,
-  },
   proxy: {
     '/api/': {
       target: 'http://localhost:8000',
+    }
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'data.token' },
+          user: { url: 'me', method: 'get', propertyName: 'data' },
+          logout: false
+        }
+      }
     }
   },
   /*
