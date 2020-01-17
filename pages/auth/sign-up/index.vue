@@ -21,7 +21,7 @@
             >
 
                 <v-text-field
-                        v-model="email"
+                        v-model="registerData.email"
                         :rules="emailRules"
                         label="E-mail"
                         type="email"
@@ -38,7 +38,7 @@
                             label="Password"
                             solo
                             prepend-inner-icon="lock"
-                            v-model="password"
+                            v-model="registerData.password"
                             :append-icon="showPassword ? 'visibility' : 'visibility_off'"
                             :rules="[passwordRules.required, passwordRules.min]"
                             :type="showPassword ? 'text' : 'password'"
@@ -53,7 +53,7 @@
                                 :color="color()"
                                 height="5"
                         ></v-progress-linear>
-                        <div v-if="password.length >= 6"
+                        <div v-if="registerData.password.length >= 6"
                              class="sign-up__password-status-text"
                              :class="color() + '--text'"
                         >
@@ -66,19 +66,22 @@
                 <v-select
                         label="sex"
                         :items="sex"
-                        lrequired
+                        v-model="registerData.sex"
+                        required
                         solo
                         dark
                 ></v-select>
 
 
-                <v-select
+                <v-text-field
                         label="age"
-                        :items="ages"
-                        lrequired
+                        v-mask="mask"
+                        v-model="registerData.age"
+                        required
+                        hint="dd-mm-yyyy"
                         solo
                         dark
-                ></v-select>
+                ></v-text-field>
 
                 <v-btn
                         block

@@ -1,16 +1,24 @@
 import Vue from 'vue'
 import { Prop, Component } from 'vue-property-decorator'
 import { Action, Mutation } from 'vuex-class';
-
+import { mask } from 'vue-the-mask'
 
 
 @Component({
-
+    directives: {
+        mask
+    }
 })
 class SignUp extends Vue {
+    registerData = {
+        email: '',
+        password: '',
+        sex: '',
+        age: '',
+    };
     valid = true;
+    mask = '##-##-####';
     sex = ['male', 'female'];
-    ages = ['25+', '35+', '45+'];
     emailRules = [
         v => !!v || 'E-mail is required',
         v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
@@ -20,16 +28,14 @@ class SignUp extends Vue {
         min: v => v.length >= 6 || 'Min 6 characters',
     };
     showPassword = false;
-    email = '';
-    password = '';
 
     @Prop(Function) changeComponent;
-    // @Action('singUpAction') singUp;
-    // @Mutation clearErrorData;
+    @Action('Authorization/signUpAction') signUp;
+    @Mutation clearErrorData;
 
     async onSubmit(){
         if ( this.$refs.form.validate() ) {
-            this.singUp({email: this.email, password: this.password});
+            this.signUp(this.registerData);
             // const auth = await this.$auth.login(this.email, this.password)
         }
     }
