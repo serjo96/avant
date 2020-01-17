@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import Vuex, { Module } from 'vuex';
-import Register from "./register";
-
+import Authorization from './authorization';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	modules: {
-		Register,
+		Authorization,
 	}
 });
