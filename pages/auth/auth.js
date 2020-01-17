@@ -4,7 +4,7 @@ import { Watch, Component } from 'vue-property-decorator';
 
 
 @Component({
-	layout: 'auth'
+	layout: 'authLayout'
 })
 class Auth extends Vue {
 
@@ -17,7 +17,6 @@ class Auth extends Vue {
 	// 		this.$router.replace(this.nextRoute)
 	// 	}
 	// }
-
 
 
 	get nextRoute () {
