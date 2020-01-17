@@ -1,6 +1,6 @@
 <template>
     <section class="about-area" id="about">
-        <div class="container">
+        <Container>
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="section-title text-center">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     </section>
 </template>
 

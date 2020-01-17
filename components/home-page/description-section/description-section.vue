@@ -1,6 +1,6 @@
 <template>
     <section class="description-section">
-        <div class="container">
+        <Container>
             <div class="description-section__content">
                 <div class="description">
                     <h1 class="description__title">Hippocrates AI system </h1>
@@ -22,7 +22,7 @@
                     <img src="~assets/heart.png" alt="">
                 </div>
             </div>
-        </div>
+        </Container>
     </section>
 </template>
 
