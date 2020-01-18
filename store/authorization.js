@@ -17,8 +17,8 @@ class Authorization extends VuexModule {
 		return this.authError;
 	}
 
-	get restPasswordMessage() {
-		return this.successResetPasswordMessage;
+	get loggedUser() {
+		return this.user
 	}
 
 	get isAuthenticated() {
@@ -42,8 +42,8 @@ class Authorization extends VuexModule {
 	}
 
 	@Mutation
-	setSingUpResult(payload) {
-		this.user = payload.result;
+	SET_USER(user) {
+		this.user = user || null;
 	}
 
 	@Action({rawError: true})
