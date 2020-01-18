@@ -15,7 +15,8 @@
 		name: "chat",
         components: {
 			Chat
-        }
+        },
+		middleware: 'authenticated'
 	}
 </script>
 
