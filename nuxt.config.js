@@ -3,6 +3,9 @@ module.exports = {
     port: 8080,
   },
   plugins: ['@/plugins/my-components'],
+  router: {
+    middleware: 'check-auth'
+  },
   /*
   ** Headers of the page
   */
@@ -36,7 +39,7 @@ module.exports = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'login', method: 'post', propertyName: 'data.token' },
+          login: { url: 'auth/sign-in', method: 'post', propertyName: 'data.token' },
           user: { url: 'me', method: 'get', propertyName: 'data' },
           logout: false
         }
