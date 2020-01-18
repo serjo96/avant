@@ -6,7 +6,7 @@ import { API_PATH } from "../Core/config";
 	stateFactory: true
 })
 class Authorization extends VuexModule {
-	signUpData = null;
+	user = null;
 	authError = {
 		code: '',
 		message: ''
@@ -19,6 +19,10 @@ class Authorization extends VuexModule {
 
 	get restPasswordMessage() {
 		return this.successResetPasswordMessage;
+	}
+
+	get isAuthenticated() {
+		return !!this.user
 	}
 
 
@@ -39,7 +43,7 @@ class Authorization extends VuexModule {
 
 	@Mutation
 	setSingUpResult(payload) {
-		this.signUpData = payload.result;
+		this.user = payload.result;
 	}
 
 	@Action({rawError: true})
@@ -67,7 +71,7 @@ class Authorization extends VuexModule {
 
 	@Mutation
 	login(payload) {
-		this.singUpData = payload.result;
+		this.user = payload.result;
 	}
 
 	@Action
