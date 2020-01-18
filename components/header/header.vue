@@ -30,7 +30,9 @@
                        </v-btn>
                    </span>
 
-                   <span class="nav__item">
+                   <span
+                           v-if="isAuthenticated"
+                           class="nav__item">
                        <v-btn
                                class="header__link"
                                fab
