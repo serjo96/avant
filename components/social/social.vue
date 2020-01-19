@@ -1,6 +1,6 @@
 <template>
     <section class="social-area">
-        <div class="container">
+        <Container>
             <div class="row">
                 <div class="col-md-6 col-sm-12 brdr">
                     <div class="social-follow">
@@ -39,9 +39,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     </section>
 </template>
 
-<script src="./social.js"></script>
+<script>
+	export default {
+	}
+</script>
 <style src="./social.styl" lang="stylus" scoped></style>
