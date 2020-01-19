@@ -5,6 +5,7 @@ import { Action, Mutation } from 'vuex-class';
 
 
 @Component({
+    middleware: 'anonymous',
 })
 class SignIn extends Vue {
     valid = true;
@@ -29,10 +30,22 @@ class SignIn extends Vue {
     }
 
 
-    login(){
-        // if (this.formValidate) {
-        //     this.loginAction({email: this.email, password: this.password});
-        // }
+    async login() {
+        try {
+            await this.$auth.loginWith('local', {
+                data: {
+                    "email": this.email,
+                    "password": this.password
+                }
+            }).catch(e => {
+                console.error(e);
+            });
+            if (this.$auth.loggedIn) {
+                console.log('Successfully Logged In')
+            }
+        } catch (e) {
+            throw new Error('Username or Password wrong');
+        }
     }
 
     // beforeDestroy(){
