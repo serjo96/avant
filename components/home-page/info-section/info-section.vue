@@ -1,7 +1,7 @@
 <template>
     <section class="description-section">
         <div class="section-base">
-            <div class="container">
+            <Container>
                 <div class="description-section__content">
                     <div class="description">
                         <h1 class="description__title">Hippocrates AI system </h1>
@@ -13,10 +13,13 @@
                         <img src="~assets/heart.png" alt="">
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     </section>
 </template>
 
-<script src="./info-section.js"></script>
+<script>
+	export default {
+	}
+</script>
 <style src="./info-section.styl" lang="stylus" scoped></style>
