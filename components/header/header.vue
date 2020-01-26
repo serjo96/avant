@@ -1,12 +1,18 @@
 <template>
     <header class="header">
-        <div class="container">
+        <div class="container py-0">
            <div class="header__container">
                <NuxtLink class="header__logo" to="/">
                    <img src="~/assets/logo.png" alt="">
                </NuxtLink>
-               <nav class="nav">
-                   <span class="nav__item">
+
+               <NavMenu :mobileNav="mobileNav"></NavMenu>
+
+               <nav class="user-nav">
+                   <span
+                           class="user-nav__item"
+                           v-if="!isAuthenticated"
+                   >
                        <v-btn
                                class="header__link"
                                nuxt
@@ -18,7 +24,10 @@
                        </v-btn>
                    </span>
 
-                   <span class="nav__item">
+                   <span
+                           class="user-nav__item"
+                           v-if="!isAuthenticated"
+                   >
                        <v-btn
                            class="header__link"
                            nuxt
@@ -30,11 +39,25 @@
                        </v-btn>
                    </span>
 
-                   <span
-                           v-if="isAuthenticated"
-                           class="nav__item">
+                   <span class="user-nav__item user-nav__item--mobile-trigger">
                        <v-btn
                                class="header__link"
+                               color="primary"
+                               fab
+                               x-small
+                               depressed
+                               @click="toggleNav"
+                       >
+                           <v-icon>menu</v-icon>
+                       </v-btn>
+                   </span>
+
+                   <span
+                           v-if="isAuthenticated"
+                           class="user-nav__item">
+                       <v-btn
+                               class="header__link"
+                               color="primary"
                                fab
                                x-small
                                depressed
