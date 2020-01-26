@@ -9,9 +9,9 @@
                     :messageData="message"
             >
             </Message>
-<!--            <MessageInput-->
-<!--                    inputButtonText="Great"-->
-<!--            ></MessageInput>-->
+            <MessageInput
+                    inputButtonText="Great"
+            ></MessageInput>
         </div>
     </div>
 </template>
