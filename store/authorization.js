@@ -1,17 +1,27 @@
-import {Module, VuexModule, Mutation, Action, MutationAction} from 'vuex-module-decorators';
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import axios from 'axios';
-import { API_PATH } from "../Core/config";
+import { API_PATH } from "~/core/config";
 
 @Module({
-	stateFactory: true
+	stateFactory: true,
+	namespaced: true,
+	name: 'Authorization'
 })
 class Authorization extends VuexModule {
-	user = null;
+	__auth = null;
+	__router = null;
+	user = {};
 	authError = {
 		code: '',
 		message: ''
 	};
 	successResetPasswordMessage = '';
+
+	constructor(props) {
+		super(props);
+		this.__auth = props.$auth;
+		this.__router = props.$router;
+	}
 
 	get AuthError() {
 		return this.authError;
@@ -27,23 +37,31 @@ class Authorization extends VuexModule {
 
 
 	@Action({rawError: true})
-	async signUpAction(payload) {
-		await axios.post(`${API_PATH}/users`, payload);
-		console.log('DONE')
-		// firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-		// 	.then(res=> {
-		// 		this.context.commit('setCurrentUser', firebase.auth().currentUser);
-		// 		this.context.commit('setSingUpResult', res);
-		// 		Router.push('/');
-		// 	})
-		// 	.catch(error=> {
-		// 		this.context.commit('error',  error);
-		// 	});
+	async register() {
+		try {
+			await this.$axios.post('register', {
+				username: this.username,
+				email: this.email,
+				password: this.password
+			})
+
+			await this.$auth.loginWith('local', {
+				data: {
+					email: this.email,
+					password: this.password
+				},
+			})
+
+			this.$router.push('/')
+		} catch (e) {
+			this.error = e.response.data.message
+		}
 	}
 
 	@Mutation
 	SET_USER(user) {
-		this.user = user || null;
+		console.log(user);
+		this.user = user ;
 	}
 
 	@Action({rawError: true})
