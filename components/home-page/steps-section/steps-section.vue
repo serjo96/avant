@@ -1,5 +1,5 @@
 <template>
-    <section class="steps-section">
+    <section class="steps-section" id="step-section">
         <Container>
             <div class="step-list row">
                 <div class="col-12 col-md-4 col-sm-3">

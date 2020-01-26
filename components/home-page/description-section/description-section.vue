@@ -1,5 +1,5 @@
 <template>
-    <section class="description-section">
+    <section class="description-section" id="description-section">
         <Container>
             <div class="description-section__content">
                 <div class="description">

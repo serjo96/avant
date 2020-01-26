@@ -1,5 +1,7 @@
 <template>
+    <section id="service-section">
 
+    </section>
 </template>
 
 <script src="./service-section.js"></script>
