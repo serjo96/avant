@@ -2,9 +2,34 @@ module.exports = {
   server: {
     port: 8080,
   },
-  plugins: ['@/plugins/my-components'],
   router: {
-    middleware: 'check-auth'
+    middleware: 'check-auth',
+    scrollBehavior: async (to, from, savedPosition) => {
+        if (savedPosition) {
+          return savedPosition
+        }
+
+        const findEl = async (hash, x) => {
+          return document.querySelector(hash) ||
+              new Promise((resolve, reject) => {
+                if (x > 50) {
+                  return resolve()
+                }
+                setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+              })
+        }
+
+        if (to.hash) {
+          let el = await findEl(to.hash)
+          if ('scrollBehavior' in document.documentElement.style) {
+            return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+          } else {
+            return window.scrollTo(0, el.offsetTop)
+          }
+        }
+
+        return { x: 0, y: 0 }
+      }
   },
   /*
   ** Headers of the page
@@ -28,24 +53,32 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/proxy',
+    '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
   proxy: {
     '/api/': {
-      target: 'http://localhost:8000',
+      target: 'http://localhost:3000',
     }
   },
+  axios: {
+    baseURL: 'http://localhost:3000'
+  },
   auth: {
+    vuex: {
+      namespace: 'Authorization', // Vuex store namespace for keeping state.
+    },
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'auth/sign-in', method: 'post', propertyName: 'data.token' },
-          user: { url: 'me', method: 'get', propertyName: 'data' },
+          login: { url: '/auth/email/login', method: 'post', propertyName: 'data.token' },
+          user: false,
           logout: false
         }
       }
     }
   },
+  plugins: ['@/plugins/my-components', '@/plugins/store'],
   /*
   ** Customize the progress bar color
   */
