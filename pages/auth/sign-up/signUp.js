@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { Prop, Component } from 'vue-property-decorator'
+import Component  from 'nuxt-class-component';
+import { Prop } from 'vue-property-decorator'
 import { Action, Mutation } from 'vuex-class';
 import { mask } from 'vue-the-mask'
 
@@ -90,6 +91,27 @@ class SignUp extends Vue {
 
     color () {
         return ['darken-4 red', 'error', 'darken-4 lime', 'warning', 'success'][this.progressText()]
+    }
+
+    async register() {
+        try {
+            await this.$axios.post('register', {
+                username: this.username,
+                email: this.email,
+                password: this.password
+            })
+
+            await this.$auth.loginWith('local', {
+                data: {
+                    email: this.email,
+                    password: this.password
+                },
+            })
+
+            this.$router.push('/')
+        } catch (e) {
+            this.error = e.response.data.message
+        }
     }
 
     // beforeDestroy(){

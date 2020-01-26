@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import { Watch, Component } from 'vue-property-decorator';
+import Component  from 'nuxt-class-component';
+import { Watch } from 'vue-property-decorator';
 // import { Getter } from 'vuex-class';
 
 

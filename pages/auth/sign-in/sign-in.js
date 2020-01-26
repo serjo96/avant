@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import { Prop, Component } from 'vue-property-decorator';
+import Component  from 'nuxt-class-component';
+import { Prop } from 'vue-property-decorator';
 import { Action, Mutation } from 'vuex-class';
 
 
