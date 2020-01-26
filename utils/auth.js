@@ -36,15 +36,15 @@ export const unsetToken = () => {
 
 export const getUserFromCookie = (req) => {
 	if (!req.headers.cookie) return
-	const jwtCookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('jwt='))
+	const jwtCookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('auth._token.local'))
 	if (!jwtCookie) return
-	const jwt = jwtCookie.split('=')[1]
+	const jwt = jwtCookie.split('%')[1]
 	return jwtDecode(jwt)
 }
 
 export const getUserFromLocalStorage = () => {
-	const json = window.localStorage.user
-	return json ? JSON.parse(json) : undefined
+	const json = window.localStorage['auth._token.local']
+	return json ? json : undefined
 }
 
 export const setSecret = (secret) => window.localStorage.setItem('secret', secret)
