@@ -1,5 +1,5 @@
 <template>
-    <nav :class="{'main-nav': true, 'mobile-nav--isOpen': mobileNav}">
+    <nav :class="{'main-nav': true, 'main-nav--isOpen': mobileNav}">
         <nuxt-link
                 class="main-nav__link"
                 :to="{ path: '/',hash:'#description-section'}"
