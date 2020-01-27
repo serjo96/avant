@@ -12,9 +12,7 @@
                             <div class="form-group">
                                 <div class="form-group__label">Display name</div>
 
-                                <div
-                                        class="form-group__field"
-                                >
+                                <div class="form-group__field">
                                     <v-text-field
                                             :value="name"
                                             dense
@@ -26,9 +24,7 @@
                             <div class="form-group">
                                 <div class="form-group__label">Email: </div>
 
-                                <div
-                                        class="form-group__field"
-                                >
+                                <div class="form-group__field">
                                     <v-text-field
                                             :value="email"
                                             dense
