@@ -9,9 +9,10 @@ import NavMenu from "~/components/nav-menu/nav-menu.vue"
 	}
 })
 class Header extends Vue {
-	@Prop(Function) onShowProfileSettings;
-	@Getter('authorization/isAuthenticated') isAuthenticated;
+	isAuthenticated = this.$auth.loggedIn;
 	mobileNav = false;
+	@Prop(Function) onShowProfileSettings;
+
 
 	toggleNav() {
 		this.mobileNav = !this.mobileNav;

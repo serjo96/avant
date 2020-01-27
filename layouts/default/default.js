@@ -15,7 +15,7 @@ import "vuetify/src/components/VGrid/_grid.sass";
 })
 class Default extends Vue {
 	showProfileSettings = false;
-	@Getter('authorization/isAuthenticated') isAuthenticated;
+	isAuthenticated = this.$auth.loggedIn;
 
 	onShowProfileSettings() {
 		this.showProfileSettings = true;
