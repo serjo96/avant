@@ -1,16 +1,35 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
-import {Prop} from "vue-property-decorator";
+import {Prop, Watch} from "vue-property-decorator";
 
 
 @Component({
 })
 class Profile extends Vue {
+	profileData = {
+		name: '',
+		email: '',
+		password: '',
+		sex: '',
+		age: '',
+	};
+
+	sex = ['male', 'female'];
 	showPassword = false;
+	menu = false;
 	name = 'Sergey';
 	email = 'example@email.com';
 	password = 'some password';
 	@Prop(Boolean) value;
+
+	@Watch('menu')
+	menuWatch (val) {
+		val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+	}
+
+	save (date) {
+		this.$refs.menu.save(date);
+	}
 
 
 	showField(fieldName) {

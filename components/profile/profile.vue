@@ -39,9 +39,7 @@
                             <div class="form-group">
                                 <div class="form-group__label">Password: </div>
 
-                                <div
-                                        class="form-group__field"
-                                >
+                                <div class="form-group__field">
                                     <v-text-field
                                             name="password"
                                             dense
@@ -50,6 +48,50 @@
                                             :type="showPassword ? 'text' : 'password'"
                                             @click:append="showPassword = !showPassword"
                                     ></v-text-field>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-group__label">Sex: </div>
+                                    <div class="form-group__field">
+                                        <v-select
+                                                label="sex"
+                                                :items="sex"
+                                                v-model="profileData.sex"
+                                                dense
+                                        ></v-select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-group__label">Birthday date: </div>
+                                    <div class="form-group__field">
+                                        <v-menu
+                                                ref="menu"
+                                                v-model="menu"
+                                                :close-on-content-click="false"
+                                                transition="scale-transition"
+                                                offset-y
+                                                min-width="290px"
+                                        >
+                                            <template v-slot:activator="{ on }">
+                                                <v-text-field
+                                                        v-model="profileData.age"
+                                                        label="Birthday date"
+                                                        prepend-inner-icon="event"
+                                                        readonly
+                                                        v-on="on"
+                                                        dense
+                                                ></v-text-field>
+                                            </template>
+                                            <v-date-picker
+                                                    ref="picker"
+                                                    v-model="profileData.age"
+                                                    :max="new Date().toISOString().substr(0, 10)"
+                                                    min="1950-01-01"
+                                                    @change="save"
+                                            ></v-date-picker>
+                                        </v-menu>
+                                    </div>
                                 </div>
                             </div>
                         </div>
