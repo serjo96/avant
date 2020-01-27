@@ -67,21 +67,38 @@
                         label="sex"
                         :items="sex"
                         v-model="registerData.sex"
-                        required
                         solo
                         dark
                 ></v-select>
 
 
-                <v-text-field
-                        label="age"
-                        v-mask="mask"
-                        v-model="registerData.age"
-                        required
-                        hint="dd-mm-yyyy"
-                        solo
-                        dark
-                ></v-text-field>
+                <v-menu
+                        ref="menu"
+                        v-model="menu"
+                        :close-on-content-click="false"
+                        transition="scale-transition"
+                        offset-y
+                        min-width="290px"
+                >
+                    <template v-slot:activator="{ on }">
+                        <v-text-field
+                                v-model="registerData.age"
+                                label="Birthday date"
+                                prepend-inner-icon="event"
+                                readonly
+                                v-on="on"
+                                solo
+                                dark
+                        ></v-text-field>
+                    </template>
+                    <v-date-picker
+                            ref="picker"
+                            v-model="registerData.age"
+                            :max="new Date().toISOString().substr(0, 10)"
+                            min="1950-01-01"
+                            @change="save"
+                    ></v-date-picker>
+                </v-menu>
 
                 <v-btn
                         block

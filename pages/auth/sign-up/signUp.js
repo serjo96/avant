@@ -1,15 +1,10 @@
 import Vue from 'vue'
 import Component  from 'nuxt-class-component';
-import { Prop } from 'vue-property-decorator'
+import {Prop, Watch} from 'vue-property-decorator'
 import { Action, Mutation } from 'vuex-class';
-import { mask } from 'vue-the-mask'
 
 
-@Component({
-    directives: {
-        mask
-    }
-})
+@Component({})
 class SignUp extends Vue {
     registerData = {
         email: '',
@@ -17,8 +12,9 @@ class SignUp extends Vue {
         sex: '',
         age: '',
     };
+    menu = false;
     valid = true;
-    mask = '##-##-####';
+    showPassword = false;
     sex = ['male', 'female'];
     emailRules = [
         v => !!v || 'E-mail is required',
@@ -28,11 +24,19 @@ class SignUp extends Vue {
         required: value => !!value || 'Required.',
         min: v => v.length >= 6 || 'Min 6 characters',
     };
-    showPassword = false;
 
     @Prop(Function) changeComponent;
     @Action('Authorization/signUpAction') signUp;
     @Mutation clearErrorData;
+
+    @Watch('menu')
+    menuWatch (val) {
+        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+    }
+
+    save (date) {
+        this.$refs.menu.save(date);
+    }
 
     async onSubmit(){
         if ( this.$refs.form.validate() ) {
@@ -99,14 +103,14 @@ class SignUp extends Vue {
                 username: this.username,
                 email: this.email,
                 password: this.password
-            })
+            });
 
             await this.$auth.loginWith('local', {
                 data: {
                     email: this.email,
                     password: this.password
                 },
-            })
+            });
 
             this.$router.push('/')
         } catch (e) {
