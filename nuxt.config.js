@@ -2,8 +2,12 @@ module.exports = {
   server: {
     port: 8080,
   },
+  modules: [
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
+  ],
   router: {
-    middleware: 'check-auth',
     scrollBehavior: async (to, from, savedPosition) => {
         if (savedPosition) {
           return savedPosition
@@ -51,11 +55,6 @@ module.exports = {
     // Simple usage
     '@nuxtjs/vuetify',
   ],
-  modules: [
-    '@nuxtjs/proxy',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth'
-  ],
   proxy: {
     '/api/': {
       target: 'http://localhost:3000',
@@ -78,7 +77,7 @@ module.exports = {
       }
     }
   },
-  plugins: ['@/plugins/my-components', '@/plugins/store'],
+  plugins: ['@/plugins/my-components'],
   /*
   ** Customize the progress bar color
   */
