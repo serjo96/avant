@@ -17,12 +17,6 @@ class Authorization extends VuexModule {
 	};
 	successResetPasswordMessage = '';
 
-	constructor(props) {
-		super(props);
-		this.__auth = props.$auth;
-		this.__router = props.$router;
-	}
-
 	get AuthError() {
 		return this.authError;
 	}
@@ -36,45 +30,32 @@ class Authorization extends VuexModule {
 	}
 
 
-	@Action({rawError: true})
-	async register() {
-		try {
-			await this.$axios.post('register', {
-				username: this.username,
-				email: this.email,
-				password: this.password
-			})
-
-			await this.$auth.loginWith('local', {
-				data: {
-					email: this.email,
-					password: this.password
-				},
-			})
-
-			this.$router.push('/')
-		} catch (e) {
-			this.error = e.response.data.message
-		}
-	}
+	// @Action({rawError: true})
+	// async register() {
+	// 	try {
+	// 		await this.$axios.post('register', {
+	// 			username: this.username,
+	// 			email: this.email,
+	// 			password: this.password
+	// 		})
+	//
+	// 		await this.$auth.loginWith('local', {
+	// 			data: {
+	// 				email: this.email,
+	// 				password: this.password
+	// 			},
+	// 		})
+	//
+	// 		this.$router.push('/')
+	// 	} catch (e) {
+	// 		this.error = e.response.data.message
+	// 	}
+	// }
 
 	@Mutation
 	SET_USER(user) {
 		console.log(user);
 		this.user = user ;
-	}
-
-	@Action({rawError: true})
-	loginAction(payload) {
-		// firebase.auth().signInAndRetrieveDataWithEmailAndPassword(payload.email, payload.password)
-		// 	.then(res=>{
-		// 		this.context.commit('login', res);
-		// 		this.context.commit('setCurrentUser', firebase.auth().currentUser);
-		// 		Router.push('/');
-		// 	})
-		// 	.catch(error=>{
-		// 		this.context.commit('error', error);
-		// 	});
 	}
 
 	@Mutation
