@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component, { Getter } from 'nuxt-class-component';
-import { Prop } from "vue-property-decorator";
+import {Prop, Watch} from "vue-property-decorator";
 import NavMenu from "~/components/nav-menu/nav-menu.vue"
 
 @Component({
@@ -16,6 +16,12 @@ class Header extends Vue {
 
 	toggleNav() {
 		this.mobileNav = !this.mobileNav;
+	}
+
+	logOut() {
+		this.$auth.logout();
+		this.$router.push('/');
+		window.location.reload();
 	}
 }
 

@@ -58,7 +58,7 @@
                    >
                         <v-menu
                                 offset-y
-                                left="20"
+                                left
                                 nudge-bottom="20"
                         >
                             <template v-slot:activator="{ on }">
@@ -77,7 +77,7 @@
                             <v-list-item @click="onShowProfileSettings">
                                 <v-list-item-title>Profile</v-list-item-title>
                             </v-list-item>
-                            <v-list-item>
+                            <v-list-item @click="logOut">
                                 <v-list-item-title>Logout</v-list-item-title>
                             </v-list-item>
                           </v-list>
