@@ -21,6 +21,15 @@
   &__link{
     text-transform: uppercase
   }
+
+  &__left-side {
+    display: flex
+    align-items: center
+  }
+
+  &__mobile-trigger {
+    margin-right: 15px
+  }
 }
 
 
@@ -37,4 +46,27 @@
       }
     }
   }
+}
+
+.drop-down-nav{
+  position: relative
+  &:after {
+    bottom: 100%;
+    right: 18px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #fff;
+    border-width: 12px;
+    margin-right: -10px;
+  }
+}
+
+.v-menu__content {
+  overflow: unset
+  contain: none
 }
