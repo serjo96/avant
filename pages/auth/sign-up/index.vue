@@ -82,7 +82,7 @@
                 >
                     <template v-slot:activator="{ on }">
                         <v-text-field
-                                v-model="registerData.age"
+                                v-model="registerData.birthdaydate"
                                 label="Birthday date"
                                 prepend-inner-icon="event"
                                 readonly
@@ -93,7 +93,7 @@
                     </template>
                     <v-date-picker
                             ref="picker"
-                            v-model="registerData.age"
+                            v-model="registerData.birthdaydate"
                             :max="new Date().toISOString().substr(0, 10)"
                             min="1950-01-01"
                             @change="save"

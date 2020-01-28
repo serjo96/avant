@@ -10,7 +10,7 @@ class SignUp extends Vue {
         email: '',
         password: '',
         sex: '',
-        age: '',
+        birthdaydate: '',
     };
     menu = false;
     valid = true;
@@ -40,8 +40,7 @@ class SignUp extends Vue {
 
     async onSubmit(){
         if ( this.$refs.form.validate() ) {
-            this.signUp(this.registerData);
-            // const auth = await this.$auth.login(this.email, this.password)
+            await this.register();
         }
     }
 
@@ -99,20 +98,19 @@ class SignUp extends Vue {
 
     async register() {
         try {
-            await this.$axios.post('register', {
-                username: this.username,
-                email: this.email,
-                password: this.password
+            await this.$axios.post('/auth/email/register', {
+                birthdaydate: new Date(this.registerData.birthdaydate),
+                ...this.registerData
             });
 
-            await this.$auth.loginWith('local', {
-                data: {
-                    email: this.email,
-                    password: this.password
-                },
-            });
+            // await this.$auth.loginWith('local', {
+            //     data: {
+            //         email: this.email,
+            //         password: this.password
+            //     },
+            // });
 
-            this.$router.push('/')
+            this.$router.push('/auth/login');
         } catch (e) {
             this.error = e.response.data.message
         }
