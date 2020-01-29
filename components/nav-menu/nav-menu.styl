@@ -1,45 +1,84 @@
-.main-nav {
-  display: flex
-  transition: all .6s linear
+.navbar {
+  transition: all .5s linear
   @media (max-width: 960px) {
-    position: absolute
-    z-index: 1
-    bottom: 0
+    position: fixed
+    z-index: 5
+    top: 0
     left: 0
-    opacity: 0
-    transform: translate3d(0,-100%,0)
+    transform: translate3d(-100%, 0,0)
     width: 100%
-    background: rgb(51, 141, 227)
+    height: 100vh
+    background: rgba(7,33,53,0.98)
+    padding: 35px 24px
   }
   &--isOpen{
     display: flex
+    flex-direction: column
     opacity: 1
-    transform: translate3d(0,94px,0)
+    transform: translate3d(0, 0 ,0)
+  }
+
+  &__close {
+    @media (min-width: 960px) {
+      display: none
+    }
+  }
+
+}
+
+ .nav {
+   display: flex
+   @media (max-width: 960px) {
+     flex-direction: column
+     flex: 1 auto
+   }
+   &__link {
+     display: block
+     padding: 35px 25px
+     color: #fff
+     position: relative
+     text-align: center
+     @media (max-width: 960px) {
+       border-bottom: 1px solid #253655
+       padding: 10px 0
+       text-align: left
+     }
+     &:before {
+       display: block
+       position: absolute
+       bottom: 0
+       left: 0
+       width: 100%
+       height: 2px
+       background: #6bc2f1
+     }
+     &:hover {
+       color: #6bc2f1
+     }
+     &--active {
+       color: #6bc2f1
+       &:before {
+         content: ''
+       }
+     }
+   }
+ }
+
+
+.auth-nav {
+  display: flex
+  flex-direction: column
+  @media (min-width: 540px) {
+    display: none
+  }
+  &__item {
+    margin: 5px 0
   }
   &__link {
-    display: block
-    padding: 35px 25px
-    color: #fff
-    position: relative
-    flex-grow: 1
-    text-align: center
-    &:before {
-      display: block
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 100%
-      height: 2px
-      background: #6bc2f1
-    }
     &:hover {
-      color: #6bc2f1
-    }
-    &--active {
-      color: #6bc2f1
-      &:before {
-        content: ''
-      }
+      color: #ffffff !important
+      border-color: transparent
+      background: #29b6f6
     }
   }
 }
