@@ -22,9 +22,9 @@ class SignIn extends Vue {
     password = '';
 
     @Prop(Function) changeComponent;
-    @Prop() AuthError;
-    // @Action loginAction;
-    // @Mutation clearErrorData;
+    @Prop() responseMessage;
+    @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Mutation('authorization/clearResponseData') clearResponseData;
 
     get formValidate(){
         return this.$refs.form.validate()
@@ -33,25 +33,33 @@ class SignIn extends Vue {
 
     async login() {
         try {
-            await this.$auth.loginWith('local', {
+            const response = await this.$auth.loginWith('local', {
                 data: {
                     "email": this.email,
                     "password": this.password
                 }
-            }).catch(e => {
-                console.error(e);
             });
+            this.setResponseMessage(response);
+            console.log(this.$auth);
             if (this.$auth.loggedIn) {
                 console.log('Successfully Logged In')
             }
-        } catch (e) {
-            throw new Error('Username or Password wrong');
+        } catch ({response: {data}}) {
+            console.log(this.$auth)
+            this.setResponseMessage(data.error);
+            // throw new Error('Username or Password wrong');
         }
     }
 
-    // beforeDestroy(){
-    //     this.clearErrorData();
-    // }
+    async resentConfirm() {
+        await this.$axios.post('/auth/email/register', {
+            ...this.registerData
+        });
+    }
+
+    destoroy(){
+        this.clearResponseData();
+    }
 
 }
 

@@ -13,3 +13,19 @@
     }
   }
 }
+
+
+.response-message {
+  margin-top: 20px
+  &__text {
+    padding: 0 5px
+    border-radius: 3px
+  }
+  &__resend-confirm {
+    text-decoration: underline
+    color: #fff
+    &:hover {
+      text-decoration: none
+    }
+  }
+}
