@@ -12,12 +12,6 @@
         <div class="nav">
             <nuxt-link
                     class="nav__link"
-                    :to="{ path: '/',hash:'#description-section'}"
-            >
-                Description
-            </nuxt-link>
-            <nuxt-link
-                    class="nav__link"
                     @click.native="toggleNav"
                     :to="{ path: '/',hash:'#about-section'}"
             >
@@ -44,7 +38,7 @@
             <nuxt-link
                     class="nav__link"
                     to="/chat">
-                Chat
+                Get started
             </nuxt-link>
         </div>
 
