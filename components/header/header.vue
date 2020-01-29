@@ -25,7 +25,7 @@
 
                <nav class="user-nav">
                    <span
-                           class="user-nav__item"
+                           class="user-nav__item user-nav__item--auth"
                            v-if="!isAuthenticated"
                    >
                        <v-btn
@@ -42,7 +42,7 @@
                    </span>
 
                    <span
-                           class="user-nav__item"
+                           class="user-nav__item user-nav__item--auth"
                            v-if="!isAuthenticated"
                    >
                        <v-btn
