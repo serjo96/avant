@@ -41,7 +41,7 @@ class Index extends Vue {
 
 	activeNavClass () {
 		const fromTop = window.scrollY;
-		const navBarLinks = document.querySelectorAll(".main-nav__link");
+		const navBarLinks = document.querySelectorAll(".nav__link");
 		navBarLinks.forEach(link => {
 			const sectionID = link.hash.slice(1, link.length);
 			const section = document.getElementById(sectionID);
@@ -49,9 +49,9 @@ class Index extends Vue {
 				section && section.offsetTop <= fromTop &&
 				section.offsetTop + section.offsetHeight > fromTop
 			) {
-				link.classList.add("main-nav__link--active");
+				link.classList.add("nav__link--active");
 			} else {
-				link.classList.remove("main-nav__link--active");
+				link.classList.remove("nav__link--active");
 			}
 		});
 	}
