@@ -8,6 +8,8 @@ module.exports = {
     '@nuxtjs/auth'
   ],
   router: {
+    linkActiveClass: 'nav__link--active',
+    linkExactActiveClass: 'your-custom-exact-active-link',
     scrollBehavior: async (to, from, savedPosition) => {
         if (savedPosition) {
           return savedPosition
@@ -64,9 +66,6 @@ module.exports = {
     baseURL: 'http://localhost:3000'
   },
   auth: {
-    vuex: {
-      namespace: 'Authorization', // Vuex store namespace for keeping state.
-    },
     strategies: {
       local: {
         endpoints: {
