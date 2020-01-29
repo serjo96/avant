@@ -1,7 +1,7 @@
 <template>
     <div class="auth">
         <transition name="fade" mode="out-in">
-                <nuxt-child />
+                <nuxt-child :responseMessage="responseMessage" />
         </transition>
     </div>
 </template>

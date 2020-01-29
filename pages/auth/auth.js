@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component  from 'nuxt-class-component';
+import Component, {State} from 'nuxt-class-component';
 import { Watch } from 'vue-property-decorator';
 // import { Getter } from 'vuex-class';
 
@@ -8,21 +8,8 @@ import { Watch } from 'vue-property-decorator';
 	layout: 'authLayout'
 })
 class Auth extends Vue {
+	@State(state => state.authorization.responseMessage) responseMessage;
 
-	// @Getter('userData') User;
-	// @Getter AuthError;
-	//
-	// @Watch('User', {deep: true})
-	// onUserChange(auth) {
-	// 	if (auth) {
-	// 		this.$router.replace(this.nextRoute)
-	// 	}
-	// }
-
-
-	get nextRoute () {
-		return `${this.$route.query.redirect && '/'}` || '/'
-	}
 }
 
 export default Auth;
