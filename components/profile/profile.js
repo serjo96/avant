@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component from 'nuxt-class-component';
+import Component, {State} from 'nuxt-class-component';
 import {Prop, Watch} from "vue-property-decorator";
 
 
@@ -11,16 +11,20 @@ class Profile extends Vue {
 		email: '',
 		password: '',
 		sex: '',
-		age: '',
+		birthdaydate: '',
 	};
+
+	@State(state => state.authorization.user) user;
 
 	sex = ['male', 'female'];
 	showPassword = false;
 	menu = false;
-	name = 'Sergey';
-	email = 'example@email.com';
-	password = 'some password';
 	@Prop(Boolean) value;
+
+	@Watch('user', {deep: true})
+	setProfileUser(val) {
+		this.profileData = val;
+	}
 
 	@Watch('menu')
 	menuWatch (val) {
