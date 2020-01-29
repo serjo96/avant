@@ -14,7 +14,7 @@
 
                                 <div class="form-group__field">
                                     <v-text-field
-                                            :value="name"
+                                            v-model="profileData.name"
                                             dense
                                             autofocus
                                     ></v-text-field>
@@ -26,7 +26,7 @@
 
                                 <div class="form-group__field">
                                     <v-text-field
-                                            :value="email"
+                                            v-model="profileData.email"
                                             dense
                                     ></v-text-field>
                                 </div>
@@ -39,7 +39,7 @@
                                     <v-text-field
                                             name="password"
                                             dense
-                                            v-model="password"
+                                            v-model="profileData.password"
                                             :append-icon="showPassword ? 'visibility' : 'visibility_off'"
                                             :type="showPassword ? 'text' : 'password'"
                                             @click:append="showPassword = !showPassword"
@@ -50,7 +50,6 @@
                                     <div class="form-group__label">Sex: </div>
                                     <div class="form-group__field">
                                         <v-select
-                                                label="sex"
                                                 :items="sex"
                                                 v-model="profileData.sex"
                                                 dense
@@ -71,7 +70,7 @@
                                         >
                                             <template v-slot:activator="{ on }">
                                                 <v-text-field
-                                                        v-model="profileData.age"
+                                                        v-model="profileData.birthdaydate"
                                                         label="Birthday date"
                                                         prepend-inner-icon="event"
                                                         readonly
@@ -81,7 +80,7 @@
                                             </template>
                                             <v-date-picker
                                                     ref="picker"
-                                                    v-model="profileData.age"
+                                                    v-model="profileData.birthdaydate"
                                                     :max="new Date().toISOString().substr(0, 10)"
                                                     min="1950-01-01"
                                                     @change="save"
