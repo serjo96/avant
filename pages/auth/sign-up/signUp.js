@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Component  from 'nuxt-class-component';
+import Component, {State} from 'nuxt-class-component';
 import {Prop, Watch} from 'vue-property-decorator'
 import { Action, Mutation } from 'vuex-class';
 
@@ -26,8 +26,9 @@ class SignUp extends Vue {
     };
 
     @Prop(Function) changeComponent;
-    @Action('Authorization/signUpAction') signUp;
-    @Mutation clearErrorData;
+    @Prop() responseMessage;
+    @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Mutation('authorization/clearResponseData') clearResponseData;
 
     @Watch('menu')
     menuWatch (val) {
@@ -98,11 +99,12 @@ class SignUp extends Vue {
 
     async register() {
         try {
-            await this.$axios.post('/auth/email/register', {
+            const response = await this.$axios.post('/auth/email/register', {
                 birthdaydate: new Date(this.registerData.birthdaydate),
                 ...this.registerData
             });
 
+            this.setResponseMessage(response);
             // await this.$auth.loginWith('local', {
             //     data: {
             //         email: this.email,
@@ -110,15 +112,16 @@ class SignUp extends Vue {
             //     },
             // });
 
-            this.$router.push('/auth/login');
-        } catch (e) {
-            this.error = e.response.data.message
+            // this.$router.push('/auth/sign-in');
+        } catch ({response: {data}}) {
+
+            this.setResponseMessage(data.error);
         }
     }
 
-    // beforeDestroy(){
-    //     this.clearErrorData();
-    // }
+    destroyed(){
+        this.clearResponseData();
+    }
 }
 
 export default SignUp;
