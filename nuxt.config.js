@@ -8,6 +8,7 @@ module.exports = {
     '@nuxtjs/auth'
   ],
   router: {
+    middleware: 'clearMessages',
     linkActiveClass: 'nav__link--active',
     linkExactActiveClass: 'your-custom-exact-active-link',
     scrollBehavior: async (to, from, savedPosition) => {
