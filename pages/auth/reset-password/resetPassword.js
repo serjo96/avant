@@ -20,7 +20,6 @@ class ResetPassword extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
     @Mutation('authorization/setResponseMessage') setResponseMessage;
-    @Mutation('authorization/clearResponseData') clearResponseData;
 
     get formValidate(){
         return this.$refs.form .validate();
@@ -35,10 +34,6 @@ class ResetPassword extends Vue {
                 this.setResponseMessage(data.error);
             }
         }
-    }
-
-    destroyed(){
-        this.clearResponseData();
     }
 
 }

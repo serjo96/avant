@@ -28,7 +28,6 @@ class SignUp extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
     @Mutation('authorization/setResponseMessage') setResponseMessage;
-    @Mutation('authorization/clearResponseData') clearResponseData;
 
     @Watch('menu')
     menuWatch (val) {
@@ -112,15 +111,10 @@ class SignUp extends Vue {
             //     },
             // });
 
-            // this.$router.push('/auth/sign-in');
+            this.$router.push('/auth/sign-in');
         } catch ({response: {data}}) {
-
             this.setResponseMessage(data.error);
         }
-    }
-
-    destroyed(){
-        this.clearResponseData();
     }
 }
 
