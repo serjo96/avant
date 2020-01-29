@@ -53,37 +53,37 @@
                      class="auth-nav__item"
                      v-if="!isAuthenticated"
              >
-                       <v-btn
-                               class="auth-nav__link"
-                               color="light-blue lighten-1"
-                               nuxt
-                               tile
-                               outlined
-                               depressed
-                               block
-                               to="auth/sign-in"
-                       >
-                           Sign in
-                       </v-btn>
-                   </span>
+                 <v-btn
+                         class="auth-nav__link"
+                         color="light-blue lighten-1"
+                         nuxt
+                         tile
+                         outlined
+                         depressed
+                         block
+                         to="auth/sign-in"
+                 >
+                     Sign in
+                 </v-btn>
+             </span>
 
             <span
                     class="auth-nav__item"
                     v-if="!isAuthenticated"
             >
-                       <v-btn
-                               class="auth-nav__link"
-                               color="light-blue lighten-1"
-                               nuxt
-                               tile
-                               outlined
-                               depressed
-                               block
-                               to="auth/sign-up"
-                       >
-                           Sign up
-                       </v-btn>
-                   </span>
+                <v-btn
+                        class="auth-nav__link"
+                        color="light-blue lighten-1"
+                        nuxt
+                        tile
+                        outlined
+                        depressed
+                        block
+                        to="auth/sign-up"
+                >
+                    Sign up
+                </v-btn>
+            </span>
         </div>
     </nav>
 </template>
