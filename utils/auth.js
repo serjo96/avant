@@ -23,7 +23,12 @@ export const setToken = (token) => {
 	window.localStorage.setItem('token', token)
 	window.localStorage.setItem('user', JSON.stringify(jwtDecode(token)))
 	Cookie.set('jwt', token)
-}
+};
+
+export const setUser = (user) => {
+	if (process.SERVER_BUILD) return;
+	window.localStorage.setItem('user', JSON.stringify(user));
+};
 
 export const unsetToken = () => {
 	if (process.SERVER_BUILD) return
@@ -43,9 +48,11 @@ export const getUserFromCookie = (req) => {
 }
 
 export const getUserFromLocalStorage = () => {
-	const json = window.localStorage['auth._token.local']
-	return json ? json : undefined
-}
+	if (!process.SERVER_BUILD) return;
+	const json = window.localStorage['user'];
+	console.log(json);
+	return json ? json : null
+};
 
 export const setSecret = (secret) => window.localStorage.setItem('secret', secret)
 
