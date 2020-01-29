@@ -57,9 +57,9 @@ class SignIn extends Vue {
         });
     }
 
-    destoroy(){
-        this.clearResponseData();
-    }
+	destroyed(){
+		this.clearResponseData();
+	}
 
 }
 
