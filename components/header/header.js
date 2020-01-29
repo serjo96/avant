@@ -15,7 +15,9 @@ class Header extends Vue {
 
 
 	toggleNav() {
-		this.mobileNav = !this.mobileNav;
+		if (window.innerWidth <= 960) {
+			this.mobileNav = !this.mobileNav;
+		}
 	}
 
 	logOut() {

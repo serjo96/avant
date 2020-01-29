@@ -13,6 +13,12 @@
     }
   }
 
+  &__mobile-trigger {
+    @media (min-width: 960px) {
+      display: none
+    }
+  }
+
   &__logo {
     width: 170px
     display: block
@@ -20,6 +26,11 @@
 
   &__link{
     text-transform: uppercase
+    &:hover {
+      color: #ffffff !important
+      border-color: transparent
+      background: #29b6f6
+    }
   }
 
   &__left-side {

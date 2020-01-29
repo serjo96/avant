@@ -19,7 +19,9 @@
                </div>
 
 
-               <NavMenu :mobileNav="mobileNav"></NavMenu>
+               <NavMenu
+                       :toggleNav="toggleNav"
+                       :mobileNav="mobileNav"></NavMenu>
 
                <nav class="user-nav">
                    <span
@@ -28,8 +30,10 @@
                    >
                        <v-btn
                                class="header__link"
+                               color="light-blue lighten-1"
                                nuxt
                                tile
+                               outlined
                                depressed
                                to="auth/sign-in"
                        >
@@ -43,8 +47,10 @@
                    >
                        <v-btn
                            class="header__link"
+                           color="light-blue lighten-1"
                            nuxt
                            tile
+                           outlined
                            depressed
                            to="auth/sign-up"
                        >
