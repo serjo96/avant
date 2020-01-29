@@ -117,6 +117,19 @@
             >
                 Login
             </v-btn>
+
+            <div
+                    v-if="responseMessage.message"
+                    class="response-message">
+                <div
+                        :class="{
+                        'response-message__text' : true,
+                        'red darken-2': !responseMessage.success
+                       }"
+                >
+                    {{responseMessage.message}}
+                </div>
+            </div>
         </div>
     </div>
 </template>
