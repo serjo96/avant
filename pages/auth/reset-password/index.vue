@@ -9,7 +9,7 @@
             >
                 <v-text-field
                         :rules="emailRules"
-                        @input="onInput"
+                        v-model="email"
                         label="E-mail"
                         type="email"
                         required
@@ -38,6 +38,24 @@
                 <v-icon left dark>arrow_back_ios</v-icon>
                 Buck to login
             </v-btn>
+
+            <div class="response-message">
+                <div
+                        :class="{
+                        'response-message__text' : true,
+                        'red darken-2': !responseMessage.status
+                       }"
+                >
+                    {{responseMessage.message}}
+                </div>
+                <button
+                        v-if="responseMessage.confirm"
+                        class="response-message__resend-confirm"
+                        @click="resentConfirm"
+                >
+                    Resend confirm message?
+                </button>
+            </div>
         </div>
     </div>
 </template>

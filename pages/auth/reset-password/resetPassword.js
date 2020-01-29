@@ -7,7 +7,6 @@ import { Action, Mutation, Getter } from 'vuex-class';
 
 @Component({
     data: ()=> ({
-
         emailRules: [
             v => !!v || 'E-mail is required',
             v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
@@ -18,35 +17,29 @@ import { Action, Mutation, Getter } from 'vuex-class';
 class ResetPassword extends Vue {
     email = '';
     valid = true;
-
-    // @Action resetPassword;
-    // @Mutation clearErrorData;
-    // @Mutation clearPasswordMessage;
-    // @Getter AuthError;
-    // @Getter restPasswordMessage;
     @Prop(Function) changeComponent;
+    @Prop() responseMessage;
+    @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Mutation('authorization/clearResponseData') clearResponseData;
 
     get formValidate(){
         return this.$refs.form .validate();
     }
 
-    onInput(val) {
-        this.email = val;
-        // if(this.AuthError.message){
-        //     this.clearErrorData();
-        // }
-    }
-
-    onSubmit(){
+    async onSubmit(){
         if(this.formValidate){
-            // this.resetPassword(this.email);
+            try {
+                const res = await this.$axios.get(`/auth/email/forgot-password/${this.email}`);
+                this.setResponseMessage(res);
+            } catch ({response: {data}}) {
+                this.setResponseMessage(data.error);
+            }
         }
     }
 
-    // beforeDestroy(){
-    //     this.clearPasswordMessage();
-    //     this.clearErrorData();
-    // }
+    destroyed(){
+        this.clearResponseData();
+    }
 
 }
 
