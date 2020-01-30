@@ -1,3 +1,5 @@
+import {API_PATH} from "./core/config";
+
 module.exports = {
   server: {
     port: 8080,
@@ -64,7 +66,7 @@ module.exports = {
     }
   },
   axios: {
-    baseURL: 'http://localhost:3000'
+    baseURL: API_PATH
   },
   auth: {
     strategies: {
