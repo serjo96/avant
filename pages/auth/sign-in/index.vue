@@ -58,7 +58,7 @@
 
             </v-form>
             <nuxt-link
-                    to="reset-password"
+                    to="/auth/reset-password"
                     class="login__reset-password-button grey--text text--darken-5"
             >
                 Forgot your password?
