@@ -5,7 +5,7 @@
       <nuxt/>
     </v-content>
     <Profile
-            v-if="isAuthenticated"
+            v-if="isAuthenticated && showProfileSettings"
             v-model="showProfileSettings"
     />
     <Footer />
