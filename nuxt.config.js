@@ -75,9 +75,9 @@ module.exports = {
           logout: false
         }
       }
-    }
+    },
   },
-  plugins: ['@/plugins/my-components'],
+  plugins: ['@/plugins/my-components', { src: '@/plugins/auth',  mode: 'client' }],
   /*
   ** Customize the progress bar color
   */
