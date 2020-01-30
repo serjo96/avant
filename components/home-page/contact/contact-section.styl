@@ -4,6 +4,10 @@
   @media (max-width: 870px) {
     padding: 0
   }
+  &__content{
+    display: flex
+    flex-wrap: wrap
+  }
 }
 
 .contact-container {
@@ -15,16 +19,29 @@
 }
 
 .address-info {
+  max-width: 450px
   padding: 41px 10px;
   text-align: left;
-  height: 100%
   box-shadow: 0px 0px 25px #d7d7d7;
+  border-radius: 3px
+  @media (max-width: 1263px) {
+    max-width: 275px
+  }
+
+  @media (max-width: 800px) {
+    max-width: 100%
+    width: 100%
+    padding: 15px 10px
+    margin-bottom: 15px
+  }
 }
 
 .single-address {
   display: flex
   align-items: baseline;
-  margin-bottom: 40px
+  &:not(:last-child) {
+    margin-bottom: 40px
+  }
   &__icon {
     border: 1px solid #fff;
     border-radius: 100%;
@@ -41,5 +58,13 @@
   &__info {
     color: #fff
     flex: 1
+  }
+}
+
+.contact-area-form {
+  flex: 1 auto
+  margin-left: 25px
+  @media (max-width: 800px) {
+    margin-left: 0
   }
 }
