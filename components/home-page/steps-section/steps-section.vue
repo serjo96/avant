@@ -2,7 +2,7 @@
     <section class="steps-section" id="step-section">
         <Container>
             <div class="step-list row">
-                <div class="col-12 col-md-4 col-sm-3">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="step">
                         <div class="step__number">01</div>
                         <div class="step__title">Step 1</div>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 col-sm-3">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="step">
                         <div class="step__number">02</div>
                         <div class="step__title">Step 2</div>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 col-sm-3">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="step">
                         <div class="step__number">03</div>
                         <div class="step__title">Step 3</div>
