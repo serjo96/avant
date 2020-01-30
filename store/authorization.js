@@ -1,6 +1,8 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 import {getUserFromLocalStorage, setUser} from "../utils/auth";
 
+const localUser = process.browser ? getUserFromLocalStorage() : null;
+
 @Module({
 	stateFactory: true,
 })
@@ -11,10 +13,7 @@ class Authorization extends VuexModule {
 		confirm: false
 	};
 
-	user = getUserFromLocalStorage() ? JSON.parse(getUserFromLocalStorage()) : null;
-
-	test = {};
-
+	user = localUser ? JSON.parse(localUser): null;
 
 	@Mutation
 	setResponseMessage(payload) {

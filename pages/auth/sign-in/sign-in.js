@@ -46,9 +46,13 @@ class SignIn extends Vue {
                     email: this.email,
                     password: this.password
                 });
-                console.log(data.user, this.$store);
-                this.setUser(data.user);
 
+				this.$auth.setToken('local', 'Bearer ' + data.token.access_token);
+				// this.$auth.setRefreshToken('local', data.refresh_token);
+				this.$axios.setHeader('Authorization', 'Bearer ' + data.token.access_token);
+				this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + data.token.access_token);
+                this.setUser(data.user);
+				// this.$router.push('/');
                 if (this.$auth.loggedIn) {
                     console.log('Successfully Logged In')
                 }

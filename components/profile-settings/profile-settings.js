@@ -1,23 +1,22 @@
 import Vue from 'vue';
-import Component, { Mutation, State } from 'nuxt-class-component';
-import { Prop, Watch } from "vue-property-decorator";
-import ProfileSettings from "~/components/profile-settings/profile-settings.vue";
-import PasswordSettings from "~/components/password-settings/password-settings.vue";
+import Component, {Mutation, State} from 'nuxt-class-component';
+import {Prop, Watch} from "vue-property-decorator";
 
 
 @Component({
-	components: {
-		ProfileSettings,
-		PasswordSettings
-	}
 })
-class Profile extends Vue {
+class ProfileSettings extends Vue {
 	profileData = {
 		name: '',
 		email: '',
 		password: '',
 		sex: '',
 		birthdaydate: '',
+		photos: {
+			profilePic: {
+
+			}
+		}
 	};
 
 
@@ -70,9 +69,8 @@ class Profile extends Vue {
 
 		}
 		this.$emit('input', false);
-		// save data here
 	}
 
 }
 
-export default Profile;
+export default ProfileSettings;
