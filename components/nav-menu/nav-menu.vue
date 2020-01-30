@@ -42,11 +42,8 @@
             </nuxt-link>
         </div>
 
-        <div class="auth-nav">
-             <span
-                     class="auth-nav__item"
-                     v-if="!isAuthenticated"
-             >
+        <div class="auth-nav" v-if="!isAuthenticated">
+             <span class="auth-nav__item">
                  <v-btn
                          class="auth-nav__link"
                          color="light-blue lighten-1"
@@ -61,10 +58,7 @@
                  </v-btn>
              </span>
 
-            <span
-                    class="auth-nav__item"
-                    v-if="!isAuthenticated"
-            >
+            <span class="auth-nav__item">
                 <v-btn
                         class="auth-nav__link"
                         color="light-blue lighten-1"
