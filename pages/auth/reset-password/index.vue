@@ -6,6 +6,7 @@
             <v-form
                     ref="form"
                     v-model="valid"
+                    @keyup.native.enter="onSubmit"
             >
                 <v-text-field
                         :rules="emailRules"
