@@ -47,16 +47,16 @@ class Chat extends Vue {
 	];
 
 	validateMessages(userID) {
-		if(!this.user) {
-			this.user = userID;
-			return true;
-		}
-
-		if (this.user === userID) {
-			return false;
-		}
-
-		this.user = userID;
+		// if(!this.user) {
+		// 	this.user = userID;
+		// 	return true;
+		// }
+		//
+		// if (this.user === userID) {
+		// 	return false;
+		// }
+		//
+		// this.user = userID;
 		return true;
 	}
 
