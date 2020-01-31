@@ -31,6 +31,7 @@ class Profile extends Vue {
 
 	passwordSettings = {
 		data: {
+			currentPassword: '',
 			newPassword: '',
 			email: ''
 		},
@@ -70,7 +71,7 @@ class Profile extends Vue {
 				console.error(e)
 			}
 		}
-		// this.$emit('input', false);
+		this.$emit('input', false);
 		// save data here
 	}
 
