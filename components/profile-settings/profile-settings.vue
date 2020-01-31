@@ -56,6 +56,7 @@
                                             v-on="on"
                                             readonly
                                             dense
+                                            @input="convertDate"
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
