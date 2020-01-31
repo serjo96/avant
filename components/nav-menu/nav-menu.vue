@@ -35,11 +35,6 @@
                 Address
             </nuxt-link>
 
-            <nuxt-link
-                    class="nav__link"
-                    to="/chat">
-                Get started
-            </nuxt-link>
         </div>
 
         <div class="auth-nav" v-if="!isAuthenticated">

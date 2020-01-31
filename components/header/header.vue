@@ -58,6 +58,20 @@
                        </v-btn>
                    </span>
 
+                   <div class="user-nav__item">
+                       <v-btn
+                               class="header__link"
+                               color="light-blue lighten-1"
+                               nuxt
+                               tile
+                               outlined
+                               depressed
+                               to="/chat"
+                       >
+                           Get started
+                       </v-btn>
+                   </div>
+
                    <span
                            v-if="isAuthenticated"
                            class="user-nav__item"
