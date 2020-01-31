@@ -21,7 +21,6 @@
                         <v-btn
                                 class="white--text"
                                 color="light-blue accent-2"
-                                tile
                                 nuxt
                                 to="chat"
                         >get started now!</v-btn>

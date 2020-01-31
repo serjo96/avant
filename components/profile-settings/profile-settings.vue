@@ -7,10 +7,9 @@
                 <div class="profile-info__data">
                     <div class="form-group">
                         <div class="form-group__label">Display name</div>
-
                         <div class="form-group__field">
                             <v-text-field
-                                    v-model="profileData.name"
+                                    v-model="value.name"
                                     dense
                                     autofocus
                             ></v-text-field>
@@ -22,7 +21,7 @@
 
                         <div class="form-group__field">
                             <v-text-field
-                                    v-model="profileData.email"
+                                    v-model="value.email"
                                     dense
                             ></v-text-field>
                         </div>
@@ -33,7 +32,7 @@
                         <div class="form-group__field">
                             <v-select
                                     :items="sex"
-                                    v-model="profileData.sex"
+                                    v-model="value.sex"
                                     dense
                             ></v-select>
                         </div>
@@ -52,16 +51,16 @@
                             >
                                 <template v-slot:activator="{ on }">
                                     <v-text-field
-                                            v-model="profileData.birthdaydate"
+                                            v-model="value.birthdaydate"
                                             prepend-inner-icon="event"
-                                            readonly
                                             v-on="on"
+                                            readonly
                                             dense
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
                                         ref="picker"
-                                        v-model="profileData.birthdaydate"
+                                        v-model="value.birthdaydate"
                                         :max="new Date().toISOString().substr(0, 10)"
                                         min="1950-01-01"
                                         @change="save"
@@ -76,8 +75,12 @@
                             size="128"
                             class="profile-avatar__image"
                     >
-                        <img v-if="profileData.photos.profilePic.src" :src="profileData.photos.profilePic.src" alt="profile">
-                        <div v-if="!profileData.photos.profilePic.src">{{profileData.name ? profileData.name[0] : profileData.email[0]}}</div>
+                        <img
+                                v-if="value.photos.profilePic.src"
+                                :src="value.photos.profilePic.src"
+                                alt="profile"
+                        >
+                        <div v-if="!value.photos.profilePic.src">{{value.name ? value.name[0] : value.email[0]}}</div>
                         <div class="profile-avatar__change-btn">
                             <span>Edit avatar</span>
                         </div>
@@ -85,24 +88,6 @@
                 </div>
             </div>
         </div>
-
-        <v-card-actions class="profile__footer">
-            <v-btn
-                    text
-                    large
-                    @click="closeModal()"
-            >
-                Cancel
-            </v-btn>
-
-            <v-btn
-                    large
-                    color="primary"
-                    @click="closeModal(true)"
-            >
-                Save
-            </v-btn>
-        </v-card-actions>
     </div>
 </template>
 

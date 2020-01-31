@@ -7,7 +7,6 @@
                     <p class="description__text">Hippocrates AI system performs as a health care medical doctor advisor. Users may provide symptoms, ask medical questions and describe conditions in order to get diagnosis advise, including known medication and treatments. The system emulates MD.</p>
                     <div class="description-section__button">
                         <v-btn
-                                tile
                                 nuxt
                                 large
                                 color="white"

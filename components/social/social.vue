@@ -32,7 +32,6 @@
                             <v-btn
                                     class="ml-2 white--text"
                                     color="light-blue accent-2"
-                                    tile
                                     normal
                             >Subscribe</v-btn>
                         </v-form>

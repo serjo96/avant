@@ -70,6 +70,7 @@
                                     <v-btn
                                             class="white--text"
                                             color="light-blue accent-2"
+                                            normal
                                     >Submit</v-btn>
                                 </div>
                             </div>
