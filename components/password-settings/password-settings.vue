@@ -2,7 +2,7 @@
     <div class="password-settings">
         <div class="profile__tab-section">
 
-            <div class="profile__tab-title primary--text">Account settings</div>
+            <div class="profile__tab-title primary--text">Password settings</div>
 
             <div class="form-group">
                 <div class="form-group__label">Password: </div>
@@ -11,7 +11,7 @@
                     <v-text-field
                             name="password"
                             dense
-                            v-model="newPassword"
+                            v-model="value.newPassword"
                             :append-icon="showPassword ? 'visibility' : 'visibility_off'"
                             :type="showPassword ? 'text' : 'password'"
                             @click:append="showPassword = !showPassword"
@@ -19,23 +19,6 @@
                 </div>
             </div>
         </div>
-        <v-card-actions class="profile__footer">
-            <v-btn
-                    text
-                    large
-                    @click="closeModal()"
-            >
-                Cancel
-            </v-btn>
-
-            <v-btn
-                    large
-                    color="primary"
-                    @click="closeModal(true)"
-            >
-                Save
-            </v-btn>
-        </v-card-actions>
     </div>
 </template>
 
