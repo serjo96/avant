@@ -15,6 +15,12 @@ class Authorization extends VuexModule {
 
 	user = localUser ? JSON.parse(localUser): null;
 
+	get userFormatted() {
+		if (!this.user) return null;
+		const birthdaydate = new Date(this.user.birthdaydate).toISOString().substr(0, 10);
+		return {...this.user, birthdaydate};
+	}
+
 	@Mutation
 	setResponseMessage(payload) {
 		this.responseMessage = payload;
