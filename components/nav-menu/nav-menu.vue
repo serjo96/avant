@@ -18,18 +18,21 @@
                 About
             </nuxt-link>
             <nuxt-link
+                    @click.native="toggleNav"
                     class="nav__link"
                     :to="{ path: '/',hash:'#step-section'}"
             >
                 Steps
             </nuxt-link>
             <nuxt-link
+                    @click.native="toggleNav"
                     class="nav__link"
                     :to="{ path: '/',hash:'#contact_form'}"
             >
                 Contact
             </nuxt-link>
             <nuxt-link
+                    @click.native="toggleNav"
                     class="nav__link"
                     :to="{ path: '/',hash:'#address-section'}">
                 Address
@@ -37,7 +40,10 @@
 
         </div>
 
-        <div class="auth-nav" v-if="!isAuthenticated">
+        <div
+                class="auth-nav"
+                v-if="!isAuthenticated"
+        >
              <span class="auth-nav__item">
                  <v-btn
                          class="auth-nav__link"
