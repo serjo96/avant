@@ -12,19 +12,47 @@
                         color="basil"
                         grow
                 >
+                    <v-tab
+                            id="profileSettings"
+                            active-class="profile__tab-trigger"
+                            @click="setCurrentTabName"
+                    >Profile settings</v-tab>
+                    <v-tab
+                            id="passwordSettings"
+                            active-class="profile__tab-trigger"
+                            @click="setCurrentTabName"
+                    >Password settings</v-tab>
 
-                    <v-tab>Profile settings</v-tab>
-                    <v-tab>Password settings</v-tab>
+                        <v-tab-item eager class="profile__tab-content">
+                            <ProfileSettings v-model="profileSettings.data"></ProfileSettings>
+                        </v-tab-item>
 
-                    <v-tab-item eager class="profile__tab-content">
-                        <ProfileSettings></ProfileSettings>
-                    </v-tab-item>
+                        <v-tab-item>
+                            <PasswordSettings
+                                    v-model="passwordSettings.data"
+                            ></PasswordSettings>
+                        </v-tab-item>
 
-                    <v-tab-item>
-                        <PasswordSettings :userEmail="user.email"></PasswordSettings>
-                    </v-tab-item>
                 </v-tabs>
+                <v-card-actions class="profile__footer">
+                    <v-btn
+                            text
+                            large
+                            @click="closeModal()"
+                    >
+                        Cancel
+                    </v-btn>
 
+                    <v-btn
+                            tile
+                            large
+                            depressed
+                            color="primary"
+                            @click="closeModal(true)"
+                    >
+                        Save
+                    </v-btn>
+                </v-card-actions>
             </v-card>
     </v-dialog>
 </template>
