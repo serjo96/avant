@@ -42,9 +42,24 @@
 
         <div
                 class="auth-nav"
-                v-if="!isAuthenticated"
         >
-             <span class="auth-nav__item">
+
+            <div class="auth-nav__item">
+                <v-btn
+                        class="header__link"
+                        color="light-blue lighten-1"
+                        nuxt
+                        tile
+                        block
+                        outlined
+                        depressed
+                        to="/chat"
+                >
+                    Get started
+                </v-btn>
+            </div>
+
+             <span class="auth-nav__item" v-if="!isAuthenticated">
                  <v-btn
                          class="auth-nav__link"
                          color="light-blue lighten-1"
@@ -59,7 +74,7 @@
                  </v-btn>
              </span>
 
-            <span class="auth-nav__item">
+            <span class="auth-nav__item" v-if="!isAuthenticated">
                 <v-btn
                         class="auth-nav__link"
                         color="light-blue lighten-1"

@@ -58,7 +58,7 @@
                        </v-btn>
                    </span>
 
-                   <div class="user-nav__item">
+                   <div class="user-nav__item user-nav__item--chat">
                        <v-btn
                                class="header__link"
                                color="light-blue lighten-1"
