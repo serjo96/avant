@@ -15,6 +15,7 @@ class Profile extends Vue {
 	currentTab = 'profileSettings';
 	profileSettings = {
 		data: {
+			id: '',
 			name: '',
 			email: '',
 			password: '',
@@ -91,7 +92,7 @@ class Profile extends Vue {
 
 	async savePasswordSettings() {
 		try {
-			await this.$axios.post('/auth/email/reset-password', this.passwordSettings.data);
+			await this.$axios.post('/auth/email/change-password', this.passwordSettings.data);
 		} catch (e) {
 			throw new Error(e);
 		}
