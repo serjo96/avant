@@ -29,7 +29,7 @@ module.exports = {
         }
 
         if (to.hash) {
-          let el = await findEl(to.hash)
+          let el = await findEl(to.hash);
           if ('scrollBehavior' in document.documentElement.style) {
             return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
           } else {
