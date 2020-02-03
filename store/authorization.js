@@ -7,6 +7,7 @@ const localUser = process.browser ? getUserFromLocalStorage() : null;
 	stateFactory: true,
 })
 class Authorization extends VuexModule {
+	resetPasswordComponent = 'ResetPasswordEmail';
 	responseMessage = {
 		message: '',
 		status: false,
@@ -32,6 +33,15 @@ class Authorization extends VuexModule {
 		setUser(user);
 	}
 
+	@Mutation
+	changeResetPasswordComponent(payload) {
+		if (payload) {
+			this.resetPasswordComponent = 'changePassword'
+		} else {
+			this.resetPasswordComponent = 'ResetPasswordEmail';
+		}
+
+	}
 
 	@Mutation
 	clearResponseData() {
