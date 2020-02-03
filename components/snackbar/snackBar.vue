@@ -2,7 +2,7 @@
     <v-snackbar
             v-model="show"
             :color="snackBar.color"
-            :timeout="timeout"
+            :timeout="snackBar.timeout"
     >
         {{ snackBar.message }}
         <v-btn

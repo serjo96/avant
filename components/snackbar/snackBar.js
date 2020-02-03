@@ -8,7 +8,6 @@ import { Watch, Component } from 'vue-property-decorator'
 })
 class SnackBar extends Vue {
     show = false;
-    timeout = 4000;
 
     @Mutation clearSnackBar;
     @Getter snackBar;

@@ -5,7 +5,11 @@ import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 	stateFactory: true,
 })
 class Authorization extends VuexModule {
-	snackBarData = { message: '', color: '' };
+	snackBarData = {
+		message: '',
+		color: '',
+		timeout: 0
+	};
 
 	@Mutation
 	addSnackBarMessage(message){
@@ -14,7 +18,11 @@ class Authorization extends VuexModule {
 
 	@Mutation
 	clearSnackBar(){
-		this.snackBarData = {message: '', color: ''};
+		this.snackBarData = {
+			message: '',
+			color: '',
+			timeout: 0
+		};
 	}
 
 	get snackBar(){
