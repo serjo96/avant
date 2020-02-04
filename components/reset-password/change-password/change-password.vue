@@ -41,7 +41,7 @@
                     prepend-inner-icon="lock"
                     v-model="confirmPassword"
                     :append-icon="showConfirmPassword ? 'visibility' : 'visibility_off'"
-                    :rules="[passwordRules.required, passwordConfirmationRule]"
+                    :rules="[passwordRules.required]"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     color="green"
                     dark
