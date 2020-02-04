@@ -2,13 +2,22 @@ import Vue from 'vue';
 import Component from 'nuxt-class-component';
 
 
-@Component({})
-class ResetPasswordForm extends Vue {
-	valid = true;
+@Component({
+})
+class ChangePassword extends Vue {
+	newPassword = '';
+	confirmPassword = '';
+	showPassword = false;
+	showConfirmPassword = false;
 	passwordRules = {
 		required: value => !!value || 'Required.',
 		min: v => v.length >= 6 || 'Min 6 characters',
 	};
+
+	matchPassword () {
+		return this.confirmPassword === this.newPassword || 'Password doesnt match';
+	}
+
 	progressText() {
 		const password = this.password;
 		let prog = [/[$@$!%*#?&]/, /[A-Z]/, /[0-9]/, /[a-z]/]
@@ -60,6 +69,20 @@ class ResetPasswordForm extends Vue {
 	color () {
 		return ['darken-4 red', 'error', 'darken-4 lime', 'warning', 'success'][this.progressText()]
 	}
-}
 
-export default ResetPasswordForm;
+	passwordMatch() {
+		return this.newPassword === this.retryPassword;
+	}
+
+	async onSubmit() {
+		const newPasswordToken = this.$route.query.token;
+		if ( this.$refs.form.validate() ) {
+			await this.$axios('/email/change-password', {
+				newPassword: this.newPassword,
+				newPasswordToken
+			});
+		}
+	}
+}
+// TODO: add match password validation
+export default ChangePassword;
