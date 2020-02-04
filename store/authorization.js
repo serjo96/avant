@@ -36,7 +36,7 @@ class Authorization extends VuexModule {
 	@Mutation
 	changeResetPasswordComponent(payload) {
 		if (payload) {
-			this.resetPasswordComponent = 'changePassword'
+			this.resetPasswordComponent = 'ChangePassword'
 		} else {
 			this.resetPasswordComponent = 'ResetPasswordEmail';
 		}
