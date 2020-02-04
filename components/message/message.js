@@ -7,14 +7,15 @@ import { dateHelper } from '~/helpers/dateHelper.js';
 @Component({
 })
 class Message extends Vue {
+	avatar = 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297';
 	@Prop(String) messageType;
 	@Prop(Boolean) messageGroup;
-	@Prop(Object) messageData;
+	@Prop(String) messageData;
 	@Prop(Boolean) groupMessage;
 
-	get transformDate () {
-		return dateHelper(this.messageData.date);
-	}
+	// get transformDate () {
+	// 	return dateHelper(this.messageData.date);
+	// }
 
 	get outgoingMessage() {
 		return this.messageType === 'outgoing';
@@ -38,6 +39,10 @@ class Message extends Vue {
 				'message--group': this.messageGroup
 			},
 		]
+	}
+
+	get messageText(){
+		return this.messageData.description ? this.messageData.description : this.messageData;
 	}
 
 }
