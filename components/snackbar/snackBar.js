@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import {State} from "nuxt-class-component";
 import { Mutation, Getter } from 'vuex-class';
 import { Watch, Component } from 'vue-property-decorator'
 
@@ -10,7 +11,7 @@ class SnackBar extends Vue {
     show = false;
 
     @Mutation clearSnackBar;
-    @Getter snackBar;
+    @State(state => state.Global.snackBar) snackBar;
     @Getter loadingStatus;
 
     @Watch('show')
