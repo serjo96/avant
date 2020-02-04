@@ -41,13 +41,18 @@ class Chat extends Vue {
 	}
 
 	async sendMessage() {
-		const {data: { data } } = await this.$axios.post('/chat/send-message', {
-			message: this.messageInput,
-			chatSessionID: this.chatSessionID,
-			questionType: this.questionType,
-			userID: 1
-		});
-		this.setMessages(data)
+		try {
+			const {data: { data } } = await this.$axios.post('/chat/send-message', {
+				message: this.messageInput,
+				chatSessionID: this.chatSessionID,
+				questionType: this.questionType,
+				userID: 1
+			});
+			this.setMessages(data);
+			this.messageInput = '';
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 }
