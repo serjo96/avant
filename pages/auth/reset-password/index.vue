@@ -2,10 +2,18 @@
     <div class="auth__form">
         <div class="reset-password">
             <div class="reset-password__title">Reset password</div>
-
             <component
                     :is="resetPasswordComponent"
             ></component>
+            <v-btn
+                    class="reset-password__buck-navigate white--text"
+                    color="light-blue darken-1"
+                    nuxt
+                    to="sign-in"
+            >
+                <v-icon left dark>arrow_back_ios</v-icon>
+                Buck to login
+            </v-btn>
         </div>
     </div>
 </template>

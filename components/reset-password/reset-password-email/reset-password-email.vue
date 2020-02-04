@@ -27,16 +27,6 @@
             </v-btn>
         </v-form>
 
-        <v-btn
-                class="reset-password__buck-navigate white--text"
-                color="light-blue darken-1"
-                nuxt
-                to="sign-in"
-        >
-            <v-icon left dark>arrow_back_ios</v-icon>
-            Buck to login
-        </v-btn>
-
     </Fragment>
 </template>
 
