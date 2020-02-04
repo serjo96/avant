@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Component, { State } from 'nuxt-class-component';
 import ResetPasswordEmail from "~/components/reset-password/reset-password-email/reset-password-email.vue";
-import ResetPasswordForm from "~/components/reset-password/reset-password-form/reset-password-form.vue";
+import ChangePassword from "~/components/reset-password/change-password/change-password.vue";
 
 
 
 @Component({
-    components: { ResetPasswordEmail, ResetPasswordForm },
+    components: { ResetPasswordEmail, ChangePassword },
     middleware: 'resetPassword'
 })
 class ResetPassword extends Vue {
