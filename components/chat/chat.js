@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component, {State} from 'nuxt-class-component';
+import Component, {Mutation, State} from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import MessageInput from "~/components/message-input/message-input.vue";
 
@@ -8,10 +8,12 @@ import MessageInput from "~/components/message-input/message-input.vue";
 	components: { Message, MessageInput }
 })
 class Chat extends Vue {
-	messages = [
-
-	];
 	@State(state => state.authorization.user) user;
+	@State(state => state.chat.messages) messages;
+	@State(state => state.chat.questionType) questionType;
+	@State(state => state.chat.chatSettings.chatSessionID) chatSessionID;
+	@Mutation('chat/setMessages') setMessages;
+	messageInput = '';
 
 	validateMessages(userID) {
 		// if(!this.user) {
@@ -29,13 +31,23 @@ class Chat extends Vue {
 
 	initChat() {
 		return this.$axios.post('/chat/init', {
-			userID: this.user.id
+			userID: 1
 		});
 	}
 
 	async mounted() {
-		const res = await this.initChat();
-		console.log(res);
+		const {data: { data }} = await this.initChat();
+		this.setMessages(data)
+	}
+
+	async sendMessage() {
+		const {data: { data } } = await this.$axios.post('/chat/send-message', {
+			message: this.messageInput,
+			chatSessionID: this.chatSessionID,
+			questionType: this.questionType,
+			userID: 1
+		});
+		this.setMessages(data)
 	}
 
 }

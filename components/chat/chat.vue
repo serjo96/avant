@@ -1,17 +1,25 @@
 <template>
     <div class="chat">
-        <div class="chat__wrapper">
+        <div class="chat__wrapper" v-if="messages.length">
             <Message
                     v-for="(message, index) in messages"
                     :key="index"
-                    :groupMessage="validateMessages(message.userId)"
-                    :messageType="message.type"
+                    :groupMessage="validateMessages()"
+                    messageType="incoming"
                     :messageData="message"
             >
             </Message>
-            <MessageInput
-                    inputButtonText="Great"
-            ></MessageInput>
+            <v-text-field
+                    label="Start type here..."
+                    solo
+                    v-model="messageInput"
+                    append-icon="send"
+                    @click:append="sendMessage"
+            ></v-text-field>
+
+<!--            <MessageInput-->
+<!--                    inputButtonText="Great"-->
+<!--            ></MessageInput>-->
         </div>
     </div>
 </template>
