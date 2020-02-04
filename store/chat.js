@@ -5,25 +5,23 @@ import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 	stateFactory: true,
 })
 class Chat extends VuexModule {
-	snackBarData = {
-		message: '',
-		color: '',
-		timeout: 0
+	messages = [];
+	questionType  = '';
+	chatSettings =  {
+		chatSessionID: '',
 	};
 
 	@Mutation
-	addSnackBarMessage(message){
-		this.snackBarData = message;
+	setMessages({ messageData, chatSessionID }) {
+		let messagesArr = this.messages;
+		messagesArr = [...this.messages, ...messageData.messages];
+		console.log(messagesArr);
+		this.questionType = messageData.questionType;
+		this.chatSettings.chatSessionID = chatSessionID;
+		this.messages = messagesArr;
 	}
 
-	@Mutation
-	clearSnackBar(){
-		this.snackBarData = {
-			message: '',
-			color: '',
-			timeout: 0
-		};
-	}
+
 
 
 }
