@@ -13,7 +13,7 @@ class Chat extends Vue {
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings.chatSessionID) chatSessionID;
 	@Mutation('chat/setMessages') setMessages;
-	messageInput = '';
+	@Mutation('chat/setUserMessage') setUserMessage;
 
 	validateMessages(userID) {
 		// if(!this.user) {
@@ -31,7 +31,7 @@ class Chat extends Vue {
 
 	initChat() {
 		return this.$axios.post('/chat/init', {
-			userID: 1
+			userID: this.user.id
 		});
 	}
 
@@ -40,13 +40,15 @@ class Chat extends Vue {
 		this.setMessages(data)
 	}
 
-	async sendMessage() {
+	async sendMessage(userMessage) {
 		try {
-			const {data: { data } } = await this.$axios.post('/chat/send-message', {
-				message: this.messageInput,
+			this.setUserMessage(userMessage);
+
+			const { data: { data } } = await this.$axios.post('/chat/send-message', {
+				message: userMessage,
 				chatSessionID: this.chatSessionID,
 				questionType: this.questionType,
-				userID: 1
+				userID: this.user.id
 			});
 			this.setMessages(data);
 			this.messageInput = '';
