@@ -4,9 +4,10 @@
             <Message
                     v-for="(message, index) in messages"
                     :key="index"
-                    :groupMessage="validateMessages()"
+                    :groupMessage="message.isGroup"
                     :messageDate="message.date"
                     :messageData="message"
+                    :isLoading="message.isLoading"
             >
             </Message>
 
