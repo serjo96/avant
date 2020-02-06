@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component, {Mutation, State} from 'nuxt-class-component';
+import Component, {Getter, Mutation, State} from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import MessageInput from "~/components/message-input/message-input.vue";
 
@@ -12,6 +12,7 @@ class Chat extends Vue {
 	@State(state => state.chat.messages) messages;
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings.chatSessionID) chatSessionID;
+	@Getter('chat/messageStatus') messageStatus;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 
@@ -51,7 +52,6 @@ class Chat extends Vue {
 				userID: this.user.id
 			});
 			this.setMessages(data);
-			this.messageInput = '';
 		} catch (error) {
 			console.log(error)
 		}

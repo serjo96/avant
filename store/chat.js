@@ -13,12 +13,19 @@ class Chat extends VuexModule {
 		chatSessionID: '',
 	};
 
+	get messageStatus() {
+		return {
+			sendingMessage: this.sendingMessage,
+			sendingMessageError: this.sendingMessageError,
+		}
+	}
+
 	@Mutation
 	setMessages({ messageData, chatSessionID }) {
 		let messagesArr = this.messages;
 		messagesArr = [...this.messages, ...messageData.messages];
-		console.log(messagesArr);
 		this.questionType = messageData.questionType;
+		this.sendingMessage = false;
 		this.chatSettings.chatSessionID = chatSessionID;
 		this.messages = messagesArr;
 	}
@@ -26,10 +33,11 @@ class Chat extends VuexModule {
 	@Mutation
 	setUserMessage(message) {
 		const userMessage = {
-			description: message,
+			message,
 			messageType: 'incoming',
 			date: new Date().toISOString()
 		};
+		this.sendingMessage = true;
 		let messagesArr = this.messages;
 
 		messagesArr.push(userMessage);
