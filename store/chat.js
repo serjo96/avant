@@ -1,33 +1,30 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
+import mergeMessageArray from "../utils/mergeMessageArray";
 
 
 @Module({
 	stateFactory: true,
 })
 class Chat extends VuexModule {
-	messages = [];
-	sendingMessage = false;
+	messages = [
+		{
+			message: '',
+			isLoading: true,
+			date: new Date().toISOString()
+		}
+	];
 	sendingMessageError = false;
 	questionType  = '';
 	chatSettings =  {
 		chatSessionID: '',
 	};
 
-	get messageStatus() {
-		return {
-			sendingMessage: this.sendingMessage,
-			sendingMessageError: this.sendingMessageError,
-		}
-	}
 
 	@Mutation
 	setMessages({ messageData, chatSessionID }) {
-		let messagesArr = this.messages;
-		messagesArr = [...this.messages, ...messageData.messages];
+		this.messages = mergeMessageArray(this.messages, messageData.messages );
 		this.questionType = messageData.questionType;
-		this.sendingMessage = false;
 		this.chatSettings.chatSessionID = chatSessionID;
-		this.messages = messagesArr;
 	}
 
 	@Mutation
@@ -37,10 +34,15 @@ class Chat extends VuexModule {
 			messageType: 'incoming',
 			date: new Date().toISOString()
 		};
-		this.sendingMessage = true;
+		const fakeMessage = {
+			message: '',
+			isLoading: true,
+			date: new Date().toISOString()
+		};
 		let messagesArr = this.messages;
 
 		messagesArr.push(userMessage);
+		messagesArr.push(fakeMessage);
 		this.messages = messagesArr;
 	}
 
