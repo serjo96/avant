@@ -12,6 +12,7 @@ class ChangePassword extends Vue {
 	passwordRules = {
 		required: value => !!value || 'Required.',
 		min: v => v.length >= 6 || 'Min 6 characters',
+		match: () => this.matchPassword(),
 	};
 
 	matchPassword () {
@@ -50,7 +51,7 @@ class ChangePassword extends Vue {
 		return progress;
 	}
 
-	get passwordStatus(){
+	get passwordStatus() {
 		const passwordStatus  = {
 			0: 'Very weak',
 			1: 'Weak',

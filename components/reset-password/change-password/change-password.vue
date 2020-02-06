@@ -8,6 +8,7 @@
                     name="newPassword"
                     label="new password"
                     solo
+                    hide-details="auto"
                     prepend-inner-icon="lock"
                     v-model="newPassword"
                     :append-icon="showPassword ? 'visibility' : 'visibility_off'"
@@ -41,9 +42,10 @@
                     prepend-inner-icon="lock"
                     v-model="confirmPassword"
                     :append-icon="showConfirmPassword ? 'visibility' : 'visibility_off'"
-                    :rules="[passwordRules.required]"
+                    :rules="[passwordRules.match]"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     color="green"
+
                     dark
                     @click:append="showConfirmPassword = !showConfirmPassword"
             ></v-text-field>
