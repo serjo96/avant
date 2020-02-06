@@ -79,7 +79,7 @@ module.exports = {
       }
     },
   },
-  plugins: ['@/plugins/my-components', { src: '@/plugins/auth',  mode: 'client' }],
+  plugins: ['@/plugins/my-components', '@/plugins/vue-fragment', { src: '@/plugins/auth',  mode: 'client' }],
   /*
   ** Customize the progress bar color
   */
