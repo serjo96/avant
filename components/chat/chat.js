@@ -12,7 +12,6 @@ class Chat extends Vue {
 	@State(state => state.chat.messages) messages;
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings.chatSessionID) chatSessionID;
-	@Getter('chat/messageStatus') messageStatus;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 
