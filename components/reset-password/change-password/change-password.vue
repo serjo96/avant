@@ -19,14 +19,14 @@
                     @click:append="showPassword = !showPassword"
             ></v-text-field>
 
-            <div class="reset-password-form__field__password-status">
+            <div class="reset-password-form__password-status">
                 <v-progress-linear
                         :value="progress()"
                         :color="color()"
                         height="5"
                 ></v-progress-linear>
                 <div v-if="newPassword.length >= 6"
-                     class="reset-password-form__field__password-status-text"
+                     class="reset-password-form__password-status-text pl-3"
                      :class="color() + '--text'"
                 >
                     {{passwordStatus}}
