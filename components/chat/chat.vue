@@ -5,21 +5,14 @@
                     v-for="(message, index) in messages"
                     :key="index"
                     :groupMessage="validateMessages()"
-                    messageType="incoming"
+                    :messageDate="message.date"
                     :messageData="message"
             >
             </Message>
-            <v-text-field
-                    label="Start type here..."
-                    solo
-                    v-model="messageInput"
-                    append-icon="send"
-                    @click:append="sendMessage"
-            ></v-text-field>
 
-<!--            <MessageInput-->
-<!--                    inputButtonText="Great"-->
-<!--            ></MessageInput>-->
+            <MessageInput
+                    :sendMessage="sendMessage"
+            ></MessageInput>
         </div>
     </div>
 </template>
