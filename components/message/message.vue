@@ -4,14 +4,14 @@
             <div :class="messageInfoClassName">
                 <div
                         class="message-info__avatar-wrapper"
-                        v-if="outgoingMessage"
+                        v-if="!incomingMessage"
                 >
                     <div
                             class="message-info__avatar"
                             :style="`background-image: url('${avatar}');`"
                     ></div>
                 </div>
-<!--                <div class="message-info__time primary&#45;&#45;text">{{transformDate}}</div>-->
+                <div class="message-info__time primary--text">{{transformDate}}</div>
             </div>
 
             <div class="message__content">
@@ -22,7 +22,9 @@
                 </div>
                 <div class="message-wrapper">
                     <h3 v-if="messageData.title">{{messageData.title}}</h3>
+
                     <p class="message__text">{{messageText}}</p>
+
                     <div v-if="messageData.treatments" class="message__treatments">
                         <h3>Treatments:</h3>
                         <p>{{messageData.treatments}}</p>
@@ -31,7 +33,11 @@
                         <h3>Prevention:</h3>
                         <p>{{messageData.prevention}}</p>
                     </div>
-                    <a v-if="messageData.publications" target="_blank" :href="messageData.publications"></a>
+                    <a
+                            v-if="messageData.publications"
+                            target="_blank"
+                            :href="messageData.publications">
+                    </a>
                 </div>
             </div>
         </div>

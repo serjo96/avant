@@ -10,15 +10,16 @@ class Message extends Vue {
 	avatar = 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297';
 	@Prop(String) messageType;
 	@Prop(Boolean) messageGroup;
-	@Prop(String) messageData;
+	@Prop(String) messageDate;
+	@Prop([ String, Object ]) messageData;
 	@Prop(Boolean) groupMessage;
 
-	// get transformDate () {
-	// 	return dateHelper(this.messageData.date);
-	// }
+	get transformDate () {
+		return dateHelper(this.messageDate);
+	}
 
-	get outgoingMessage() {
-		return this.messageType === 'outgoing';
+	get incomingMessage() {
+		return this.messageData.messageType === 'incoming';
 	}
 
 	get messageInfoClassName() {
@@ -31,7 +32,7 @@ class Message extends Vue {
 	}
 
 	get messageClassName() {
-		const messageType = `message-${this.messageType}`;
+		const messageType = `message-${this.incomingMessage ? 'incoming' : 'outgoing'}`;
 		return [
 			'message',
 			messageType,
@@ -42,7 +43,7 @@ class Message extends Vue {
 	}
 
 	get messageText(){
-		return this.messageData.description ? this.messageData.description : this.messageData;
+		return this.messageData.description ? this.messageData.description : this.messageData.message;
 	}
 
 }
