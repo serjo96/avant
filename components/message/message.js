@@ -1,15 +1,18 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
 import { Prop } from "vue-property-decorator";
+import TypingSpinner from "~/components/typing-spinner/typing-spinner.vue";
 import { dateHelper } from '~/helpers/dateHelper.js';
 
 
 @Component({
+	components: { TypingSpinner }
 })
 class Message extends Vue {
 	avatar = 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297';
 	@Prop(String) messageType;
 	@Prop(Boolean) messageGroup;
+	@Prop(Boolean) isLoading;
 	@Prop(String) messageDate;
 	@Prop([ String, Object ]) messageData;
 	@Prop(Boolean) groupMessage;
@@ -26,7 +29,7 @@ class Message extends Vue {
 		return [
 			'message-info',
 			{
-				visible: this.groupMessage
+				visible: !this.groupMessage
 			},
 		];
 	}
@@ -40,10 +43,6 @@ class Message extends Vue {
 				'message--group': this.messageGroup
 			},
 		]
-	}
-
-	get messageText(){
-		return this.messageData.description ? this.messageData.description : this.messageData.message;
 	}
 
 }
