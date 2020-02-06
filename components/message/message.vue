@@ -14,30 +14,35 @@
                 <div class="message-info__time primary--text">{{transformDate}}</div>
             </div>
 
-            <div class="message__content">
-                <div class="typing-spinner">
-                    <div class="typing-spinner__ball hu-background-color_accent"></div>
-                    <div class="typing-spinner__ball hu-background-color_accent"></div>
-                    <div class="typing-spinner__ball hu-background-color_accent"></div>
-                </div>
+            <div class="message__body">
                 <div class="message-wrapper">
-                    <h3 v-if="messageData.title">{{messageData.title}}</h3>
+                    <TypingSpinner :isLoading="isLoading"></TypingSpinner>
 
-                    <p class="message__text">{{messageText}}</p>
+                    <div class="message__content">
+                        <h3 v-if="messageData.title">{{messageData.title}}</h3>
 
-                    <div v-if="messageData.treatments" class="message__treatments">
-                        <h3>Treatments:</h3>
-                        <p>{{messageData.treatments}}</p>
+                        <p v-if="messageData.message" class="message__text">{{messageData.message}}</p>
+
+                        <div v-if="messageData.description" class="message__description">
+                            <h3>Description:</h3>
+                            <p>{{messageData.description}}</p>
+                        </div>
+
+                        <div v-if="messageData.treatments" class="message__treatments">
+                            <h3>Treatments:</h3>
+                            <p>{{messageData.treatments}}</p>
+                        </div>
+                        <div v-if="messageData.prevention" class="message__prevention">
+                            <h3>Prevention:</h3>
+                            <p>{{messageData.prevention}}</p>
+                        </div>
+                        <a
+                                v-if="messageData.publications"
+                                target="_blank"
+                                :href="messageData.publications">
+                        </a>
                     </div>
-                    <div v-if="messageData.prevention" class="message__prevention">
-                        <h3>Prevention:</h3>
-                        <p>{{messageData.prevention}}</p>
-                    </div>
-                    <a
-                            v-if="messageData.publications"
-                            target="_blank"
-                            :href="messageData.publications">
-                    </a>
+
                 </div>
             </div>
         </div>
