@@ -6,6 +6,8 @@ import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 })
 class Chat extends VuexModule {
 	messages = [];
+	sendingMessage = false;
+	sendingMessageError = false;
 	questionType  = '';
 	chatSettings =  {
 		chatSessionID: '',
@@ -21,7 +23,18 @@ class Chat extends VuexModule {
 		this.messages = messagesArr;
 	}
 
+	@Mutation
+	setUserMessage(message) {
+		const userMessage = {
+			description: message,
+			messageType: 'incoming',
+			date: new Date().toISOString()
+		};
+		let messagesArr = this.messages;
 
+		messagesArr.push(userMessage);
+		this.messages = messagesArr;
+	}
 
 
 }
