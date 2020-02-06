@@ -12,6 +12,7 @@ class MessageInput extends Vue {
 
 	onSendMessage() {
 		this.sendMessage(this.messageInput);
+		this.messageInput = '';
 	}
 }
 
