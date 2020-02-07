@@ -56,14 +56,13 @@
                                             v-on="on"
                                             readonly
                                             dense
-                                            @input="convertDate"
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
                                         ref="picker"
                                         v-model="value.birthdaydate"
                                         :max="new Date().toISOString().substr(0, 10)"
-                                        min="1950-01-01"
+                                        min="1920-01-01"
                                         @change="save"
                                 ></v-date-picker>
                             </v-menu>
