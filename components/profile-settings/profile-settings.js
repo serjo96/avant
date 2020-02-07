@@ -20,10 +20,6 @@ class ProfileSettings extends Vue {
 		this.$refs.menu.save(date);
 	}
 
-	convertDate(val) {
-		console.log(val);
-	}
-
 	sex = ['male', 'female'];
 	menu = false;
 
