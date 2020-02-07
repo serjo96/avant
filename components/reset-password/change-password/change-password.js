@@ -78,10 +78,16 @@ class ChangePassword extends Vue {
 	async onSubmit() {
 		const newPasswordToken = this.$route.query.token;
 		if ( this.$refs.form.validate() ) {
-			await this.$axios('/email/change-password', {
-				newPassword: this.newPassword,
-				newPasswordToken
-			});
+			try {
+				await this.$axios.post('/auth/email/change-password', {
+					newPassword: this.newPassword,
+					newPasswordToken
+				});
+				this.$router.push('/auth/sign-in');
+			} catch (e) {
+				console.error(e)
+			}
+
 		}
 	}
 }
