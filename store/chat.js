@@ -17,14 +17,18 @@ class Chat extends VuexModule {
 	questionType  = '';
 	chatSettings =  {
 		chatSessionID: '',
+		inputType: 'input'
 	};
 
 
 	@Mutation
-	setMessages({ messageData, chatSessionID }) {
+	setMessages({ messageData }) {
 		this.messages = mergeMessageArray(this.messages, messageData.messages );
 		this.questionType = messageData.questionType;
-		this.chatSettings.chatSessionID = chatSessionID;
+		this.chatSettings = {
+			chatSessionID: messageData.chatSessionID,
+			inputType: messageData.inputType
+		};
 	}
 
 	@Mutation
