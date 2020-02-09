@@ -13,10 +13,12 @@
 
             <MessageInput
                     :sendMessage="sendMessage"
+                    :inputType="chatSettings.inputType"
+                    :options="chatSettings.options"
             ></MessageInput>
         </div>
     </div>
 </template>
 
 <script src="./chat.js"></script>
-<style src="./chat.styl" lang="stylus" scoped></style>
+<style lang="scss" src="./chat.scss" scoped></style>
