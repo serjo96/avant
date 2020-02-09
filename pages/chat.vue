@@ -1,6 +1,6 @@
 <template>
     <div class="chat-page">
-        <section class="module landbot">
+        <section class="module">
             <div class="container">
                 <Chat />
 <!--                <object type="text/html" id="bot" data="https://landbot.io/u/H-25531-0WYHN5OX5DBFTPIG/index.html" width="100%" style="height: 938px;"></object>-->
