@@ -11,27 +11,14 @@ class Chat extends Vue {
 	@State(state => state.authorization.user) user;
 	@State(state => state.chat.messages) messages;
 	@State(state => state.chat.questionType) questionType;
-	@State(state => state.chat.chatSettings.chatSessionID) chatSessionID;
+	@State(state => state.chat.chatSettings) chatSettings;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
-
-	validateMessages(userID) {
-		// if(!this.user) {
-		// 	this.user = userID;
-		// 	return true;
-		// }
-		//
-		// if (this.user === userID) {
-		// 	return false;
-		// }
-		//
-		// this.user = userID;
-		return true;
-	}
+	lastMessages = [];
 
 	initChat() {
 		return this.$axios.post('/chat/init', {
-			userID: this.user.id
+			userID: this.user.id,
 		});
 	}
 
@@ -40,16 +27,26 @@ class Chat extends Vue {
 		this.setMessages(data)
 	}
 
+	setLastMessages(message) {
+		if (this.lastMessages.length >= 2) {
+			this.lastMessages = [];
+		}
+		const newMessages = this.lastMessages;
+		newMessages.push(message);
+		this.lastMessages = newMessages;
+	}
+
 	async sendMessage(userMessage) {
 		try {
 			this.setUserMessage(userMessage);
-
+			this.setLastMessages(userMessage);
 			const { data: { data } } = await this.$axios.post('/chat/send-message', {
 				message: userMessage,
-				chatSessionID: this.chatSessionID,
+				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
 				userID: this.user.id
 			});
+			console.log(data);
 			this.setMessages(data);
 		} catch (error) {
 			console.log(error)
