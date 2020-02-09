@@ -17,7 +17,8 @@ class Chat extends VuexModule {
 	questionType  = '';
 	chatSettings =  {
 		chatSessionID: '',
-		inputType: 'input'
+		inputType: 'input',
+		options: [],
 	};
 
 
@@ -27,7 +28,8 @@ class Chat extends VuexModule {
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
 			chatSessionID: messageData.chatSessionID,
-			inputType: messageData.inputType
+			inputType: messageData.inputType,
+			options: messageData.options || []
 		};
 	}
 
