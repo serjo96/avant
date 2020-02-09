@@ -14,6 +14,23 @@
 <!--                </div>-->
                 <div class="message-input__body">
                     <div
+                        class="message-input-textarea"
+                        v-if="inputType === 'field'"
+                    >
+                        <v-text-field
+                                label="Start type here..."
+                                solo
+                                autofocus
+                                hide-details="auto"
+                                v-model="messageInput"
+                                append-icon="send"
+                                @click:append="onSendMessage"
+                                @keyup.native.enter="onSendMessage"
+                        ></v-text-field>
+                        <p class="message-input__info  primary--text">Press enter to send</p>
+                    </div>
+
+                    <div
                             class="message-input-buttons"
                             v-if="inputType === 'button'"
                     >
@@ -37,21 +54,42 @@
                     </div>
 
                     <div
-                        class="message-input-textarea"
-                        v-if="inputType === 'field'"
+                            class="message-input-datapicker"
+                            v-if="inputType === 'datepicker'"
                     >
-                        <v-text-field
-                                label="Start type here..."
-                                solo
-                                autofocus
-                                hide-details="auto"
-                                v-model="messageInput"
-                                append-icon="send"
-                                @click:append="onSendMessage"
-                                @keyup.native.enter="onSendMessage"
-                        ></v-text-field>
-                        <p class="message-input__info  primary--text">Press enter to send</p>
+                        <span class="message-input__info primary--text">Select your birthday</span>
+                        <v-menu
+                                ref="menu"
+                                v-model="menu"
+                                :close-on-content-click="false"
+                                transition="scale-transition"
+                                offset-y
+                                min-width="290px"
+                        >
+                            <template v-slot:activator="{ on }">
+                                <v-text-field
+                                        v-model="computedDateFormatted"
+                                        prepend-inner-icon="event"
+                                        placeholder="mm-dd-yyyy"
+                                        v-on="on"
+                                        readonly
+                                        hide-details="auto"
+                                        solo
+                                        append-icon="send"
+                                        @click:append="onSendDate"
+                                        @keyup.native.enter="onSendDate"
+                                ></v-text-field>
+                            </template>
+                            <v-date-picker
+                                    ref="picker"
+                                    v-model="date"
+                                    :max="new Date().toISOString().substr(0, 10)"
+                                    min="1920-01-01"
+                                    @change="save"
+                            ></v-date-picker>
+                        </v-menu>
                     </div>
+
                 </div>
 <!--            </div>-->
 <!--        </div>-->
