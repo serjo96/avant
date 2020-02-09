@@ -8,11 +8,14 @@ import {Prop} from "vue-property-decorator";
 class MessageInput extends Vue {
 	@Prop({ default: 'input'}) inputType;
 	@Prop(Function) sendMessage;
+	@Prop(Array) options;
 	messageInput = '';
 
 	onSendMessage() {
-		this.sendMessage(this.messageInput);
-		this.messageInput = '';
+		if ( this.messageInput ) {
+			this.sendMessage(this.messageInput);
+			this.messageInput = '';
+		}
 	}
 }
 
