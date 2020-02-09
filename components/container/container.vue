@@ -10,4 +10,4 @@
 	}
 </script>
 
-<style lang="stylus" src="./container.styl" scoped></style>
+<style lang="scss" src="./container.scss" scoped></style>
