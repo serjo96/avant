@@ -1,8 +1,5 @@
 <template>
     <div  class="message-input">
-<!--        <div class="hu-input-overflow-content"></div>-->
-<!--        <div class="hu-input-box hu-height-0 hu-overflow-hidden" style="height: auto;">-->
-<!--            <div class="hu-input-container hu-position-relative menu">-->
 <!--                <div class="hu-input-header">-->
 <!--                    <div class="hu-input-back">-->
 <!--                        <button class="back-button hu-color_contrast hu-border-color_contrast hu-not-selectable hu-s-10"-->
@@ -16,27 +13,33 @@
 <!--                    </div>-->
 <!--                </div>-->
                 <div class="message-input__body">
-<!--                    <div class="hu-input-menu hu-position-relative">-->
-<!--                        <span class="hu-input-menu_help hu-input-menu-info hu-display-block hu-not-selectable hu-s-10 hu-color_contrast hu-t-uppercase">Choose an option</span>-->
-<!--                        <div class="hu-input-menu-buttons hu-display-flex hu-flex-wrap ">-->
+                    <div
+                            class="message-input-buttons"
+                            v-if="inputType === 'button'"
+                    >
+                        <span class="message-input__info primary--text">Choose an option</span>
+                        <div class="message-input-buttons__wrap ">
 
-<!--                            <v-btn-->
-<!--                                    class="hu-input-menu_button_text hu-display-flex hu-align-center hu-a-center"-->
-<!--                                    tile-->
-<!--                            >-->
-<!--                                {{inputButtonText}}-->
-<!--                            </v-btn>-->
+                            <v-btn
+                                    v-for="button in options"
+                                    :key="button"
+                                    class="white--text message-input-buttons__button"
+                                    color="light-blue accent-2"
+                                    tile
+                                    x-large
+                                    width="32%"
+                                    @click="sendMessage(button)"
+                            >
+                                {{button}}
+                            </v-btn>
 
-<!--                            <v-btn-->
-<!--                                    class="hu-input-menu_button_text hu-display-flex hu-align-center hu-a-center"-->
-<!--                                    tile-->
-<!--                            >-->
-<!--                                {{inputButtonText}}-->
-<!--                            </v-btn>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                        </div>
+                    </div>
 
-                    <div class="message-input-textarea">
+                    <div
+                        class="message-input-textarea"
+                        v-if="inputType === 'field'"
+                    >
                         <v-text-field
                                 label="Start type here..."
                                 solo
@@ -47,7 +50,7 @@
                                 @click:append="onSendMessage"
                                 @keyup.native.enter="onSendMessage"
                         ></v-text-field>
-                        <p class="message-input-textarea__footer-info">Press enter to send</p>
+                        <p class="message-input__info  primary--text">Press enter to send</p>
                     </div>
                 </div>
 <!--            </div>-->
