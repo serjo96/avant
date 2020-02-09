@@ -6,7 +6,7 @@ import {Prop} from "vue-property-decorator";
 @Component({
 })
 class MessageInput extends Vue {
-	@Prop(String) inputButtonText;
+	@Prop({ default: 'input'}) inputType;
 	@Prop(Function) sendMessage;
 	messageInput = '';
 
