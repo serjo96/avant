@@ -18,7 +18,7 @@ class Authorization extends VuexModule {
 
 	get userFormatted() {
 		if (!this.user) return null;
-		const birthdaydate = new Date(this.user.birthdaydate).toISOString().substr(0, 10);
+		const birthdaydate = this.user.birthdaydate ? new Date(this.user.birthdaydate).toISOString().substr(0, 10) : '';
 		return {...this.user, birthdaydate};
 	}
 
