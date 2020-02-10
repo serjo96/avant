@@ -3,8 +3,8 @@
         <section class="chat-page__container">
             <div class="container">
                 <div class="chat-page__header">
-                    <h3>Welcome to Hippocrates AI-based medical advisor!</h3>
-                    <h3>For any feedback please email <a  href="mailto:info@gopherprotocol.com">info@gopherprotocol.com</a></h3>
+                    <h1>Welcome to Hippocrates AI-based medical advisor!</h1>
+                    <h2>For any feedback please email <a  href="mailto:info@gopherprotocol.com">info@gopherprotocol.com</a></h2>
                 </div>
                 <Chat />
 <!--                <object type="text/html" id="bot" data="https://landbot.io/u/H-25531-0WYHN5OX5DBFTPIG/index.html" width="100%" style="height: 938px;"></object>-->
