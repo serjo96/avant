@@ -1,7 +1,7 @@
 <template>
   <Fragment>
     <DescriptionSection />
-    <Advantages />
+<!--    <Advantages />-->
     <AboutSection />
     <StepSection></StepSection>
 <!--    <VideoSection />-->
