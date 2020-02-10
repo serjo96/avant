@@ -19,7 +19,7 @@
                     <TypingSpinner :isLoading="isLoading"></TypingSpinner>
 
                     <div class="message__content">
-                        <h3 v-if="messageData.title">{{messageData.title}}</h3>
+                        <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
 
                         <p v-if="messageData.message" class="message__text">{{messageData.message}}</p>
 
