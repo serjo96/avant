@@ -14,6 +14,9 @@
 .advantage {
   display: flex
   align-items: center
+  &:not(:last-child) {
+    margin-right: 10px
+  }
   @media (max-width: 880px) {
     flex: 1 auto
     justify-content: center
@@ -29,14 +32,14 @@
 
 .chiffre-font {
   color: #ffffff;
-  font-size: 48px;
+  font-size: 43px;
   text-align: left;
   padding-right: 3px;
 }
 
-.text-font{
+.text-font {
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 32px;
   margin-left: 5px
   text-align: left;
@@ -44,4 +47,5 @@
   display: inline-block;
   position: relative;
   top: 5px;
+  max-width: 320px;
 }
