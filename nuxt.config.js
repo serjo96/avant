@@ -7,7 +7,8 @@ module.exports = {
   modules: [
     '@nuxtjs/proxy',
     '@nuxtjs/axios',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    '@nuxtjs/markdownit',
   ],
   router: {
     middleware: 'clearMessages',
@@ -39,6 +40,9 @@ module.exports = {
 
         return { x: 0, y: 0 }
       }
+  },
+  markdownit: {
+    injected: true
   },
   /*
   ** Headers of the page
