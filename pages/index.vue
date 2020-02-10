@@ -5,7 +5,6 @@
     <AboutSection />
     <StepSection></StepSection>
 <!--    <VideoSection />-->
-
 <!--    <InfoSection />-->
     <ContactSection />
     <MapSection />
