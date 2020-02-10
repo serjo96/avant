@@ -15,7 +15,7 @@
                    </v-btn>
                    <NuxtLink class="header__logo" to="/">
 <!--                       <img src="~/assets/logoHip.png" alt="">-->
-                       Hippoctates
+                       Hippocrates
                    </NuxtLink>
                </div>
 
