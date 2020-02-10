@@ -1,8 +1,8 @@
 <template>
     <div :class="spinnerCalss">
-        <div class="typing-spinner__ball hu-background-color_accent"></div>
-        <div class="typing-spinner__ball hu-background-color_accent"></div>
-        <div class="typing-spinner__ball hu-background-color_accent"></div>
+        <div class="typing-spinner__ball primary"></div>
+        <div class="typing-spinner__ball primary"></div>
+        <div class="typing-spinner__ball primary"></div>
     </div>
 </template>
 
