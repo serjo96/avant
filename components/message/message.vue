@@ -21,20 +21,23 @@
                     <div class="message__content">
                         <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
 
-                        <p v-if="messageData.message" class="message__text">{{messageData.message}}</p>
+                        <p v-if="messageData.message"
+                           class="message__text"
+                           v-html="$md.render(messageData.message)"
+                        ></p>
 
                         <div v-if="messageData.description" class="message__description">
                             <h3>Description</h3>
-                            <p>{{messageData.description}}</p>
+                            <p v-html="$md.render(messageData.description)"></p>
                         </div>
 
                         <div v-if="messageData.treatments" class="message__treatments">
                             <h3>Treatments:</h3>
-                            <p>{{messageData.treatments}}</p>
+                            <p v-html="$md.render(messageData.treatments)"></p>
                         </div>
                         <div v-if="messageData.prevention" class="message__prevention">
                             <h3>Prevention:</h3>
-                            <p>{{messageData.prevention}}</p>
+                            <p v-html="$md.render(messageData.prevention)"></p>
                         </div>
                         <a
                                 v-if="messageData.publications"
