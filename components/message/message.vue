@@ -18,7 +18,7 @@
                 <div class="message-wrapper">
                     <TypingSpinner :isLoading="isLoading"></TypingSpinner>
 
-                    <div class="message__content">
+                    <div class="message__container">
                         <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
 
                         <p v-if="messageData.message"
@@ -26,17 +26,17 @@
                            v-html="$md.render(messageData.message)"
                         ></p>
 
-                        <div v-if="messageData.description" class="message__description">
+                        <div v-if="messageData.description" class="message__content message__content--description">
                             <h3>Description</h3>
                             <p v-html="$md.render(messageData.description)"></p>
                         </div>
 
-                        <div v-if="messageData.treatments" class="message__treatments">
-                            <h3>Treatments:</h3>
+                        <div v-if="messageData.treatments" class="message__content message__content--treatments">
+                            <h3>Treatments</h3>
                             <p v-html="$md.render(messageData.treatments)"></p>
                         </div>
-                        <div v-if="messageData.prevention" class="message__prevention">
-                            <h3>Prevention:</h3>
+                        <div v-if="messageData.prevention" class="message__content message__content--prevention">
+                            <h3>Prevention</h3>
                             <p v-html="$md.render(messageData.prevention)"></p>
                         </div>
                         <a
