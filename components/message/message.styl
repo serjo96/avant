@@ -42,7 +42,7 @@
   position: relative
   min-width: 42px;
   max-width: 82%;
-  box-sizing: container-box;
+  box-sizing: content-box;
   min-height: 1.35em;
   display: inline-block;
   //overflow: hidden;
@@ -66,6 +66,8 @@
     transition: color .75s
     width: 100%
     position: absolute
+    height: 1em
+    bottom: -16px
   }
   &__avatar-wrapper {
     position: absolute
@@ -94,7 +96,7 @@
     &:before {
       opacity: 0
       transition: all .35s;
-      container: "";
+      content: "";
       width: 11px;
       height: 10px;
       display: inline-block;
@@ -122,11 +124,6 @@
         }
       }
     }
-  }
-  .message-info__time {
-    height: 1em
-    position: relative
-    bottom: -16px
   }
 }
 
