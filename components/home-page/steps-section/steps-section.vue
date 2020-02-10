@@ -7,7 +7,7 @@
                         <div class="step__number">01</div>
                         <div class="step__title">Step 1</div>
                         <div class="step__content">
-                            <p class="step__text">Add short description of the Step 1, so your customers could feel how it's easy to get a solution with your product, service or event</p>
+                            <p class="step__text">Please input your symptoms</p>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                         <div class="step__number">02</div>
                         <div class="step__title">Step 2</div>
                         <div class="step__content">
-                            <p class="step__text">Add short description of the Step 1, so your customers could feel how it's easy to get a solution with your product, service or event</p>
+                            <p class="step__text">Add additional list of symptoms from the triggered diagnosis</p>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <div class="step__number">03</div>
                         <div class="step__title">Step 3</div>
                         <div class="step__content">
-                            <p class="step__text">Add short description of the Step 1, so your customers could feel how it's easy to get a solution with your product, service or event</p>
+                            <p class="step__text">Get the list of predicted deseases with treatment and prevention recommendations</p>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <template>
     <footer>
-        All rights reserved Copyright © 2020 Advanta
+        All rights reserved Copyright © 2020 GBT Technologies, Inc. (“GBT”)
     </footer>
 </template>
 

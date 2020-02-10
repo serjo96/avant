@@ -24,7 +24,7 @@
                         <p v-if="messageData.message" class="message__text">{{messageData.message}}</p>
 
                         <div v-if="messageData.description" class="message__description">
-                            <h3>Description:</h3>
+                            <h3>Description</h3>
                             <p>{{messageData.description}}</p>
                         </div>
 
