@@ -14,7 +14,8 @@
                        <v-icon>menu</v-icon>
                    </v-btn>
                    <NuxtLink class="header__logo" to="/">
-                       <img src="~/assets/logoHip.png" alt="">
+<!--                       <img src="~/assets/logoHip.png" alt="">-->
+                       Hippoctates
                    </NuxtLink>
                </div>
 
