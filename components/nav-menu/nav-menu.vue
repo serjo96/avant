@@ -1,14 +1,19 @@
 <template>
     <nav :class="{navbar: true, 'navbar--isOpen': mobileNav}">
-        <v-btn
-                class="navbar__close"
-                color="white"
-                @click="toggleNav"
-                fab
-                x-small
-                icon
-                depressed
-        ><v-icon>close</v-icon></v-btn>
+        <div class="navbar__toggle-button">
+            <v-btn
+                    class="navbar__close"
+                    color="white"
+                    @click="toggleNav"
+                    fab
+                    x-small
+                    icon
+                    depressed
+            >
+                <v-icon>close</v-icon>
+            </v-btn>
+        </div>
+
         <div class="nav">
             <nuxt-link
                     class="nav__link"
@@ -92,5 +97,5 @@
     </nav>
 </template>
 
-<script src="./mobile-nav.js"></script>
+<script src="./nav-menu.js"></script>
 <style lang="stylus" src="./nav-menu.styl" scoped></style>
