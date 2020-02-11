@@ -60,18 +60,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  &__time {
-    font-size: 10px
-    text-align: center
-    transition: color .75s
-    width: 100%
-    position: absolute
-    height: 1em
-    bottom: -16px
-  }
   &__avatar-wrapper {
     position: absolute
-    bottom: 0
+    bottom: 7px
     width: 40px
     min-height: 40px
     height: 40px
@@ -85,6 +76,15 @@
     height: 100%
     background-size: contain;
     background-position: 50%;
+  }
+  &__time {
+    font-size: 10px
+    text-align: center
+    transition: color .75s
+    width: 100%
+    position: absolute
+    height: 1em
+    bottom: -7px
   }
 }
 
