@@ -7,7 +7,6 @@
                     <h2>For any feedback please email <a  href="mailto:info@gopherprotocol.com">info@gopherprotocol.com</a></h2>
                 </div>
                 <Chat />
-<!--                <object type="text/html" id="bot" data="https://landbot.io/u/H-25531-0WYHN5OX5DBFTPIG/index.html" width="100%" style="height: 938px;"></object>-->
             </div>
         </section>
     </div>
