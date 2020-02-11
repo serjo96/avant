@@ -1,17 +1,20 @@
 <template>
     <div  class="message-input">
-<!--                <div class="hu-input-header">-->
-<!--                    <div class="hu-input-back">-->
-<!--                        <button class="back-button hu-color_contrast hu-border-color_contrast hu-not-selectable hu-s-10"-->
-<!--                                tabindex="2">-->
-<!--                            <span class="hu-left-arrow left-arrow">-->
-<!--                            <svg class="hu-fill_button-text"-->
-<!--                                 xmlns="http://www.w3.org/2000/svg"><path-->
-<!--                                d="M 11.78125 2.28125 L 2.78125 11.28125 L 2.09375 12 L 2.78125 12.71875 L 11.78125 21.71875 L 13.21875 20.28125 L 5.9375 13 L 22 13 L 22 11 L 5.9375 11 L 13.21875 3.71875 Z "></path></svg></span><span-->
-<!--                                class="back-text hu-t-uppercase">Back</span>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="message-input-header">
+                    <div class="message-input-back">
+                        <v-btn
+                                class="message-input-back__button"
+                                color="primary"
+                                fab
+                                elevation="0"
+                                dark
+                                x-small
+                               >
+                            <v-icon>mdi-arrow-left</v-icon>
+                        </v-btn>
+                        <div class="message-input-back__text primary--text">Back</div>
+                    </div>
+                </div>
                 <div class="message-input__body">
                     <div
                         class="message-input-textarea"
