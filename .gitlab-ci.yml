@@ -14,8 +14,8 @@ pages:
   script:
     - cd /home/ubuntu/avant
     - pm2 start ecosystem.config.js --only nuxt-prod
-    artifacts:
-      paths:
-        - .nuxt
+  artifacts:
+    paths:
+      - .nuxt
   only:
     - master
