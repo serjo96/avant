@@ -9,6 +9,10 @@ cache:
   paths:
     - node_modules/
 
+artifacts:
+  paths:
+    - .nuxt
+
 pages:
   script:
     - cd /home/ubuntu/avant
