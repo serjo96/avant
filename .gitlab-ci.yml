@@ -5,16 +5,13 @@ before_script:
   - npm install pm2 -g
   - npm run build
 
-cache:
-  paths:
-    - node_modules/
 
-
-pages:
+nuxt:
+  stage: deploy
   script:
     - pm2 start ecosystem.config.js --only nuxt-prod
   artifacts:
     paths:
-      - .nuxt
+      - node_modules/
   only:
     - master
