@@ -2,14 +2,11 @@ image: node
 
 before_script:
   - npm install
-  - npm install pm2 -g
-  - npm run build
-
 
 nuxt:
   stage: deploy
   script:
-    - pm2 start ecosystem.config.js --only nuxt-prod
+    - npm run build
   artifacts:
     paths:
       - node_modules/
