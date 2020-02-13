@@ -13,10 +13,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@bazzite/nuxt-optimized-images": "^0.3.0",
     "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/proxy": "^1.3.3",
     "dotenv": "^8.2.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "material-design-icons-iconfont": "^5.0.1",
