@@ -15,6 +15,8 @@
                     :sendMessage="sendMessage"
                     :inputType="chatSettings.inputType"
                     :options="chatSettings.options"
+                    :onBackMessage="onBackMessage"
+                    :counterUserMessages="counterUserMessages"
             ></MessageInput>
         </div>
     </div>

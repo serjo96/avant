@@ -8,7 +8,9 @@ import {Prop, Watch} from "vue-property-decorator";
 class MessageInput extends Vue {
 	@Prop({ default: 'input'}) inputType;
 	@Prop(Function) sendMessage;
+	@Prop(Function) onBackMessage;
 	@Prop(Array) options;
+	@Prop(Number) counterUserMessages;
 	messageInput = '';
 	date = '';
 	menu = false;

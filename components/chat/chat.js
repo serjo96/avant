@@ -53,6 +53,41 @@ class Chat extends Vue {
 		}
 	}
 
+	get counterUserMessages() {
+		let counter = 0;
+		for ( let i = 0; i < this.messages.length; i ++ ) {
+			const message = this.messages[i];
+			if ( message.messageType === 'incoming' ) {
+				counter++;
+			}
+			if ( counter >= 2) {
+				break;
+			}
+		}
+
+		return counter;
+	}
+
+	onBackMessage() {
+		let lastMessage = '';
+		for (let i = this.messages.length-1; i >= 0; --i) {
+			const message = this.messages[i];
+			let count = 0;
+			console.log(message);
+			if ( message.messageType === 'incoming' ) {
+				lastMessage = message;
+				count ++;
+			}
+			if ( count >= 2) {
+				break;
+			}
+		}
+		console.log(lastMessage);
+		if ( lastMessage ) {
+			this.sendMessage(lastMessage.message);
+		}
+	}
+
 }
 
 export default Chat;

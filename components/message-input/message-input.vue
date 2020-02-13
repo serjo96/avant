@@ -1,7 +1,10 @@
 <template>
     <div  class="message-input">
                 <div class="message-input-header">
-                    <div class="message-input-back">
+                    <div class="message-input-back"
+                         v-if="counterUserMessages >= 2"
+                        @click="onBackMessage"
+                    >
                         <v-btn
                                 class="message-input-back__button"
                                 color="primary"
