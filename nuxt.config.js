@@ -9,6 +9,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/markdownit',
+    '@bazzite/nuxt-optimized-images',
   ],
   router: {
     middleware: 'clearMessages',
@@ -17,6 +18,9 @@ module.exports = {
   },
   markdownit: {
     injected: true
+  },
+  optimizedImages: {
+    optimizeImages: true
   },
   /*
   ** Headers of the page
@@ -30,7 +34,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:200,400,700,300,600&display=swap', crossOrigin: 'anonymous' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap', crossOrigin: 'anonymous' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700', crossOrigin: 'anonymous'}
     ]
   },
