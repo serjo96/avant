@@ -52,7 +52,6 @@
                             >
                                 {{button}}
                             </v-btn>
-
                         </div>
                     </div>
 
