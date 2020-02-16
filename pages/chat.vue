@@ -2,10 +2,6 @@
     <div class="chat-page">
         <section class="chat-page__container">
             <div class="container">
-                <div class="chat-page__header">
-                    <h1>Welcome to Hippocrates AI-based medical advisor!</h1>
-                    <h2>For any feedback please email <a  href="mailto:info@gopherprotocol.com">info@gopherprotocol.com</a></h2>
-                </div>
                 <Chat />
             </div>
         </section>
@@ -43,25 +39,5 @@
                 width: 60%;
             }
         }
-    }
-
-    .landbot__bot {
-        width: 100%;
-        height: 300px;
-    }
-
-    .LandbotFrameWidget {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .LandbotFrameWidget .LandbotFrame, .LandbotFrameWidget .LandbotFrame__frame__content {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
     }
 </style>

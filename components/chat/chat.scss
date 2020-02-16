@@ -1,5 +1,14 @@
+.chat {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    &__text {
+      max-width: 80%;
+    }
+  }
+}
+
 .chat__wrapper {
   width: 100%;
   margin: 40px auto 0;
 }
-
