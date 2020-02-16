@@ -11,4 +11,4 @@
 	}
 </script>
 
-<style src="./global.styl" lang="stylus"></style>
+<style src="./global.scss" lang="scss"></style>

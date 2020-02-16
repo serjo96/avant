@@ -1,7 +1,7 @@
-@import "./animation.styl";
+@import "./animation.scss";
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
@@ -14,11 +14,11 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
   font-size: 100%;
   vertical-align: baseline;
   text-decoration: none;
-  list-style-type: none
+  list-style-type: none;
 }
 
 :focus {
-  outline: 0
+  outline: 0;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -29,46 +29,46 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
 }
 
 li, ol, ul {
-  list-style: none
+  list-style: none;
 }
 
 table {
   border-collapse: separate;
-  border-spacing: 0
+  border-spacing: 0;
 }
 
 caption, td, th {
   text-align: left;
-  font-weight: 400
+  font-weight: 400;
 }
 
 blockquote, q {
-  quotes: "" ""
+  quotes: "" "";
 }
 
 img {
-  max-width: 100%
+  max-width: 100%;
   vertical-align: middle;
   border-style: none;
 }
 
 a {
-  color: inherit
+  color: inherit;
 }
 
 input[type=submit] {
-  cursor: pointer
+  cursor: pointer;
 }
 
 body, .v-application {
-  font-family: 'PT Sans', sans-serif
-  background: #fff
+  font-family: 'PT Sans', sans-serif;
+  background: #fff;
 }
 
 
 .section-title {
   margin: 0 50px;
-  margin-bottom: 30px
+  margin-bottom: 30px;
   padding-bottom: 30px;
   position: relative;
   &:before {
@@ -99,28 +99,28 @@ body, .v-application {
   h2 {
     text-transform: uppercase;
     font-size: 24px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
     color: #34495E;
-    position: relative
+    position: relative;
   }
 }
 
 
 .response-message {
-  margin-top: 20px
+  margin-top: 20px;
   &__text {
-    padding: 0 5px
-    border-radius: 3px
+    padding: 0 5px;
+    border-radius: 3px;
   }
   &__resend-confirm {
-    text-decoration: underline
-    color: #fff
+    text-decoration: underline;
+    color: #fff;
     &:hover {
-      text-decoration: none
+      text-decoration: none;
     }
   }
 }
 
 .v-application p {
-  margin: 0
+  margin: 0;
 }
