@@ -50,6 +50,8 @@ class Chat extends Vue {
 			this.setMessages(data);
 		} catch (error) {
 			console.log(error)
+		} finally {
+			this.scrollToBottom();
 		}
 	}
 
@@ -86,6 +88,10 @@ class Chat extends Vue {
 		if ( lastMessage ) {
 			this.sendMessage(lastMessage.message);
 		}
+	}
+
+	scrollToBottom() {
+		this.$refs.chatBody.scrollTop = this.$refs.chatBody.scrollHeight;
 	}
 
 }
