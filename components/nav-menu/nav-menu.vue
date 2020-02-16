@@ -59,6 +59,7 @@
                         outlined
                         depressed
                         to="/chat"
+                        @click="toggleNav"
                 >
                     Get started
                 </v-btn>
