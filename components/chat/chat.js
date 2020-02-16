@@ -14,6 +14,7 @@ class Chat extends Vue {
 	@State(state => state.chat.chatSettings) chatSettings;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
+	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
 	lastMessages = [];
 
 	initChat() {
@@ -95,6 +96,7 @@ class Chat extends Vue {
 	}
 
 	async restartChat() {
+		this.setFakeIncomingMessage();
 		const {data: { data }} = await this.initChat();
 		this.setMessages(data)
 	}

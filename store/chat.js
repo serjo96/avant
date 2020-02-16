@@ -52,6 +52,18 @@ class Chat extends VuexModule {
 		this.messages = messagesArr;
 	}
 
+	@Mutation
+	setFakeIncomingMessage() {
+		let messagesArr = this.messages;
+		const fakeMessage = {
+			message: '',
+			isLoading: true,
+			date: new Date().toISOString()
+		};
+		messagesArr.push(fakeMessage);
+		this.messages = messagesArr;
+	}
+
 
 }
 
