@@ -14,6 +14,7 @@ class MessageInput extends Vue {
 	messageInput = '';
 	date = '';
 	menu = false;
+	selectedItems = [];
 
 
 	save (date) {
@@ -39,10 +40,22 @@ class MessageInput extends Vue {
 		}
 	}
 
+	onSendSymptoms() {
+		if( this.selectedItems.length ) {
+			const messageToString = this.selectedItems.join(', ');
+			this.sendMessage(messageToString);
+		}
+	}
+
 	onSendDate() {
 		if ( this.computedDateFormatted ) {
 			this.sendMessage(this.computedDateFormatted);
 		}
+	}
+
+	removeChip (item) {
+		const index = this.selectedItems.indexOf(item);
+		if (index >= 0) this.selectedItems.splice(index, 1)
 	}
 }
 
