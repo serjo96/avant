@@ -67,7 +67,6 @@ class Chat extends Vue {
 				break;
 			}
 		}
-
 		return counter;
 	}
 
@@ -76,7 +75,7 @@ class Chat extends Vue {
 		for (let i = this.messages.length-1; i >= 0; --i) {
 			const message = this.messages[i];
 			let count = 0;
-			console.log(message);
+
 			if ( message.messageType === 'incoming' ) {
 				lastMessage = message;
 				count ++;

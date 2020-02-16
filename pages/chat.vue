@@ -7,7 +7,6 @@
 </template>
 
 <script src="./chat/chat.js"></script>
-
 <style lang="stylus" scoped>
     .chat-page {
         background: #fff
