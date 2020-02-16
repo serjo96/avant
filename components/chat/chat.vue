@@ -17,17 +17,20 @@
                 </v-btn>
             </div>
         </div>
-        <div class="chat__wrapper" v-if="messages.length">
-            <Message
-                    v-for="(message, index) in messages"
-                    :key="index"
-                    :groupMessage="message.isGroup"
-                    :messageDate="message.date"
-                    :messageData="message"
-                    :isLoading="message.isLoading"
-            >
-            </Message>
-
+        <div class="chat-body" ref="chatBody">
+            <div class="chat-body__wrapper" v-if="messages.length">
+                <Message
+                        v-for="(message, index) in messages"
+                        :key="index"
+                        :groupMessage="message.isGroup"
+                        :messageDate="message.date"
+                        :messageData="message"
+                        :isLoading="message.isLoading"
+                >
+                </Message>
+            </div>
+        </div>
+        <div class="chat-footer">
             <MessageInput
                     :sendMessage="sendMessage"
                     :inputType="chatSettings.inputType"
