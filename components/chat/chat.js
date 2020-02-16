@@ -40,13 +40,13 @@ class Chat extends Vue {
 		try {
 			this.setUserMessage(userMessage);
 			this.setLastMessages(userMessage);
+			this.scrollToBottom();
 			const { data: { data } } = await this.$axios.post('/chat/send-message', {
 				message: userMessage,
 				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
 				userID: this.user.id
 			});
-			console.log(data);
 			this.setMessages(data);
 		} catch (error) {
 			console.log(error)
@@ -91,7 +91,12 @@ class Chat extends Vue {
 	}
 
 	scrollToBottom() {
-		this.$refs.chatBody.scrollTop = this.$refs.chatBody.scrollHeight;
+		setTimeout(()=> this.$refs.chatBody.scrollTop = this.$refs.chatBody.scrollHeight);
+	}
+
+	async restartChat() {
+		const {data: { data }} = await this.initChat();
+		this.setMessages(data)
 	}
 
 }

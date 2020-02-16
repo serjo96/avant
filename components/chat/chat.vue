@@ -11,6 +11,7 @@
                         class="white--text"
                         color="light-blue accent-2"
                         tile
+                        @click="restartChat"
                 >
                     <span>restart chat</span>
                     <v-icon>mdi-restart</v-icon>
