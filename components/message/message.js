@@ -3,13 +3,14 @@ import Component from 'nuxt-class-component';
 import { Prop } from "vue-property-decorator";
 import TypingSpinner from "~/components/typing-spinner/typing-spinner.vue";
 import { dateHelper } from '~/helpers/dateHelper.js';
+import avatar from '~/assets/doctor_yellow.svg';
 
 
 @Component({
 	components: { TypingSpinner }
 })
 class Message extends Vue {
-	avatar = 'https://storage.googleapis.com/media.helloumi.com/channels/0_GaDxNWH.svg?time=1527600013.53297';
+	avatar = avatar;
 	@Prop(String) messageType;
 	@Prop(Boolean) messageGroup;
 	@Prop(Boolean) isLoading;
