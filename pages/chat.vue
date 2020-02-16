@@ -15,6 +15,9 @@
         height: calc(100% - 370px )
         padding: 30px 0
         overflow: hidden
+        @media (max-width: 450px) {
+            padding: 0
+        }
         .container {
             height: 100%
         }

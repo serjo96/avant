@@ -25,13 +25,18 @@
   height: 54px;
   position: absolute;
   left: -55px;
-  top: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   transition: opacity .25s;
   cursor: pointer
   &__button {
     opacity: 0;
     transform: rotate(-275deg) scale(.8);
     transition: transform .5s, opacity .3s;
+    @media (max-width: 1024px) {
+      opacity: 1
+      transform: rotate(0) scale(1)
+    }
   }
   &__text {
     margin-top: 10px
@@ -41,6 +46,10 @@
     transform: translateY(20px);
     opacity: 0;
     transition: transform .5s, opacity .3s;
+    @media (max-width: 1024px) {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
 

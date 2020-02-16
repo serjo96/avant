@@ -21,10 +21,13 @@
   }
 
   &-body {
-	margin-top: 15px;
+	margin-top: 40px;
 	width: 100%;
 	flex: 1 auto;
 	overflow: auto;
+	@media (max-width: 350px) {
+	  margin-top: 10px;
+	}
 	&__wrapper {
 	  @include chat-width;
 	  @media (max-width: 350px) {
