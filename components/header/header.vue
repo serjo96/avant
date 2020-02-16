@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container py-0">
            <div class="header__container">
                <div class="header__left-side">

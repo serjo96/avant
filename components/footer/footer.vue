@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer id="footer">
         All rights reserved Copyright © 2020 GBT Technologies, Inc. (“GBT”)
     </footer>
 </template>
