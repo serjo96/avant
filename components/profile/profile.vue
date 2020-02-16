@@ -11,6 +11,7 @@
                         background-color="transparent"
                         color="basil"
                         grow
+                        show-arrows
                 >
                     <v-tab
                             id="profileSettings"
