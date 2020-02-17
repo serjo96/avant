@@ -23,8 +23,8 @@ class Chat extends VuexModule {
 
 
 	@Mutation
-	setMessages({ messageData }) {
-		this.messages = mergeMessageArray(this.messages, messageData.messages );
+	setMessages( { data: { messageData }, messagesLength = 1 }) {
+		this.messages = mergeMessageArray(this.messages, messageData.messages, messagesLength);
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
 			chatSessionID: messageData.chatSessionID,

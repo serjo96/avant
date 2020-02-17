@@ -25,8 +25,9 @@ class Chat extends Vue {
 	}
 
 	async mounted() {
+		const messagesLength = this.messages.length;
 		const {data: { data }} = await this.initChat();
-		this.setMessages(data)
+		this.setMessages({ data })
 	}
 
 	setLastMessages(message) {
@@ -43,13 +44,14 @@ class Chat extends Vue {
 			this.setUserMessage(userMessage);
 			this.setLastMessages(userMessage);
 			this.scrollToBottom();
+			const messagesLength = this.messages.length;
 			const { data: { data } } = await this.$axios.post('/chat/send-message', {
 				message: userMessage,
 				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
 				userID: this.user.id
 			});
-			this.setMessages(data);
+			this.setMessages({ data, messagesLength });
 		} catch (error) {
 			console.log(error)
 		} finally {
@@ -85,7 +87,7 @@ class Chat extends Vue {
 				break;
 			}
 		}
-		console.log(lastMessage);
+
 		if ( lastMessage ) {
 			this.sendMessage(lastMessage.message);
 		}
