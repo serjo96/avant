@@ -1,5 +1,5 @@
 @import "./animation.scss";
-@import "assets/styles/variables/vuetify.scss";
+
 
 * {
   box-sizing: border-box;
@@ -123,5 +123,5 @@ body, .v-application {
 }
 
 .v-application p {
-  margin: 0;
+  margin: 0 !important;
 }
