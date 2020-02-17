@@ -2,10 +2,11 @@ import Vue from 'vue';
 import Component, {Getter, Mutation, State} from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import MessageInput from "~/components/message-input/message-input.vue";
+import ChatHeader from "~/components/chat/chat-header/chat-header.vue";
 
 
 @Component({
-	components: { Message, MessageInput }
+	components: { Message, MessageInput, ChatHeader }
 })
 class Chat extends Vue {
 	@State(state => state.authorization.user) user;

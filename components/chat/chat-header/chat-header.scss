@@ -1,0 +1,15 @@
+@import "assets/styles/mixins/mixins.scss";
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  @include chat-width;
+  &__text {
+	max-width: 80%;
+	@media (max-width: 730px) {
+	  margin-bottom: 10px;
+	}
+  }
+}
