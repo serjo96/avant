@@ -45,11 +45,10 @@
                 <div class="message-input-buttons__wrap ">
                     <v-btn v-for="button in options"
                            :key="button"
-                           class="white--text message-input-buttons__button"
+                           class="white--text message-input-buttons__button my-2"
                            color="light-blue accent-2"
                            tile
                            x-large
-                           width="32%"
                            @click="sendMessage(button)"
                     >
                         {{button}}
