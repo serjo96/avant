@@ -1,0 +1,7 @@
+@import "assets/styles/mixins/mixins.scss";
+
+.chat-footer {
+  width: 100%;
+  margin: 40px auto 0;
+  @include chat-width;
+}

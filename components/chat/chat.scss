@@ -6,12 +6,12 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
-
   &-body {
-	margin-top: 40px;
+	margin-top: 25px;
 	width: 100%;
 	flex: 1 auto;
 	overflow: auto;
+	padding: 25px 0;
 	@media (max-width: 350px) {
 	  margin-top: 10px;
 	}
@@ -21,11 +21,5 @@
 		padding: 0 18px;
 	  }
 	}
-  }
-
-  &-footer {
-	width: 100%;
-	margin: 40px auto 0;
-	@include chat-width;
   }
 }
