@@ -1,6 +1,8 @@
 <template>
     <div class="chat">
-        <ChatHeader></ChatHeader>
+        <ChatHeader
+                :restartChat="restartChat"
+        ></ChatHeader>
         <div class="chat-body" ref="chatBody">
             <div class="chat-body__wrapper" v-if="messages.length">
                 <Message
