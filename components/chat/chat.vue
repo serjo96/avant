@@ -14,15 +14,13 @@
                 </Message>
             </div>
         </div>
-        <div class="chat-footer">
-            <MessageInput
-                    :sendMessage="sendMessage"
-                    :inputType="chatSettings.inputType"
-                    :options="chatSettings.options"
-                    :onBackMessage="onBackMessage"
-                    :counterUserMessages="counterUserMessages"
-            ></MessageInput>
-        </div>
+        <ChatFooter
+                :sendMessage="sendMessage"
+                :inputType="chatSettings.inputType"
+                :options="chatSettings.options"
+                :onBackMessage="onBackMessage"
+                :counterUserMessages="counterUserMessages"
+        ></ChatFooter>
     </div>
 </template>
 
