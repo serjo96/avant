@@ -1,0 +1,8 @@
+@import '~vuetify/src/styles/styles.sass';
+
+$new-colors: ('background': map-get($shades, 'white') !important);
+
+$material-theme: map-merge($material-light, $new-colors);
+
+@import '~vuetify/src/styles/main.sass';
+//@import '~vuetify/src/components/VBtn/_variables.scss';

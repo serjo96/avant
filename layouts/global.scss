@@ -1,4 +1,5 @@
 @import "./animation.scss";
+@import "assets/styles/variables/vuetify.scss";
 
 * {
   box-sizing: border-box;
@@ -62,7 +63,7 @@ input[type=submit] {
 
 body, .v-application {
   font-family: 'PT Sans', sans-serif;
-  background: #fff;
+  background: #fff !important;
 }
 
 
