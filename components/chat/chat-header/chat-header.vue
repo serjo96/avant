@@ -12,7 +12,7 @@
                     tile
                     @click="restartChat"
             >
-                <span>restart chat</span>
+                <span>Start over</span>
                 <v-icon>mdi-restart</v-icon>
             </v-btn>
         </div>
