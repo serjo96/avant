@@ -12,7 +12,7 @@
         background: #fff
         width: 100%;
         height: calc(100% - 370px )
-        padding: 30px 0
+        padding-top: 30px
         overflow: hidden
         @media (max-width: 450px) {
             padding: 0
