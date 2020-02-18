@@ -5,6 +5,7 @@ import Footer from '~/components/footer/footer.vue';
 import Profile from "~/components/profile/profile.vue";
 import "vuetify/src/components/VGrid/VGrid.sass";
 import "vuetify/src/components/VGrid/_grid.sass";
+import '~/assets/styles/variables/vuetify.scss'
 
 @Component({
 	components: {
@@ -31,10 +32,6 @@ class Default extends Vue {
 
 	}
 
-
-	mounted() {
-
-	}
 }
 
 export default Default;
