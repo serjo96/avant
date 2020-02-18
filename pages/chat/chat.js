@@ -4,14 +4,15 @@ import Chat from "~/components/chat/chat.vue";
 
 
 @Component({
-	components: { Chat }
+	components: { Chat },
+	middleware: 'authenticated',
+	layout: 'chatLayout'
 })
 class ChatPage extends Vue {
 	get chatHeight() {
 		if (process.server) return;
 		const headerHeight = document.getElementById('header').clientHeight;
-		const footerHeight = document.getElementById('footer').clientHeight;
-		return `${window.innerHeight - headerHeight - footerHeight}px`;
+		return `${window.innerHeight - headerHeight}px`;
 	}
 
 
