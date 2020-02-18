@@ -11,7 +11,7 @@ import Chat from "~/components/chat/chat.vue";
 class ChatPage extends Vue {
 	get chatHeight() {
 		if (process.server) return;
-		const headerHeight = document.getElementById('header') ? document.getElementById('header').clientHeight : 0;
+		const headerHeight = setTimeout(() => document.getElementById('header'), 0);
 		return `${window.innerHeight - headerHeight}px`;
 	}
 
