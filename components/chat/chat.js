@@ -99,8 +99,9 @@ class Chat extends Vue {
 
 	async restartChat() {
 		this.setFakeIncomingMessage();
+		const messagesLength = this.messages.length;
 		const {data: { data }} = await this.initChat();
-		this.setMessages(data)
+		this.setMessages({ data, messagesLength })
 	}
 
 }
