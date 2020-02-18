@@ -25,7 +25,10 @@
                     >Password settings</v-tab>
 
                         <v-tab-item eager class="profile__tab-content">
-                            <ProfileSettings v-model="profileSettings.data"></ProfileSettings>
+                            <ProfileSettings
+                                    :uploadImg="uploadImg"
+                                    v-model="profileSettings.data"
+                            ></ProfileSettings>
                         </v-tab-item>
 
                         <v-tab-item>

@@ -84,8 +84,8 @@
                                 class="profile-avatar__image"
                         >
                                 <img
-                                        v-if="value.profilepicture"
-                                        :src="value.profilepicture"
+                                        v-if="image"
+                                        :src="image"
                                         alt="profile"
                                 >
                                 <div v-if="!value.profilepicture">{{value.name ? value.name[0] : value.email[0]}}</div>
@@ -94,6 +94,8 @@
                                 </div>
                         </v-avatar>
                     </label>
+
+                    <div v-if="imageError" class="profile-avatar__error red--text lighten-1--text">{{imageError}}</div>
                 </div>
             </div>
         </div>

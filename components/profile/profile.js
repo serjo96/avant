@@ -21,9 +21,13 @@ class Profile extends Vue {
 			password: '',
 			sex: '',
 			birthdaydate: '',
+			profilepicture: '',
 			photos: {
 				profilePic: {
-
+					url: '',
+					description: null,
+					tags: null,
+					date: ''
 				}
 			}
 		},
@@ -79,6 +83,12 @@ class Profile extends Vue {
 	setCurrentTabName({target}) {
 		console.log(target.id);
 		this.currentTab = target.id;
+	}
+
+	uploadImg(img) {
+		const data = {...this.profileSettings.data, profilepicture: img};
+		this.profileSettings = {...this.profileSettings, data}
+		console.log(this.profileSettings);
 	}
 
 	async saveProfileSettings() {
