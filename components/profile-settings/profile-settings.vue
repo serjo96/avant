@@ -88,7 +88,7 @@
                                         :src="image"
                                         alt="profile"
                                 >
-                                <div v-if="!value.profilepicture">{{value.name ? value.name[0] : value.email[0]}}</div>
+                                <div v-if="!image">{{value.name ? value.name[0] : value.email[0]}}</div>
                                 <div class="profile-avatar__change-btn">
                                     <span>Edit avatar</span>
                                 </div>
