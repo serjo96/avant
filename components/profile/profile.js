@@ -108,6 +108,20 @@ class Profile extends Vue {
 
 	}
 
+	async removeAvatar() {
+		const data = {
+			id: '',
+			email: this.userFormatted.email,
+			action: 'remove',
+			photoId: 'profilepic.png',
+		};
+		try {
+			await this.$axios.post('/users/gallery/update', data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 }
 
 export default Profile;

@@ -98,8 +98,15 @@
                                 </div>
                         </v-avatar>
                     </label>
-
                     <div v-if="imageError" class="profile-avatar__error red--text lighten-1--text">{{imageError}}</div>
+
+                    <div class="profile-avatar__remove">
+                        <v-btn
+                                small
+                                outlined
+                                color="error"
+                                @click="removeAvatar">Delete photo</v-btn>
+                    </div>
                 </div>
             </div>
         </div>

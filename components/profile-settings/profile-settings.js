@@ -9,6 +9,7 @@ import {API_PATH} from "../../core/config";
 class ProfileSettings extends Vue {
 	@Prop(Object) value;
 	@Prop(Function) uploadImg;
+	@Prop(Function) removeAvatar;
 	imageError = '';
 	sex = ['male', 'female'];
 	menu = false;
