@@ -94,12 +94,25 @@
                                </v-btn>
                             </template>
                         <v-list class="drop-down-nav">
+                            <v-list-item>
+                                <v-list-item-avatar v-if="user.id">
+                                    <v-img v-if="avatar" :src="avatar"></v-img>
+                                     <div class="avatar-text-login" v-if="!avatar">{{userLogin[0]}}</div>
+                                </v-list-item-avatar>
+
+                                <v-list-item-content>
+                                    <v-list-item-title v-html="userLogin"></v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+
+
                             <v-list-item @click="onShowProfileSettings">
                                 <v-list-item-title>Profile</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="logOut">
                                 <v-list-item-title>Logout</v-list-item-title>
                             </v-list-item>
+
                           </v-list>
                         </v-menu>
 
