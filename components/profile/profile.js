@@ -15,7 +15,7 @@ class Profile extends Vue {
 	currentTab = 'profileSettings';
 	profileSettings = {
 		data: {
-			id: '',
+			userID: '',
 			name: '',
 			email: '',
 			password: '',
@@ -81,7 +81,6 @@ class Profile extends Vue {
 	}
 
 	setCurrentTabName({target}) {
-		console.log(target.id);
 		this.currentTab = target.id;
 	}
 
@@ -110,8 +109,7 @@ class Profile extends Vue {
 
 	async removeAvatar() {
 		const data = {
-			id: '',
-			email: this.userFormatted.email,
+			userID: this.userFormatted.userID,
 			action: 'remove',
 			photoId: 'profilepic.png',
 		};
