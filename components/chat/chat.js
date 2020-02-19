@@ -20,7 +20,7 @@ class Chat extends Vue {
 
 	initChat() {
 		return this.$axios.post('/chat/init', {
-			userID: this.user.id,
+			userID: this.user.userID,
 		});
 	}
 
@@ -49,7 +49,7 @@ class Chat extends Vue {
 				message: userMessage,
 				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
-				userID: this.user.id
+				userID: this.user.userID
 			});
 			this.setMessages({ data, messagesLength });
 		} catch (error) {
