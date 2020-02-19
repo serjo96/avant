@@ -95,7 +95,7 @@
                             </template>
                         <v-list class="drop-down-nav">
                             <v-list-item>
-                                <v-list-item-avatar v-if="user.id">
+                                <v-list-item-avatar v-if="user.userID">
                                     <v-img v-if="avatar" :src="avatar"></v-img>
                                      <div class="avatar-text-login" v-if="!avatar">{{userLogin[0]}}</div>
                                 </v-list-item-avatar>
