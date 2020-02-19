@@ -87,8 +87,7 @@ class Profile extends Vue {
 
 	uploadImg(img) {
 		const data = {...this.profileSettings.data, profilepicture: img};
-		this.profileSettings = {...this.profileSettings, data}
-		console.log(this.profileSettings);
+		this.profileSettings = {...this.profileSettings, data};
 	}
 
 	async saveProfileSettings() {

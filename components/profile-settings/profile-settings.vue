@@ -6,12 +6,13 @@
             <div class="profile-info">
                 <div class="profile-info__data">
                     <div class="form-group">
-                        <div class="form-group__label">Display name</div>
+                        <div class="form-group__label">Display name:</div>
                         <div class="form-group__field">
                             <v-text-field
                                     v-model="value.name"
                                     dense
                                     autofocus
+                                    outlined
                             ></v-text-field>
                         </div>
                     </div>
@@ -23,6 +24,7 @@
                             <v-text-field
                                     v-model="value.email"
                                     dense
+                                    outlined
                             ></v-text-field>
                         </div>
                     </div>
@@ -34,6 +36,7 @@
                                     :items="sex"
                                     v-model="value.sex"
                                     dense
+                                    outlined
                             ></v-select>
                         </div>
                     </div>
@@ -56,6 +59,7 @@
                                             v-on="on"
                                             readonly
                                             dense
+                                            outlined
                                     ></v-text-field>
                                 </template>
                                 <v-date-picker
