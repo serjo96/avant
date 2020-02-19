@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component, {Getter, State} from 'nuxt-class-component';
+import Component, {Getter, Mutation, State} from 'nuxt-class-component';
 import {Prop, Watch} from "vue-property-decorator";
 import NavMenu from "~/components/nav-menu/nav-menu.vue"
 import {API_PATH} from "../../core/config";
@@ -14,6 +14,7 @@ class Header extends Vue {
 	mobileNav = false;
 	@Prop(Function) onShowProfileSettings;
 	@State(state => state.authorization.user) user;
+	@Mutation('authorization/logout') logout;
 
 
 	toggleNav() {
@@ -25,6 +26,7 @@ class Header extends Vue {
 	logOut() {
 		this.$auth.logout();
 		this.$router.push('/');
+		this.logout();
 		window.location.reload();
 	}
 

@@ -30,6 +30,11 @@ export const setUser = (user) => {
 	window.localStorage.setItem('user', JSON.stringify(user));
 };
 
+export const removeUser = () => {
+	if (process.server) return;
+	window.localStorage.removeItem('user');
+};
+
 export const unsetToken = () => {
 	if (process.server) return
 	window.localStorage.removeItem('token')
@@ -37,7 +42,7 @@ export const unsetToken = () => {
 	window.localStorage.removeItem('secret')
 	Cookie.remove('jwt')
 	window.localStorage.setItem('logout', Date.now())
-}
+};
 
 export const getTokenFromCookie = (req) => {
 	if (process.server) return;

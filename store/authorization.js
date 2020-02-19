@@ -1,5 +1,5 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
-import {getUserFromLocalStorage, setUser} from "../utils/auth";
+import {getUserFromLocalStorage, removeUser, setUser} from "../utils/auth";
 
 const localUser = process.browser ? getUserFromLocalStorage() : null;
 
@@ -7,14 +7,13 @@ const localUser = process.browser ? getUserFromLocalStorage() : null;
 	stateFactory: true,
 })
 class Authorization extends VuexModule {
+	user = localUser ? JSON.parse(localUser): {id: ''};
 	resetPasswordComponent = 'ResetPasswordEmail';
 	responseMessage = {
 		message: '',
 		status: false,
 		confirm: false
 	};
-
-	user = localUser ? JSON.parse(localUser): null;
 
 	get userFormatted() {
 		if (!this.user) return null;
@@ -50,6 +49,11 @@ class Authorization extends VuexModule {
 			status: false,
 			confirm: false
 		};
+	}
+
+	@Mutation
+	logout() {
+		removeUser()
 	}
 
 }
