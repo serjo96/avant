@@ -28,50 +28,46 @@
                             ></p>
 
 
-
-                        <div v-if="messageData.description" class="message__content message__content--description collapse">
-                            <h3>Description</h3>
-                            <input class="collapse__input" type="checkbox" id="chck1">
+                        <div class="collapse">
+                            <input class="collapse__input" type="checkbox" :id="messageData.title">
                             <div class="collapse__content">
-                                <p v-html="$md.render(messageData.description)"></p>
-                                <div class="collapse__shadow"></div>
+                                <div v-if="messageData.description" class="message__content message__content--description">
+                                    <h3>Description</h3>
+                                    <p v-html="$md.render(messageData.description)"></p>
+                                </div>
+
+
+                                <div v-if="messageData.treatments" class="message__content message__content--treatments">
+                                    <h3>Treatments</h3>
+                                    <p v-html="$md.render(messageData.treatments)"></p>
+                                </div>
+
+                                <div v-if="messageData.prevention" class="message__content message__content--prevention">
+                                    <h3>Prevention</h3>
+                                    <p v-html="$md.render(messageData.prevention)"></p>
+                                </div>
+
+                                <a
+                                    v-if="messageData.publications"
+                                    target="_blank"
+                                    :href="messageData.publications">
+                                    {{messageData.publications}}
+                                </a>
+
+                                <div v-if="showCollapseItems" class="collapse__shadow"></div>
+
                             </div>
-
-                            <v-btn color="primary" class="px-0" outlined x-small>
-                                <label class="collapse__label" for="chck1">Show more </label>
-                            </v-btn>
-
-
-                        </div>
-
-                        <div v-if="messageData.treatments" class="message__content message__content--treatments collapse">
-                            <h3>Treatments</h3>
-                            <input class="collapse__input" type="checkbox" id="treatments">
-                            <div class="collapse__content">
-                                <p v-html="$md.render(messageData.treatments)"></p>
-                                <div class="collapse__shadow"></div>
-                            </div>
-                            <v-btn color="primary" class="px-0" outlined x-small>
-                                <label class="collapse__label" for="treatments">Show more </label>
+                            <v-btn
+                                    v-if="showCollapseItems"
+                                    color="primary"
+                                    class="px-0"
+                                    outlined
+                                    x-small
+                                    @click="toggleButtonName"
+                            >
+                                <label class="collapse__label" :for="messageData.title">{{collapseButtonText}}</label>
                             </v-btn>
                         </div>
-                        <div v-if="messageData.prevention" class="message__content message__content--prevention collapse">
-                            <h3>Prevention</h3>
-
-                            <input class="collapse__input" type="checkbox" id="prevention">
-                            <div class="collapse__content">
-                                <p v-html="$md.render(messageData.prevention)"></p>
-                                <div class="collapse__shadow"></div>
-                            </div>
-                            <v-btn color="primary" class="px-0" outlined x-small>
-                                <label class="collapse__label" for="prevention">Show more </label>
-                            </v-btn>
-                        </div>
-                        <a
-                                v-if="messageData.publications"
-                                target="_blank"
-                                :href="messageData.publications">
-                        </a>
                     </div>
 
                 </div>

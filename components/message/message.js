@@ -17,6 +17,7 @@ class Message extends Vue {
 	@Prop(String) messageDate;
 	@Prop([ String, Object ]) messageData;
 	@Prop(Boolean) groupMessage;
+	collapseButton = true;
 
 	get transformDate () {
 		return dateHelper(this.messageDate);
@@ -44,6 +45,18 @@ class Message extends Vue {
 				'message--group': this.messageGroup
 			},
 		]
+	}
+
+	get showCollapseItems() {
+		return this.messageData.description || this.messageData.treatments || this.messageData.prevention
+	}
+
+	toggleButtonName() {
+		this.collapseButton = !this.collapseButton;
+	}
+
+	get collapseButtonText() {
+		return this.collapseButton ? 'Show more' : 'Show less' ;
 	}
 
 }
