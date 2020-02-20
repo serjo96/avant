@@ -99,9 +99,16 @@ class Chat extends Vue {
 
 	async restartChat() {
 		this.setFakeIncomingMessage();
+		this.scrollToBottom();
 		const messagesLength = this.messages.length;
-		const {data: { data }} = await this.initChat();
-		this.setMessages({ data, messagesLength })
+		try {
+			const {data: { data }} = await this.initChat();
+			this.setMessages({ data, messagesLength })
+		} catch (e) {
+			console.log(e)
+		} finally {
+			this.scrollToBottom();
+		}
 	}
 
 }
