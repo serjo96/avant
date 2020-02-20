@@ -110,6 +110,7 @@
                         small-chips
                         multiple
                         deletable-chips
+                        hint="Please click on the input field, select your symptoms and press the send button"
                         append-icon="send"
                         @click:append="onSendSymptoms"
                         @keyup.native.enter="onSendSymptoms"
