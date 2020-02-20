@@ -20,16 +20,8 @@ class Default extends Vue {
 	@State(state => state.authorization.user) user;
 	@Mutation('authorization/setUser') setUser;
 
-	async onShowProfileSettings() {
-		try {
-			const {data: {data}} = await this.$axios.get(`/users/user/${this.user.email}`);
-
-			setTimeout(()=> {this.setUser(data.data)}, 0);
-			this.showProfileSettings = true;
-		} catch (err) {
-			console.warn(err)
-		}
-
+	 onShowProfileSettings() {
+	 	this.showProfileSettings = true;
 	}
 
 }
