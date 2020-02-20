@@ -1,5 +1,5 @@
 <template>
-    <div class="chat-page" :style="{height: chatHeight}">
+    <div class="chat-page">
         <div class="container">
             <Chat />
         </div>
@@ -11,7 +11,7 @@
     .chat-page {
         background: #fff
         width: 100%;
-        height: calc(100% - 370px )
+        height: 100%
         padding-top: 30px
         overflow: hidden
         @media (max-width: 450px) {
