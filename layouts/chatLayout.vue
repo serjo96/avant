@@ -4,6 +4,10 @@
         <v-content>
             <nuxt/>
         </v-content>
+        <Profile
+                v-if="isAuthenticated && showProfileSettings"
+                v-model="showProfileSettings"
+        />
     </v-app>
 </template>
 
