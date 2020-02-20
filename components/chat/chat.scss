@@ -5,7 +5,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 500px;
+  min-height: calc(100vh - 94px - 30px - 12px - 28px);
   &-body {
 	margin-top: 25px;
 	width: 100%;
