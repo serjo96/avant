@@ -16,7 +16,6 @@ class MessageInput extends Vue {
 	menu = false;
 	selectedItems = [];
 
-
 	save (date) {
 		this.$refs.menu.save(date);
 	}
@@ -43,6 +42,8 @@ class MessageInput extends Vue {
 	onSendSymptoms() {
 		if( this.selectedItems.length ) {
 			const messageToString = this.selectedItems.join(', ');
+			this.$refs.chatAutocomplete.blur();
+			this.selectedItems = [];
 			this.sendMessage(messageToString);
 		}
 	}
