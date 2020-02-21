@@ -4,16 +4,18 @@
                 :restartChat="restartChat"
         ></ChatHeader>
         <div class="chat-body" ref="chatBody">
-            <div class="chat-body__wrapper" v-if="messages.length">
-                <Message
-                        v-for="(message, index) in messages"
-                        :key="index"
-                        :groupMessage="message.isGroup"
-                        :messageDate="message.date"
-                        :messageData="message"
-                        :isLoading="message.isLoading"
-                >
-                </Message>
+            <div class="container">
+                <div class="chat-body__wrapper" v-if="messages.length">
+                    <Message
+                            v-for="(message, index) in messages"
+                            :key="index"
+                            :groupMessage="message.isGroup"
+                            :messageDate="message.date"
+                            :messageData="message"
+                            :isLoading="message.isLoading"
+                    >
+                    </Message>
+                </div>
             </div>
         </div>
         <ChatFooter

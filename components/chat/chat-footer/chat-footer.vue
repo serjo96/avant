@@ -1,12 +1,16 @@
 <template>
     <div class="chat-footer">
-        <MessageInput
-                :sendMessage="sendMessage"
-                :inputType="inputType"
-                :options="options"
-                :onBackMessage="onBackMessage"
-                :counterUserMessages="counterUserMessages"
-        ></MessageInput>
+        <div class="container">
+            <div class="chat-footer__container">
+                <MessageInput
+                        :sendMessage="sendMessage"
+                        :inputType="inputType"
+                        :options="options"
+                        :onBackMessage="onBackMessage"
+                        :counterUserMessages="counterUserMessages"
+                ></MessageInput>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -2,6 +2,12 @@
 
 .chat-footer {
   width: 100%;
-  margin: 40px auto 0;
-  @include chat-width;
+  background: #FAFAFA;
+  box-shadow: -1px -15px 9px 1px rgba(255, 255, 255, 0.74);
+  position: relative;
+  z-index: 2;
+  &__container {
+    @include chat-width;
+    margin: 0 auto;
+  }
 }

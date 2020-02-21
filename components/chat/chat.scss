@@ -5,22 +5,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 500px;
-  min-height: calc(100vh - 94px - 30px - 12px - 28px);
+  height: 400px;
+  min-height: calc(100vh - 94px);
   &-body {
 	margin-top: 25px;
 	width: 100%;
 	flex: 1 auto;
 	overflow: auto;
-	padding: 25px 0;
 	@media (max-width: 350px) {
 	  margin-top: 10px;
 	}
 	&__wrapper {
 	  @include chat-width;
+	  padding: 25px 0;
 	  @media (max-width: 350px) {
 		padding: 0 18px;
 	  }
 	}
+  }
+  .container {
+	height: 100%;
   }
 }
