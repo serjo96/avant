@@ -50,8 +50,10 @@
                                 <a
                                     v-if="messageData.publications"
                                     target="_blank"
-                                    :href="messageData.publications">
-                                    {{messageData.publications}}
+                                    :href="messageData.publications"
+                                    class="message__link"
+                                >
+                                    Read more
                                 </a>
 
                                 <div v-if="showCollapseItems" class="collapse__shadow"></div>
