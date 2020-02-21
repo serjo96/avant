@@ -20,6 +20,7 @@ class Header extends Vue {
 	toggleNav() {
 		if (window.innerWidth <= 960) {
 			this.mobileNav = !this.mobileNav;
+			document.documentElement.classList.toggle('overflow-y-hidden')
 		}
 	}
 
