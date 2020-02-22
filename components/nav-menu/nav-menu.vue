@@ -75,6 +75,7 @@
                          depressed
                          block
                          to="auth/sign-in"
+                         @click.native="toggleNav"
                  >
                      Sign in
                  </v-btn>
@@ -90,6 +91,7 @@
                         depressed
                         block
                         to="auth/sign-up"
+                        @click.native="toggleNav"
                 >
                     Sign up
                 </v-btn>
