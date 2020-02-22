@@ -24,15 +24,15 @@ class ChatLayout extends Vue {
 
 	setChatHeight() {
 		const headerHeight = this.$refs.header.$el.offsetHeight;
-		this.calculatePageHeight(window.innerHeight - headerHeight);
+		debounce(this.calculatePageHeight(window.innerHeight - headerHeight), 500);
 	}
 
 	mounted() {
 		this.setChatHeight();
-		window.addEventListener('resize', debounce(this.setChatHeight, 500));
+		window.addEventListener('resize', this.setChatHeight);
 	}
 
-	destroy() {
+	destroyed() {
 		window.removeEventListener('resize', this.setChatHeight);
 	}
 
