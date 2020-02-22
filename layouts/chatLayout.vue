@@ -1,6 +1,9 @@
 <template>
     <v-app dark>
-        <Header :onShowProfileSettings="onShowProfileSettings" />
+        <Header
+                ref="header"
+                :onShowProfileSettings="onShowProfileSettings"
+        />
         <v-content>
             <nuxt/>
         </v-content>

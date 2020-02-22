@@ -1,5 +1,5 @@
 <template>
-    <div class="chat">
+    <div class="chat" :style="{height: getPageHeight}">
         <ChatHeader
                 :restartChat="restartChat"
         ></ChatHeader>

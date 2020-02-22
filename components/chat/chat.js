@@ -13,6 +13,7 @@ class Chat extends Vue {
 	@State(state => state.chat.messages) messages;
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings) chatSettings;
+	@Getter('global/getPageHeight') getPageHeight;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
@@ -27,7 +28,7 @@ class Chat extends Vue {
 	async mounted() {
 		const messagesLength = this.messages.length;
 		const {data: { data }} = await this.initChat();
-		this.setMessages({ data })
+		this.setMessages({ data });
 	}
 
 	setLastMessages(message) {

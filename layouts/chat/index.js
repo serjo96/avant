@@ -13,11 +13,26 @@ import '~/assets/styles/variables/vuetify.scss'
 	}
 })
 class ChatLayout extends Vue {
+	@Mutation('global/calculatePageHeight') calculatePageHeight;
 	showProfileSettings = false;
 	isAuthenticated = this.$auth.loggedIn;
 
 	onShowProfileSettings() {
 		this.showProfileSettings = true;
+	}
+
+	setChatHeight() {
+		const headerHeight = this.$refs.header.$el.offsetHeight;
+		this.calculatePageHeight(window.innerHeight - headerHeight);
+	}
+
+	mounted() {
+		this.setChatHeight();
+		window.addEventListener('resize', this.setChatHeight);
+	}
+
+	destroy() {
+		window.removeEventListener('resize', this.setChatHeight);
 	}
 
 }

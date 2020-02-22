@@ -129,3 +129,7 @@ body, .v-application {
 .overflow-y-hidden {
   overflow-y: hidden !important;
 }
+
+.v-application--wrap {
+  min-height: auto;
+}
