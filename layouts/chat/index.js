@@ -5,6 +5,7 @@ import Profile from "~/components/profile/profile.vue";
 import "vuetify/src/components/VGrid/VGrid.sass";
 import "vuetify/src/components/VGrid/_grid.sass";
 import '~/assets/styles/variables/vuetify.scss'
+import debounce from "~/utils/debounce";
 
 @Component({
 	components: {
@@ -28,7 +29,7 @@ class ChatLayout extends Vue {
 
 	mounted() {
 		this.setChatHeight();
-		window.addEventListener('resize', this.setChatHeight);
+		window.addEventListener('resize', debounce(this.setChatHeight, 500));
 	}
 
 	destroy() {
