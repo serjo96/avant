@@ -178,19 +178,6 @@
 .collapse {
   position: relative
   overflow: hidden;
-  &__input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-  }
-  &__label {
-    cursor: pointer
-    display: block
-    width: 100%
-    padding: 4px 6px
-    position: relative
-    z-index: 1;
-  }
   &__content {
     max-height: 70px;
     transition: all .35s;
@@ -207,19 +194,14 @@
     background: rgba(255, 255, 255, 0.74)
     box-shadow: 0 -9px 7px -5px  rgba(255, 255, 255, 0.74) inset;
   }
+  &--is-open {
+    .collapse__content {
+      max-height: 100vh;
+      padding: 1em;
+      .collapse__shadow {
+        display: none
+      }
+    }
+  }
 }
 
-input:checked {
-  + .collapse__label {
-    &::after {
-      transform: rotate(90deg);
-    }
-  }
-  ~ .collapse__content {
-    max-height: 100vh;
-    padding: 1em;
-    .collapse__shadow {
-      display: none
-    }
-  }
-}

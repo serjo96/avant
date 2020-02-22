@@ -28,8 +28,7 @@
                             ></p>
 
 
-                        <div class="collapse">
-                            <input class="collapse__input" type="checkbox" :id="messageData.title">
+                        <div :class="collapseClass">
                             <div class="collapse__content">
                                 <div v-if="messageData.description" class="message__content message__content--description">
                                     <h3>Description</h3>
@@ -65,9 +64,9 @@
                                     class="px-0"
                                     outlined
                                     x-small
-                                    @click="toggleButtonName"
+                                    @click="toggleCollapse"
                             >
-                                <label class="collapse__label" :for="messageData.title">{{collapseButtonText}}</label>
+                                {{collapseButtonText}}
                             </v-btn>
                         </div>
                     </div>
