@@ -17,8 +17,6 @@ import '~/assets/styles/variables/vuetify.scss'
 class Default extends Vue {
 	showProfileSettings = false;
 	isAuthenticated = this.$auth.loggedIn;
-	@State(state => state.authorization.user) user;
-	@Mutation('authorization/setUser') setUser;
 
 	 onShowProfileSettings() {
 	 	this.showProfileSettings = true;
