@@ -1,13 +1,11 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
-import {getUserFromLocalStorage, removeUser, setUser} from "../utils/auth";
+import { removeUser } from "../utils/auth";
 
-const localUser = process.browser ? getUserFromLocalStorage() : null;
 
 @Module({
 	stateFactory: true,
 })
 class Authorization extends VuexModule {
-	user = localUser ? JSON.parse(localUser): {id: ''};
 	resetPasswordComponent = 'ResetPasswordEmail';
 	responseMessage = {
 		message: '',
@@ -15,21 +13,9 @@ class Authorization extends VuexModule {
 		confirm: false
 	};
 
-	get userFormatted() {
-		if (!this.user) return null;
-		const birthdaydate = this.user.birthdaydate ? new Date(this.user.birthdaydate).toISOString().substr(0, 10) : '';
-		return {...this.user, birthdaydate};
-	}
-
 	@Mutation
 	setResponseMessage(payload) {
 		this.responseMessage = payload;
-	}
-
-	@Mutation
-	setUser(user) {
-		this.user = user;
-		setUser(user);
 	}
 
 	@Mutation
