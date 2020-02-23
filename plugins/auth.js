@@ -7,7 +7,7 @@ export default async function ({$axios, store}) {
 	}
 
 	if (getUserFromLocalStorage() ) {
-		store.commit('authorization/setUser', JSON.parse(getUserFromLocalStorage()))
+		store.commit('user/setUser', JSON.parse(getUserFromLocalStorage()))
 	}
 
 }
