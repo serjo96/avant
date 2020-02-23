@@ -96,8 +96,10 @@
                         <v-list class="drop-down-nav">
                             <v-list-item>
                                 <v-list-item-avatar v-if="user.userID">
-                                    <v-img v-if="avatar" :src="avatar"></v-img>
-                                     <div class="avatar-text-login" v-if="!avatar">{{userLogin[0]}}</div>
+                                    <v-img v-if="user.avatar" :src="user.avatar"></v-img>
+                                     <div class="avatar-text-login primary" v-if="!user.avatar">
+                                         <span>{{userLogin[0]}}</span>
+                                     </div>
                                 </v-list-item-avatar>
 
                                 <v-list-item-content>

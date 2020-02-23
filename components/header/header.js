@@ -13,9 +13,8 @@ class Header extends Vue {
 	isAuthenticated = this.$auth.loggedIn;
 	mobileNav = false;
 	@Prop(Function) onShowProfileSettings;
-	@State(state => state.authorization.user) user;
+	@State(state => state.user.userData) user;
 	@Mutation('authorization/logout') logout;
-
 
 	toggleNav() {
 		if (window.innerWidth <= 960) {
