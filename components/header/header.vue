@@ -97,7 +97,7 @@
                             <v-list-item>
                                 <v-list-item-avatar v-if="user.userID">
                                     <v-img v-if="user.avatar" :src="user.avatar"></v-img>
-                                     <div class="avatar-text-login primary" v-if="!user.avatar">
+                                     <div class="avatar-text-login" v-if="!user.avatar">
                                          <span>{{userLogin[0]}}</span>
                                      </div>
                                 </v-list-item-avatar>
