@@ -1,5 +1,6 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 import {getUserFromLocalStorage, removeUser, setUser} from "../utils/auth";
+import {API_PATH} from "~/core/config";
 
 const localUser = process.browser ? getUserFromLocalStorage() : null;
 
@@ -14,19 +15,19 @@ class User extends VuexModule {
 		password: '',
 		sex: '',
 		birthdaydate: '',
-		avatar: ''
+		avatar: '',
 	};
 
 	get userFormatted() {
-		if (!this.user) return null;
-		const birthdaydate = this.user.birthdaydate ? new Date(this.user.birthdaydate).toISOString().substr(0, 10) : '';
-		return {...this.user, birthdaydate};
+		const birthdaydate = this.userData.birthdaydate ? new Date(this.userData.birthdaydate).toISOString().substr(0, 10) : '';
+		return {...this.userData, birthdaydate};
 	}
 
 
 	@Mutation
 	setUser(user) {
-		this.userData = user;
+		const avatar = user.photos.profilePic.url ? `${API_PATH}${user.photos.profilePic.url}` : '';
+		this.userData = {...user, avatar};
 		setUser(user);
 	}
 

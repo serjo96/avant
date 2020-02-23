@@ -7,27 +7,20 @@ import {API_PATH} from "../../core/config";
 @Component({
 })
 class ProfileSettings extends Vue {
-	@Prop(Object) value;
+	@Prop(Object) userData;
+	@Prop(Function) setProfileData;
 	@Prop(Function) uploadImg;
 	@Prop(Function) removeAvatar;
 	imageError = '';
 	sex = ['male', 'female'];
 	menu = false;
 
-	get () {
-		return this.value
-	};
-
-	set (value) {
-		this.$emit('input', value)
-	};
+	changeProfileInput(key, val) {
+		this.setProfileData({key, val});
+	}
 
 	save (date) {
 		this.$refs.menu.save(date);
-	}
-
-	get image() {
-		return this.value.photos.profilePic.url ? `${API_PATH}${this.value.photos.profilePic.url}` : this.value.profilepicture;
 	}
 
 	createBase64Img(file) {
@@ -46,7 +39,7 @@ class ProfileSettings extends Vue {
 		const file = input.files[0];
 		if ( file.size < kbSizeLimit ) {
 			const base64 = await this.createBase64Img(file);
-			this.uploadImg(base64);
+			this.changeProfileInput('avatar', base64);
 		} else {
 			this.imageError = 'File is too large. The maximum allowable size is 500KB'
 		}

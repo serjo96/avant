@@ -13,18 +13,9 @@ import PasswordSettings from "~/components/password-settings/password-settings.v
 })
 class Profile extends Vue {
 	currentTab = 'profileSettings';
-	// profileSettings = {
-	// 	data: {
-	// 		userID: '',
-	// 		name: '',
-	// 		email: '',
-	// 		password: '',
-	// 		sex: '',
-	// 		birthdaydate: '',
-	// 		avatar: ''
-	// 	},
-	// 	handler: this.saveProfileSettings
-	// };
+	profileSettings = {
+		handler: this.saveProfileSettings
+	};
 
 	passwordSettings = {
 		data: {
@@ -40,19 +31,6 @@ class Profile extends Vue {
 	@Getter('user/userFormatted') userFormatted;
 	@Mutation('user/setUser') setUser;
 	@Mutation('user/setProfileData') setProfileData;
-
-	@Watch('userFormatted', {deep: true})
-	setProfileUser(val) {
-		const email = val.email;
-		this.passwordSettings.data = {...this.passwordSettings.data, email};
-		this.profileSettings.data = {...val, avatar: val.photos.profilePic.url};
-	}
-
-	@Watch('menu')
-	menuWatch (val) {
-		val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
-	}
-
 
 
 	get dialogModal(){
@@ -78,14 +56,16 @@ class Profile extends Vue {
 		this.currentTab = target.id;
 	}
 
-	uploadImg(img) {
-		const data = {...this.profileSettings.data, profilepicture: img};
-		this.profileSettings = {...this.profileSettings, data};
-	}
 
 	async saveProfileSettings() {
+		const profileData = {
+			...this.user,
+			profilepicture: this.user.avatar,
+		};
+		profileData.remove('photos');
+		profileData.remove('avatar');
 		try {
-			const {data: {data}} = await this.$axios.post('/users/profile/update', this.profileSettings.data);
+			const {data: {data}} = await this.$axios.post('/users/profile/update', profileData);
 			this.setUser(data.data);
 		} catch (e) {
 			throw new Error(e);
@@ -102,13 +82,14 @@ class Profile extends Vue {
 	}
 
 	async removeAvatar() {
-		const data = {
+		const userData = {
 			userID: this.userFormatted.userID,
 			action: 'remove',
 			photoId: 'profilepic.png',
 		};
 		try {
-			await this.$axios.post('/users/gallery/update', data);
+			const {data: {data}} = await this.$axios.post('/users/gallery/update', userData);
+			this.setUser(data.data);
 		} catch (error) {
 			console.log(error);
 		}

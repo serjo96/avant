@@ -9,7 +9,8 @@
                         <div class="form-group__label">Display name:</div>
                         <div class="form-group__field">
                             <v-text-field
-                                    v-model="value.name"
+                                    :value="userData.name"
+                                    @input="changeProfileInput('name', $event)"
                                     dense
                                     autofocus
                                     outlined
@@ -22,7 +23,8 @@
 
                         <div class="form-group__field">
                             <v-text-field
-                                    v-model="value.email"
+                                    :value="userData.email"
+                                    @input="changeProfileInput('email', $event)"
                                     dense
                                     outlined
                             ></v-text-field>
@@ -34,7 +36,8 @@
                         <div class="form-group__field">
                             <v-select
                                     :items="sex"
-                                    v-model="value.sex"
+                                    :value="userData.sex"
+                                    @input="changeProfileInput('sex', $event)"
                                     dense
                                     outlined
                             ></v-select>
@@ -54,7 +57,7 @@
                             >
                                 <template v-slot:activator="{ on }">
                                     <v-text-field
-                                            v-model="value.birthdaydate"
+                                            :value="userData.birthdaydate"
                                             prepend-inner-icon="event"
                                             v-on="on"
                                             readonly
@@ -64,8 +67,9 @@
                                 </template>
                                 <v-date-picker
                                         ref="picker"
-                                        v-model="value.birthdaydate"
+                                        :value="userData.birthdaydate"
                                         :max="new Date().toISOString().substr(0, 10)"
+                                        @input="changeProfileInput('birthdaydate', $event)"
                                         min="1920-01-01"
                                         @change="save"
                                 ></v-date-picker>
@@ -88,11 +92,11 @@
                                 class="profile-avatar__image"
                         >
                                 <img
-                                        v-if="image"
-                                        :src="image"
+                                        v-if="userData.avatar"
+                                        :src="userData.avatar"
                                         alt="profile"
                                 >
-                                <div v-if="!image">{{value.name ? value.name[0] : value.email[0]}}</div>
+                                <div v-if="!userData.avatar">{{userData.name ? userData.name[0] : userData.email[0]}}</div>
                                 <div class="profile-avatar__change-btn">
                                     <span>Edit avatar</span>
                                 </div>

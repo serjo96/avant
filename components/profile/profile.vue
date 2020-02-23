@@ -26,9 +26,8 @@
 
                         <v-tab-item eager class="profile__tab-content">
                             <ProfileSettings
-                                    :uploadImg="uploadImg"
                                     :removeAvatar="removeAvatar"
-                                    :userData="user"
+                                    :userData="userFormatted"
                                     :setProfileData="setProfileData"
                             ></ProfileSettings>
                         </v-tab-item>
