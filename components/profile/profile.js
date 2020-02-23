@@ -13,26 +13,18 @@ import PasswordSettings from "~/components/password-settings/password-settings.v
 })
 class Profile extends Vue {
 	currentTab = 'profileSettings';
-	profileSettings = {
-		data: {
-			userID: '',
-			name: '',
-			email: '',
-			password: '',
-			sex: '',
-			birthdaydate: '',
-			profilepicture: '',
-			photos: {
-				profilePic: {
-					url: '',
-					description: null,
-					tags: null,
-					date: ''
-				}
-			}
-		},
-		handler: this.saveProfileSettings
-	};
+	// profileSettings = {
+	// 	data: {
+	// 		userID: '',
+	// 		name: '',
+	// 		email: '',
+	// 		password: '',
+	// 		sex: '',
+	// 		birthdaydate: '',
+	// 		avatar: ''
+	// 	},
+	// 	handler: this.saveProfileSettings
+	// };
 
 	passwordSettings = {
 		data: {
@@ -44,20 +36,23 @@ class Profile extends Vue {
 	};
 
 	@Prop(Boolean) value;
-	@Getter('authorization/userFormatted') userFormatted;
-	@Mutation('authorization/setUser') setUser;
+	@State(state => state.user.userData) user;
+	@Getter('user/userFormatted') userFormatted;
+	@Mutation('user/setUser') setUser;
+	@Mutation('user/setProfileData') setProfileData;
 
 	@Watch('userFormatted', {deep: true})
 	setProfileUser(val) {
 		const email = val.email;
 		this.passwordSettings.data = {...this.passwordSettings.data, email};
-		this.profileSettings.data = {...val};
+		this.profileSettings.data = {...val, avatar: val.photos.profilePic.url};
 	}
 
 	@Watch('menu')
 	menuWatch (val) {
 		val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'));
 	}
+
 
 
 	get dialogModal(){
@@ -77,7 +72,6 @@ class Profile extends Vue {
 			}
 		}
 		this.$emit('input', false);
-		// save data here
 	}
 
 	setCurrentTabName({target}) {

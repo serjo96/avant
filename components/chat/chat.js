@@ -9,7 +9,7 @@ import ChatFooter from "~/components/chat/chat-footer/chat-footer.vue";
 	components: { Message, ChatHeader, ChatFooter }
 })
 class Chat extends Vue {
-	@State(state => state.authorization.user) user;
+	@State(state => state.user.userData) user;
 	@State(state => state.chat.messages) messages;
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings) chatSettings;
