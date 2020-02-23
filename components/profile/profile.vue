@@ -28,7 +28,8 @@
                             <ProfileSettings
                                     :uploadImg="uploadImg"
                                     :removeAvatar="removeAvatar"
-                                    v-model="profileSettings.data"
+                                    :userData="user"
+                                    :setProfileData="setProfileData"
                             ></ProfileSettings>
                         </v-tab-item>
 
