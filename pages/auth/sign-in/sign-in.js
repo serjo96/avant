@@ -24,7 +24,7 @@ class SignIn extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
     @Mutation('authorization/setResponseMessage') setResponseMessage;
-    @Mutation('authorization/setUser') setUser;
+    @Mutation('user/setUser') setUser;
 
     get formValidate(){
         return this.$refs.form.validate()
