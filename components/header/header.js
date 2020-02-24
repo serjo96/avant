@@ -10,11 +10,12 @@ import {API_PATH} from "../../core/config";
 	}
 })
 class Header extends Vue {
-	isAuthenticated = this.$auth.loggedIn;
-	mobileNav = false;
 	@Prop(Function) onShowProfileSettings;
 	@State(state => state.user.userData) user;
 	@Mutation('authorization/logout') logout;
+	isAuthenticated = this.$store.state.user.userData.userID;
+	mobileNav = false;
+
 
 	toggleNav() {
 		if (window.innerWidth <= 960) {
