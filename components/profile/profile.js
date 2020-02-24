@@ -62,8 +62,8 @@ class Profile extends Vue {
 			...this.user,
 			profilepicture: this.user.avatar,
 		};
-		profileData.remove('photos');
-		profileData.remove('avatar');
+		if(profileData.photos){ profileData.remove('photos') };
+		if(profileData.avatar){ profileData.remove('avatar') };
 		try {
 			const {data: {data}} = await this.$axios.post('/users/profile/update', profileData);
 			this.setUser(data.data);
