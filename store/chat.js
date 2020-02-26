@@ -1,6 +1,7 @@
-import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
-import mergeMessageArray from "../utils/mergeMessageArray";
-
+import {Module, VuexModule, Mutation, Action} from 'vuex-module-decorators';
+import { v4 } from 'uuid';
+import mergeMessageArray from "~/utils/mergeMessageArray";
+import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
 
 @Module({
 	stateFactory: true,
@@ -21,6 +22,17 @@ class Chat extends VuexModule {
 		options: [],
 	};
 
+	@Action
+	async getLocalHistory() {
+		const initialMessages = process.browser ? await getMessagesFromIndexDB() : null;
+		this.context.commit('setInitialMessages', initialMessages);
+	}
+
+	@Mutation
+	setInitialMessages(messages) {
+		this.messages = messages;
+	}
+
 
 	@Mutation
 	setMessages( { data: { messageData }, messagesLength = 1 }) {
@@ -31,11 +43,14 @@ class Chat extends VuexModule {
 			inputType: messageData.inputType,
 			options: messageData.options || []
 		};
+		setIndexDB( messageData.messages );
 	}
 
 	@Mutation
 	setUserMessage(message) {
+		let messagesArr = this.messages;
 		const userMessage = {
+			messageUID: v4(),
 			message,
 			messageType: 'incoming',
 			date: new Date().toISOString()
@@ -45,7 +60,7 @@ class Chat extends VuexModule {
 			isLoading: true,
 			date: new Date().toISOString()
 		};
-		let messagesArr = this.messages;
+		setIndexDB([userMessage]);
 
 		messagesArr.push(userMessage);
 		messagesArr.push(fakeMessage);
