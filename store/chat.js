@@ -1,4 +1,4 @@
-import {Module, VuexModule, Mutation, Action} from 'vuex-module-decorators';
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { v4 } from 'uuid';
 import mergeMessageArray from "~/utils/mergeMessageArray";
 import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
@@ -25,7 +25,9 @@ class Chat extends VuexModule {
 	@Action
 	async getLocalHistory() {
 		const initialMessages = process.browser ? await getMessagesFromIndexDB() : null;
-		this.context.commit('setInitialMessages', initialMessages);
+		if ( initialMessages ) {
+			this.context.commit('setInitialMessages', initialMessages);
+		}
 	}
 
 	@Mutation
@@ -35,7 +37,7 @@ class Chat extends VuexModule {
 
 
 	@Mutation
-	setMessages( { data: { messageData }, messagesLength = 1 }) {
+	async setMessages( { data: { messageData }, messagesLength = 1 }) {
 		this.messages = mergeMessageArray(this.messages, messageData.messages, messagesLength);
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
@@ -43,17 +45,18 @@ class Chat extends VuexModule {
 			inputType: messageData.inputType,
 			options: messageData.options || []
 		};
-		setIndexDB( messageData.messages );
+		await setIndexDB( messageData.messages );
 	}
 
 	@Mutation
-	setUserMessage(message) {
+	async setUserMessage({ message, userID}) {
 		let messagesArr = this.messages;
 		const userMessage = {
 			messageUID: v4(),
 			message,
 			messageType: 'incoming',
-			date: new Date().toISOString()
+			date: new Date().toISOString(),
+			userID: userID
 		};
 		const fakeMessage = {
 			message: '',
@@ -79,6 +82,28 @@ class Chat extends VuexModule {
 		this.messages = messagesArr;
 	}
 
+
+	get formattedMessages() {
+		const messagesLength = this.messages.length - 1;
+		return this.messages.reduce((acc, next, index) => {
+			let nextElement = next;
+			let lastElement = acc[ acc.length - 1 ];
+
+			if ( acc.length && lastElement.userID === next.userID ) {
+				lastElement.isGroup = true;
+			}
+			if ( messagesLength === index ) {
+				nextElement = { ...nextElement, isGroup: false }
+			}
+			//
+			// if ( acc.length && lastElement.userID !== next.userID ) {
+			// 	nextElement = { ...nextElement, isGroup: false }
+			// }
+
+			acc.push(nextElement);
+			return acc;
+		}, []);
+	}
 
 }
 

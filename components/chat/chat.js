@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Component, {Getter, Mutation, State} from 'nuxt-class-component';
+import Component, {Getter, Mutation, State, Action} from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import ChatHeader from "~/components/chat/chat-header/chat-header.vue";
 import ChatFooter from "~/components/chat/chat-footer/chat-footer.vue";
@@ -14,6 +14,8 @@ class Chat extends Vue {
 	@State(state => state.chat.questionType) questionType;
 	@State(state => state.chat.chatSettings) chatSettings;
 	@Getter('global/getPageHeight') getPageHeight;
+	@Getter('chat/formattedMessages') formattedMessages;
+	@Action('chat/getLocalHistory') getLocalHistory;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
@@ -25,8 +27,10 @@ class Chat extends Vue {
 		});
 	}
 
+
+
 	async mounted() {
-		const messagesLength = this.messages.length;
+		this.getLocalHistory();
 		const {data: { data }} = await this.initChat();
 		this.setMessages({ data });
 	}
@@ -40,14 +44,14 @@ class Chat extends Vue {
 		this.lastMessages = newMessages;
 	}
 
-	async sendMessage(userMessage) {
+	async sendMessage(message) {
 		try {
-			this.setUserMessage(userMessage);
-			this.setLastMessages(userMessage);
+			this.setUserMessage({message, userID: this.user.userID});
+			this.setLastMessages(message);
 			this.scrollToBottom();
 			const messagesLength = this.messages.length;
 			const { data: { data } } = await this.$axios.post('/chat/send-message', {
-				message: userMessage,
+				message: message,
 				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
 				userID: this.user.userID
@@ -76,7 +80,7 @@ class Chat extends Vue {
 
 	onBackMessage() {
 		let lastMessage = '';
-		for (let i = this.messages.length-1; i >= 0; --i) {
+		for (let i = this.messages.length - 1; i >= 0; --i) {
 			const message = this.messages[i];
 			let count = 0;
 
