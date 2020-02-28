@@ -1,16 +1,11 @@
 import { openDB } from 'idb';
 
 export const setIndexDB = async (messagesArr) =>  {
-	if (process.server) return;
-	if (!('indexedDB' in window)) {
-		console.warn('IndexedDB not supported');
-		return;
-	}
-
 	try {
-		const db = await openDB('chat', 1, {
-			upgrade(db) {
-				// Create a store of objects
+		const db = await openDB('Chat', 1, {
+		upgrade(db) {
+			console.log(22);
+			// Create a store of objects
 				const store = db.createObjectStore('messages', {
 					// The 'id' property of the object will be the key.
 					keyPath: 'id',
@@ -20,18 +15,26 @@ export const setIndexDB = async (messagesArr) =>  {
 				// Create an index on the 'date' property of the objects.
 				store.createIndex('date', 'date');
 			},
+			blocked(arg) {
+				console.log(arg);
+			},
+			blocking(arg) {
+				console.log(arg);
+			},
+			terminated(arg) {
+				console.log(arg);
+			},
 		});
 
 		// Add an article:
-		messagesArr.forEach(message => {
+
+		for (const message of messagesArr) {
 			const date = new Date(message.date);
-			db.add('messages', { ...message, date});
-		});
-
-
+			await db.add('messages', { ...message, date});
+		}
 
 		// Get all the articles in date order:
-		// console.log(await db.getAllFromIndex('messages', 'date'));
+		console.log(await db.getAllFromIndex('messages', 'date'));
 
 
 	} catch (e) {
@@ -42,7 +45,7 @@ export const setIndexDB = async (messagesArr) =>  {
 
 export const getMessagesFromIndexDB = async () => {
 	try {
-		const db = await openDB('chat', 1, );
+		const db = await openDB('Chat', 1, );
 		if( !db.objectStoreNames.length ) return null;
 		return await db.getAllFromIndex('messages', 'date');
 	} catch (e) {

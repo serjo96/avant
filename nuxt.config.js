@@ -2,6 +2,7 @@ import {API_PATH} from "./core/config";
 
 module.exports = {
   server: {
+    host: '0.0.0.0', // default: localhost
     port: 8080,
   },
   modules: [
@@ -61,7 +62,7 @@ module.exports = {
       }
     },
   },
-  plugins: ['@/plugins/my-components', '@/plugins/vue-fragment', { src: '@/plugins/auth',  mode: 'client' }],
+  plugins: ['@/plugins/my-components', '@/plugins/vue-fragment', { src: '@/plugins/auth',  mode: 'client' }, { src: '@/plugins/initIndexDB',  mode: 'client' }],
   /*
   ** Customize the progress bar color
   */
