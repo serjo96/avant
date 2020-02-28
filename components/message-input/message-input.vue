@@ -106,8 +106,6 @@
                         :items="options"
                         solo
                         dense
-                        chips
-                        small-chips
                         multiple
                         deletable-chips
                         hint="Please click on the input field, select your symptoms and press the send button"
