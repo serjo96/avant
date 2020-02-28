@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
 import { Prop } from "vue-property-decorator";
-import TypingSpinner from "~/components/typing-spinner/typing-spinner.vue";
-import { dateHelper } from '~/helpers/dateHelper.js';
 import avatar from '~/assets/doctor_yellow.svg';
+import { dateHelper } from '~/helpers/dateHelper.js';
+import TypingSpinner from "~/components/typing-spinner/typing-spinner.vue";
 
 
 @Component({
@@ -12,11 +12,10 @@ import avatar from '~/assets/doctor_yellow.svg';
 class Message extends Vue {
 	avatar = avatar;
 	@Prop(String) messageType;
-	@Prop(Boolean) messageGroup;
-	@Prop(Boolean) isLoading;
-	@Prop(String) messageDate;
-	@Prop([ String, Object ]) messageData;
 	@Prop(Boolean) groupMessage;
+	@Prop(Boolean) isLoading;
+	@Prop([ String, Date ]) messageDate;
+	@Prop([ String, Object ]) messageData;
 	collapse = true;
 
 	get transformDate () {
@@ -42,7 +41,7 @@ class Message extends Vue {
 			'message',
 			messageType,
 			{
-				'message--group': this.messageGroup
+				'message--group': this.groupMessage
 			},
 		]
 	}

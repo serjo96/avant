@@ -37,7 +37,12 @@
 
   &--group {
     .message-info {
-      visibility: hidden
+      &__avatar-wrapper {
+        display: none
+      }
+      &__time {
+        bottom: 3px
+      }
     }
     .message__body {
       &:before {
@@ -123,10 +128,14 @@
 
   .message-info {
     justify-container: flex-end
-    visibility: hidden;
+    &__avatar-wrapper {
+      visibility: hidden
+    }
 
     &.visible {
-      visibility: visible;
+      .message-info__avatar-wrapper {
+        visibility: visible;
+      }
       + .message__body {
         &:before {
           opacity: 1;
