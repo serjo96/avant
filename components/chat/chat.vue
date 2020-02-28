@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="chat-body__wrapper" v-if="messages.length">
                     <Message
-                            v-for="(message, index) in messages"
-                            :key="index"
+                            v-for="message in formattedMessages"
+                            :key="message.messageUID"
                             :groupMessage="message.isGroup"
                             :messageDate="message.date"
                             :messageData="message"
