@@ -19,7 +19,7 @@
             </div>
         </div>
         <ChatFooter
-                :sendMessage="sendMessage"
+                :sendMessage="onSendMessage"
                 :inputType="chatSettings.inputType"
                 :options="chatSettings.options"
                 :onBackMessage="onBackMessage"

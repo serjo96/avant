@@ -1,8 +1,11 @@
 import Vue from 'vue';
-import Component, {Getter, Mutation, State, Action} from 'nuxt-class-component';
+import  {Getter, Mutation, State, Action} from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import ChatHeader from "~/components/chat/chat-header/chat-header.vue";
 import ChatFooter from "~/components/chat/chat-footer/chat-footer.vue";
+import {Watch} from "vue-property-decorator";
+import axios from 'axios';
+import Component from "vue-class-component";
 
 
 @Component({
@@ -16,23 +19,23 @@ class Chat extends Vue {
 	@Getter('global/getPageHeight') getPageHeight;
 	@Getter('chat/formattedMessages') formattedMessages;
 	@Action('chat/getLocalHistory') getLocalHistory;
+	@Action('chat/sendMessage') sendMessage;
+	@Action('chat/initChat') initChat;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
 	lastMessages = [];
 
-	initChat() {
-		return this.$axios.post('/chat/init', {
-			userID: this.user.userID,
-		});
+
+	@Watch('messages')
+	onWatchMessages() {
+		this.scrollToBottom();
 	}
 
 
-
 	async mounted() {
-		this.getLocalHistory();
-		const {data: { data }} = await this.initChat();
-		this.setMessages({ data });
+		await this.getLocalHistory();
+		await this.initChat(this.user.userID);
 	}
 
 	setLastMessages(message) {
@@ -44,19 +47,17 @@ class Chat extends Vue {
 		this.lastMessages = newMessages;
 	}
 
-	async sendMessage(message) {
+	onSendMessage(message) {
 		try {
 			this.setUserMessage({message, userID: this.user.userID});
 			this.setLastMessages(message);
 			this.scrollToBottom();
-			const messagesLength = this.messages.length;
-			const { data: { data } } = await this.$axios.post('/chat/send-message', {
-				message: message,
+			this.sendMessage({
+				message,
 				chatSessionID: this.chatSettings.chatSessionID,
 				questionType: this.questionType,
 				userID: this.user.userID
-			});
-			this.setMessages({ data, messagesLength });
+			})
 		} catch (error) {
 			console.log(error)
 		} finally {
@@ -94,7 +95,7 @@ class Chat extends Vue {
 		}
 
 		if ( lastMessage ) {
-			this.sendMessage(lastMessage.message);
+			this.onSendMessage(lastMessage.message);
 		}
 	}
 
@@ -105,10 +106,8 @@ class Chat extends Vue {
 	async restartChat() {
 		this.setFakeIncomingMessage();
 		this.scrollToBottom();
-		const messagesLength = this.messages.length;
 		try {
-			const {data: { data }} = await this.initChat();
-			this.setMessages({ data, messagesLength })
+			await this.initChat(this.user.userID);
 		} catch (e) {
 			console.log(e)
 		} finally {

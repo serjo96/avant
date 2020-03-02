@@ -2,6 +2,7 @@ import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { v4 } from 'uuid';
 import mergeMessageArray from "~/utils/mergeMessageArray";
 import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
+import axios from 'axios';
 
 @Module({
 	stateFactory: true,
@@ -23,11 +24,34 @@ class Chat extends VuexModule {
 	};
 
 	@Action
+	async initChat(userID) {
+		const { data } =  await axios.post('/chat/init', {
+			userID,
+		});
+
+		const messageData = data.data.messageData;
+		this.context.commit('setMessages', { messageData })
+	}
+
+	@Action
 	async getLocalHistory() {
 		const initialMessages = process.browser ? await getMessagesFromIndexDB() : null;
 		if ( initialMessages ) {
 			this.context.commit('setInitialMessages', initialMessages);
 		}
+	}
+
+	@Action
+	async sendMessage({message, chatSessionID,questionType, userID }){
+		const messagesLength = this.messages.length;
+		const { data } = await axios.post('/chat/send-message', {
+			message: message,
+			chatSessionID,
+			questionType,
+			userID
+		});
+		const messageData = data.data.messageData;
+		this.context.commit('setMessages', {messageData , messagesLength })
 	}
 
 	@Mutation
@@ -37,8 +61,9 @@ class Chat extends VuexModule {
 
 
 	@Mutation
-	async setMessages( { data: { messageData }, messagesLength = 1 }) {
-		this.messages = mergeMessageArray(this.messages, messageData.messages, messagesLength);
+	async setMessages({ messageData , messagesLength = 1 }) {
+		const newArr = mergeMessageArray(this.messages, messageData.messages, messagesLength);
+		this.messages = newArr;
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
 			chatSessionID: messageData.chatSessionID,
