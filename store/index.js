@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, { Module } from 'vuex';
+import Vuex from 'vuex';
 import Authorization from './authorization';
 import Global from './global';
 import Chat from './chat';
