@@ -1,8 +1,9 @@
 export default (mainArr, mergeArr, mainArrLength) => {
 	let messageArr = mainArr;
+	const arrayMerge = mergeArr.concat();
 	const lastMessage = mainArrLength - 1;
-	let mergeMessagesArr = mergeArr.splice(1, mergeArr.length);
-	messageArr[lastMessage] = mergeArr[0];
+	let mergeMessagesArr = arrayMerge.splice(1, arrayMerge.length);
+	messageArr[lastMessage] = arrayMerge[0];
 
 	return [...messageArr, ...mergeMessagesArr]
 }
