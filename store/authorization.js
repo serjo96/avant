@@ -1,5 +1,6 @@
-import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
-import { removeUser } from "../utils/auth";
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+import axios from "axios";
+import { removeUser, setToken } from "~/utils/auth";
 
 
 @Module({
@@ -39,7 +40,58 @@ class Authorization extends VuexModule {
 
 	@Mutation
 	logout() {
-		removeUser()
+		delete axios.defaults.headers.common['Authorization'];
+		removeUser();
+	}
+
+	@Action
+	async login( { data: { email, password }, methods }) {
+		try {
+			const {data: { data }}  = await axios.post('/auth/email/login', {
+				email,
+				password
+			});
+			// setToken(data.token.access_token);
+			methods.auth.setToken('local', 'Bearer ' + data.token.access_token);
+			methods.auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + data.token.access_token);
+			axios.defaults.headers.common['Authorization'] =  'Bearer ' + data.token.access_token;
+			await methods.auth.loginWith('local', {
+				data: {
+					email,
+					password,
+				}
+			});
+			this.context.commit('user/setUser', data.user, { root: true });
+			// this.$router.push('/');
+			if (methods.auth.loggedIn) {
+				console.log('Successfully Logged In')
+			}
+		} catch ({response: {data}}) {
+			this.context.commit('setResponseMessage', data.error);
+		}
+	}
+
+
+	@Action
+	async signUp({ data , methods }) {
+		try {
+			const response = await axios.post('/auth/email/register', {
+				birthdaydate: new Date(data.birthdaydate),
+				...data
+			});
+			this.context.commit('setResponseMessage', response);
+			methods.router.push('/auth/sign-in');
+		} catch ({response: {data}}) {
+			this.context.commit('setResponseMessage', data.error);
+		}
+
+	}
+
+	@Action
+	async resentConfirm() {
+		await axios.post('/auth/email/register', {
+			...this.registerData
+		});
 	}
 
 }
