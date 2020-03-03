@@ -1,11 +1,10 @@
 import Vue from 'vue';
-import Component, {State} from 'nuxt-class-component';
-import { Watch } from 'vue-property-decorator';
-// import { Getter } from 'vuex-class';
+import Component, { State } from 'nuxt-class-component';
 
 
 @Component({
-	layout: 'authLayout'
+	layout: 'authLayout',
+	middleware: 'anonymous'
 })
 class Auth extends Vue {
 	@State(state => state.authorization.responseMessage) responseMessage;
