@@ -34,7 +34,7 @@ export const setIndexDB = async (messagesArr) =>  {
 		}
 
 		// Get all the articles in date order:
-		console.log(await db.getAllFromIndex('messages', 'date'));
+		// console.log(await db.getAllFromIndex('messages', 'date'));
 
 
 	} catch (e) {
