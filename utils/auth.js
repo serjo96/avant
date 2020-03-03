@@ -19,9 +19,9 @@ export const extractInfoFromHash = () => {
 }
 
 export const setToken = (token) => {
-	if (process.server) return
-	window.localStorage.setItem('token', token)
-	window.localStorage.setItem('user', JSON.stringify(jwtDecode(token)))
+	if (process.server) return;
+	window.localStorage.setItem('token', `Bearer ${token}`);
+	// window.localStorage.setItem('user', JSON.stringify(jwtDecode(token)))
 	Cookie.set('jwt', token)
 };
 
