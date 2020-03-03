@@ -5,7 +5,7 @@ import Chat from "~/components/chat/chat.vue";
 
 @Component({
 	components: { Chat },
-	middleware: 'authenticated',
+	middleware: ['auth'],
 	layout: 'chatLayout'
 })
 class ChatPage extends Vue {
