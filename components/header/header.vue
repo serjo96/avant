@@ -18,112 +18,112 @@
                        </NuxtLink>
                    </div>
 
+                   <client-only>
+                       <NavMenu
+                               :isAuthenticated="isAuthenticated"
+                               :toggleNav="toggleNav"
+                               :mobileNav="mobileNav"></NavMenu>
 
-                   <NavMenu
-                           :toggleNav="toggleNav"
-                           :mobileNav="mobileNav"></NavMenu>
+                       <nav class="user-nav">
+                               <span
+                                       class="user-nav__item user-nav__item--auth"
+                                       v-if="!isAuthenticated"
+                               >
+                                   <v-btn
+                                           class="header__link"
+                                           color="light-blue lighten-1"
+                                           nuxt
+                                           tile
+                                           outlined
+                                           depressed
+                                           to="auth/sign-in"
+                                   >
+                                       Sign in
+                                   </v-btn>
+                               </span>
 
-                   <nav class="user-nav">
-                       <client-only>
-                           <span
-                                   class="user-nav__item user-nav__item--auth"
-                                   v-if="!isAuthenticated"
-                           >
-                               <v-btn
+                               <span
+                                       class="user-nav__item user-nav__item--auth"
+                                       v-if="!isAuthenticated"
+                               >
+                                   <v-btn
                                        class="header__link"
                                        color="light-blue lighten-1"
                                        nuxt
                                        tile
                                        outlined
                                        depressed
-                                       to="auth/sign-in"
+                                       to="auth/sign-up"
+                                   >
+                                       Sign up
+                                   </v-btn>
+                               </span>
+
+                               <div class="user-nav__item user-nav__item--chat">
+                                   <v-btn
+                                           class="header__link"
+                                           color="light-blue lighten-1"
+                                           nuxt
+                                           tile
+                                           outlined
+                                           depressed
+                                           to="/chat"
+                                   >
+                                       Get started
+                                   </v-btn>
+                               </div>
+
+                               <span
+                                       v-if="isAuthenticated"
+                                       class="user-nav__item"
                                >
-                                   Sign in
-                               </v-btn>
-                           </span>
+                                    <v-menu
+                                            offset-y
+                                            left
+                                            nudge-bottom="20"
+                                    >
+                                        <template v-slot:activator="{ on }">
+                                           <v-btn
+                                                   class="header__link white--text"
+                                                   color="transparent"
+                                                   fab
+                                                   small
+                                                   depressed
+                                                   v-on="on"
+                                           >
+                                               <v-icon>mdi-account</v-icon>
+                                           </v-btn>
+                                        </template>
+                                    <v-list class="drop-down-nav">
+                                        <v-list-item>
+                                            <v-list-item-avatar
+                                                    class="avatar"
+                                                    v-if="user.userID">
+                                                <v-img v-if="user.avatar" :src="user.avatar"></v-img>
+                                                 <div class="avatar__text" v-if="!user.avatar">
+                                                     <span>{{userLogin[0]}}</span>
+                                                 </div>
+                                            </v-list-item-avatar>
 
-                           <span
-                                   class="user-nav__item user-nav__item--auth"
-                                   v-if="!isAuthenticated"
-                           >
-                               <v-btn
-                                   class="header__link"
-                                   color="light-blue lighten-1"
-                                   nuxt
-                                   tile
-                                   outlined
-                                   depressed
-                                   to="auth/sign-up"
-                               >
-                                   Sign up
-                               </v-btn>
-                           </span>
-
-                           <div class="user-nav__item user-nav__item--chat">
-                               <v-btn
-                                       class="header__link"
-                                       color="light-blue lighten-1"
-                                       nuxt
-                                       tile
-                                       outlined
-                                       depressed
-                                       to="/chat"
-                               >
-                                   Get started
-                               </v-btn>
-                           </div>
-
-                           <span
-                                   v-if="isAuthenticated"
-                                   class="user-nav__item"
-                           >
-                                <v-menu
-                                        offset-y
-                                        left
-                                        nudge-bottom="20"
-                                >
-                                    <template v-slot:activator="{ on }">
-                                       <v-btn
-                                               class="header__link white--text"
-                                               color="transparent"
-                                               fab
-                                               small
-                                               depressed
-                                               v-on="on"
-                                       >
-                                           <v-icon>mdi-account</v-icon>
-                                       </v-btn>
-                                    </template>
-                                <v-list class="drop-down-nav">
-                                    <v-list-item>
-                                        <v-list-item-avatar
-                                                class="avatar"
-                                                v-if="user.userID">
-                                            <v-img v-if="user.avatar" :src="user.avatar"></v-img>
-                                             <div class="avatar__text" v-if="!user.avatar">
-                                                 <span>{{userLogin[0]}}</span>
-                                             </div>
-                                        </v-list-item-avatar>
-
-                                        <v-list-item-content>
-                                            <v-list-item-title v-html="userLogin"></v-list-item-title>
-                                        </v-list-item-content>
-                                    </v-list-item>
+                                            <v-list-item-content>
+                                                <v-list-item-title v-html="userLogin"></v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
 
 
-                                    <v-list-item @click="onShowProfileSettings">
-                                        <v-list-item-title>Profile</v-list-item-title>
-                                    </v-list-item>
-                                    <v-list-item @click="logOut">
-                                        <v-list-item-title>Logout</v-list-item-title>
-                                    </v-list-item>
+                                        <v-list-item @click="onShowProfileSettings">
+                                            <v-list-item-title>Profile</v-list-item-title>
+                                        </v-list-item>
+                                        <v-list-item @click="logOut">
+                                            <v-list-item-title>Logout</v-list-item-title>
+                                        </v-list-item>
 
-                                  </v-list>
-                                </v-menu>
+                                      </v-list>
+                                    </v-menu>
 
-                           </span>
-                       </client-only>
-                   </nav>
+                               </span>
+                       </nav>
+                   </client-only>
                </div>
             </div>
     </header>

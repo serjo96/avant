@@ -7,7 +7,7 @@ import { Prop } from 'vue-property-decorator';
 	layout: 'authLayout'
 })
 class NavMenu extends Vue {
-	isAuthenticated = this.$auth.loggedIn;
+	@Prop(Boolean) isAuthenticated;
 	@Prop(Boolean) mobileNav;
 	@Prop(Function) toggleNav;
 
