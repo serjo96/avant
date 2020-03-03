@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Component, {State} from 'nuxt-class-component';
-import {Prop, Watch} from 'vue-property-decorator'
+import Component from 'nuxt-class-component';
+import { Prop, Watch } from 'vue-property-decorator'
 import { Action, Mutation } from 'vuex-class';
 
 
@@ -28,6 +28,7 @@ class SignUp extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
     @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Action('authorization/signUp') signUp;
 
     @Watch('menu')
     menuWatch (val) {
@@ -40,7 +41,12 @@ class SignUp extends Vue {
 
     async onSubmit(){
         if ( this.$refs.form.validate() ) {
-            await this.register();
+            await this.signUp({
+                data: this.registerData,
+                methods: {
+                    router: this.$router
+                }
+            });
         }
     }
 
@@ -96,26 +102,26 @@ class SignUp extends Vue {
         return ['darken-4 red', 'error', 'darken-4 lime', 'warning', 'success'][this.progressText()]
     }
 
-    async register() {
-        try {
-            const response = await this.$axios.post('/auth/email/register', {
-                birthdaydate: new Date(this.registerData.birthdaydate),
-                ...this.registerData
-            });
-
-            this.setResponseMessage(response);
-            // await this.$auth.loginWith('local', {
-            //     data: {
-            //         email: this.email,
-            //         password: this.password
-            //     },
-            // });
-
-            this.$router.push('/auth/sign-in');
-        } catch ({response: {data}}) {
-            this.setResponseMessage(data.error);
-        }
-    }
+//     async register() {
+//         try {
+//             const response = await this.$axios.post('/auth/email/register', {
+//                 birthdaydate: new Date(this.registerData.birthdaydate),
+//                 ...this.registerData
+//             });
+//
+//             this.setResponseMessage(response);
+//             // await this.$auth.loginWith('local', {
+//             //     data: {
+//             //         email: this.email,
+//             //         password: this.password
+//             //     },
+//             // });
+//
+//             this.$router.push('/auth/sign-in');
+//         } catch ({response: {data}}) {
+//             this.setResponseMessage(data.error);
+//         }
+//     }
 }
 
 export default SignUp;
