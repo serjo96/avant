@@ -52,6 +52,12 @@ module.exports = {
     baseURL: API_PATH
   },
   auth: {
+    redirect: {
+      login: '/auth/sign-in',
+      logout: '/',
+      callback: '/auth/sign-in',
+      home: '/'
+    },
     strategies: {
       local: {
         endpoints: {
