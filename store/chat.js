@@ -28,10 +28,11 @@ class Chat extends VuexModule {
 		const { data } = await axios.post('/chat/init', {
 			userID,
 		});
-
+		const messagesLength = this.messages.length;
 		const messageData = data.data.messageData;
-		this.context.commit('setMessages', { messageData })
+		this.context.commit('setMessages', { messageData, messagesLength })
 	}
+
 
 	@Action
 	async getLocalHistory() {
@@ -63,6 +64,7 @@ class Chat extends VuexModule {
 	@Mutation
 	async setMessages({ messageData , messagesLength = 1 }) {
 		const newArr = mergeMessageArray(this.messages, messageData.messages, messagesLength);
+		console.log(newArr);
 		this.messages = newArr;
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
