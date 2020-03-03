@@ -25,7 +25,7 @@ class Chat extends VuexModule {
 
 	@Action
 	async initChat(userID) {
-		const { data } =  await axios.post('/chat/init', {
+		const { data } = await axios.post('/chat/init', {
 			userID,
 		});
 
