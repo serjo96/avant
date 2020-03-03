@@ -13,7 +13,7 @@
             <v-form
                     ref="form"
                     v-model="valid"
-                    @keyup.native.enter="login"
+                    @keyup.native.enter="onLogin"
             >
                 <div class="login__inputs">
                     <div class="login__input">
@@ -47,7 +47,7 @@
                 </div>
 
                 <v-btn
-                        @click="login"
+                        @click="onLogin"
                         color="light-blue darken-1"
                         class="login__button white--text"
                         block

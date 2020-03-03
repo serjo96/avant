@@ -9,7 +9,10 @@ import { Action, Mutation } from 'vuex-class';
     middleware: 'anonymous',
 })
 class SignIn extends Vue {
+    email = '';
+    password = '';
     valid = true;
+    showPassword = false;
     emailRules = [
         v => !!v || 'E-mail is required',
         v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
@@ -17,48 +20,29 @@ class SignIn extends Vue {
     passwordRules = {
         required: value => !!value || 'Required.',
     };
-    showPassword = false;
-    email = '';
-    password = '';
 
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
-    @Mutation('authorization/setResponseMessage') setResponseMessage;
-    @Mutation('user/setUser') setUser;
+    @Action('authorization/login') login;
 
     get formValidate(){
         return this.$refs.form.validate()
     }
 
-
-    async login() {
-        if (this.formValidate) {
-
-            try {
-                await this.$auth.loginWith('local', {
-                    data: {
-                        "email": this.email,
-                        "password": this.password
-                    }
-                });
-
-                const {data: {data}}  = await this.$axios.post('/auth/email/login', {
+    async onLogin() {
+        try {
+            await this.login({
+                data : {
                     email: this.email,
                     password: this.password
-                });
-
-				this.$auth.setToken('local', 'Bearer ' + data.token.access_token);
-				// this.$auth.setRefreshToken('local', data.refresh_token);
-				this.$axios.setHeader('Authorization', 'Bearer ' + data.token.access_token);
-				this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + data.token.access_token);
-                this.setUser(data.user);
-				// this.$router.push('/');
-                if (this.$auth.loggedIn) {
-                    console.log('Successfully Logged In')
+                },
+                methods: {
+                    auth: this.$auth,
+                    router: this.$router
                 }
-            } catch ({response: {data}}) {
-                this.setResponseMessage(data.error);
-            }
+            });
+        } catch (e) {
+            console.error(e);
         }
     }
 
