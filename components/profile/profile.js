@@ -62,7 +62,7 @@ class Profile extends Vue {
 			...this.user,
 			profilepicture: this.user.avatar,
 		};
-		console.log(profileData.photos);
+
 		if(profileData.photos){ delete profileData.hotos };
 		if(profileData.avatar){ delete profileData.avatar };
 		try {
