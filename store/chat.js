@@ -64,7 +64,6 @@ class Chat extends VuexModule {
 	@Mutation
 	async setMessages({ messageData , messagesLength = 1 }) {
 		const newArr = mergeMessageArray(this.messages, messageData.messages, messagesLength);
-		console.log(newArr);
 		this.messages = newArr;
 		this.questionType = messageData.questionType;
 		this.chatSettings = {
