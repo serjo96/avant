@@ -6,7 +6,7 @@ import { Prop } from "vue-property-decorator";
 @Component({
 })
 class MessageInput extends Vue {
-	@Prop({ default: 'input'}) inputType;
+	@Prop({ default: 'field'}) inputType;
 	@Prop(Function) sendMessage;
 	@Prop(Function) onBackMessage;
 	@Prop(Array) options;
@@ -15,7 +15,21 @@ class MessageInput extends Vue {
 	date = '';
 	menu = false;
 	selectedItems = [];
-
+	symptomsAutocomplete = false;
+	fieldsProps = {
+		field: {
+			headerText: '',
+		},
+		button: {
+			headerText: 'Choose an option'
+		},
+		autocompite: {
+			headerText: 'Click here to select your symptoms'
+		},
+		datepicker: {
+			headerText: 'Select your birthday'
+		}
+	};
 
 	save (date) {
 		this.$refs.menu.save(date);
@@ -58,6 +72,10 @@ class MessageInput extends Vue {
 	removeChip (item) {
 		const index = this.selectedItems.indexOf(item);
 		if (index >= 0) this.selectedItems.splice(index, 1)
+	}
+
+	get showAutocomplete() {
+		return this.inputType === 'autocompite';
 	}
 }
 
