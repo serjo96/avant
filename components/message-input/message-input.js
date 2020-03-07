@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
-import {Prop, Watch} from "vue-property-decorator";
+import { Prop } from "vue-property-decorator";
 
 
 @Component({
@@ -15,6 +15,7 @@ class MessageInput extends Vue {
 	date = '';
 	menu = false;
 	selectedItems = [];
+
 
 	save (date) {
 		this.$refs.menu.save(date);

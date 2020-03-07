@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component, {Getter, Mutation, State} from 'nuxt-class-component';
-import { Prop, Watch } from "vue-property-decorator";
+import { Prop } from "vue-property-decorator";
 import ProfileSettings from "~/components/profile-settings/profile-settings.vue";
 import PasswordSettings from "~/components/password-settings/password-settings.vue";
 
