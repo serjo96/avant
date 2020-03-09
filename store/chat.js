@@ -1,8 +1,8 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { v4 } from 'uuid';
-import mergeMessageArray from "~/utils/mergeMessageArray";
-import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
 import axios from 'axios';
+import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
+import mergeMessageArray from "~/utils/mergeMessageArray";
 
 @Module({
 	stateFactory: true,

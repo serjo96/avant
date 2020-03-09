@@ -1,6 +1,6 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import axios from "axios";
-import { removeUser, setToken } from "~/utils/auth";
+import { removeUser } from "~/utils/auth";
 
 
 @Module({
@@ -63,7 +63,7 @@ class Authorization extends VuexModule {
 			});
 
 			this.context.commit('user/setUser', data.user, { root: true });
-		} catch ({response: {data}}) {
+		} catch ({response: { data }}) {
 			this.context.commit('setResponseMessage', data.error);
 		}
 	}
@@ -78,16 +78,16 @@ class Authorization extends VuexModule {
 			});
 			this.context.commit('setResponseMessage', response);
 			methods.router.push('/auth/sign-in');
-		} catch ({response: {data}}) {
+		} catch ({response: { data }}) {
 			this.context.commit('setResponseMessage', data.error);
 		}
 
 	}
 
 	@Action
-	async resentConfirm() {
+	async resentConfirm(registerData) {
 		await axios.post('/auth/email/register', {
-			...this.registerData
+			registerData
 		});
 	}
 

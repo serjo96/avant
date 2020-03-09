@@ -49,7 +49,7 @@ class Chat extends Vue {
 
 	onSendMessage(message) {
 		try {
-			this.setUserMessage({message, userID: this.user.userID});
+			this.setUserMessage({ message, userID: this.user.userID });
 			this.setLastMessages(message);
 			this.scrollToBottom();
 			this.sendMessage({

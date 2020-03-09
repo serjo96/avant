@@ -21,14 +21,14 @@ class User extends VuexModule {
 
 	get userFormatted() {
 		const birthdaydate = this.userData.birthdaydate ? new Date(this.userData.birthdaydate).toISOString().substr(0, 10) : '';
-		return {...this.userData, birthdaydate};
+		return { ...this.userData, birthdaydate };
 	}
 
 
 	@Mutation
 	setUser(user) {
 		const avatar = user.photos.profilePic.url ? `${API_PATH}${user.photos.profilePic.url}` : '';
-		this.userData = {...user, avatar};
+		this.userData = { ...user, avatar };
 		setUser(user);
 	}
 
