@@ -9,6 +9,9 @@ import { Action, Mutation } from 'vuex-class';
     middleware: 'anonymous',
 })
 class SignIn extends Vue {
+    @Prop(Function) changeComponent;
+    @Prop() responseMessage;
+    @Action('authorization/login') login;
     email = '';
     password = '';
     valid = true;
@@ -21,9 +24,6 @@ class SignIn extends Vue {
         required: value => !!value || 'Required.',
     };
 
-    @Prop(Function) changeComponent;
-    @Prop() responseMessage;
-    @Action('authorization/login') login;
 
     get formValidate(){
         return this.$refs.form.validate()

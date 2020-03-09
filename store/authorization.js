@@ -20,6 +20,15 @@ class Authorization extends VuexModule {
 	}
 
 	@Mutation
+	clearResponseData() {
+		this.responseMessage = {
+			message: '',
+			status: false,
+			confirm: false
+		};
+	}
+
+	@Mutation
 	changeResetPasswordComponent(payload) {
 		if (payload) {
 			this.resetPasswordComponent = 'ChangePassword'
@@ -27,15 +36,6 @@ class Authorization extends VuexModule {
 			this.resetPasswordComponent = 'ResetPasswordEmail';
 		}
 
-	}
-
-	@Mutation
-	clearResponseData() {
-		this.responseMessage = {
-			message: '',
-			status: false,
-			confirm: false
-		};
 	}
 
 	@Mutation
@@ -82,6 +82,18 @@ class Authorization extends VuexModule {
 			this.context.commit('setResponseMessage', data.error);
 		}
 
+	}
+
+	@Action
+	async resetPassword({ data , methods }) {
+		try {
+			const res = await axios.get(`/auth/email/forgot-password/${data.email}`);
+			this.context.commit('setResponseMessage', res);
+			// methods.router.push('/auth/sign-in');
+		} catch ({response: { data }}) {
+			console.log(data)
+			this.context.commit('setResponseMessage', data.error);
+		}
 	}
 
 	@Action

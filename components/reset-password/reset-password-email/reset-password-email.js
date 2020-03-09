@@ -1,31 +1,36 @@
 import Vue from 'vue';
-import Component, { Mutation } from 'nuxt-class-component';
+import Component, { Mutation, Action } from 'nuxt-class-component';
+import { Prop } from "vue-property-decorator";
 
 
 @Component({})
 class ResetPasswordEmail extends Vue {
+	@Mutation('authorization/setResponseMessage') setResponseMessage;
+	@Mutation('authorization/clearResponseData') clearResponseData;
+	@Action('authorization/resetPassword') resetPassword;
+	@Prop() responseMessage;
 	emailRules =  [
 			v => !!v || 'E-mail is required',
 			v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
 	];
 	email = '';
 	valid = true;
-	@Mutation('authorization/setResponseMessage') setResponseMessage;
 
 
 	get formValidate(){
-		return this.$refs.form .validate();
+		return this.$refs.form.validate();
 	}
 
 	async onSubmit(){
 		if(this.formValidate){
-			try {
-				const res = await this.$axios.get(`/auth/email/forgot-password/${this.email}`);
-				this.setResponseMessage(res);
-				this.$router.push('/auth/sign-in');
-			} catch ({response: {data}}) {
-				this.setResponseMessage(data.error);
-			}
+			this.resetPassword({
+				data: {
+					email: this.email
+				},
+				methods: {
+					router: this.$router
+				}
+			})
 		}
 	}
 }

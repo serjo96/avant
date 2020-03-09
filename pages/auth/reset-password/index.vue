@@ -4,6 +4,7 @@
             <div class="reset-password__title">Reset password</div>
             <component
                     :is="resetPasswordComponent"
+                    :responseMessage="responseMessage"
             ></component>
             <v-btn
                     class="reset-password__buck-navigate white--text"
