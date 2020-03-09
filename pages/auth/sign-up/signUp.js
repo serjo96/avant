@@ -6,6 +6,10 @@ import { Action, Mutation } from 'vuex-class';
 
 @Component({})
 class SignUp extends Vue {
+    @Prop(Function) changeComponent;
+    @Prop() responseMessage;
+    @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Action('authorization/signUp') signUp;
     registerData = {
         email: '',
         password: '',
@@ -20,15 +24,11 @@ class SignUp extends Vue {
         v => !!v || 'E-mail is required',
         v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
     ];
+
     passwordRules = {
         required: value => !!value || 'Required.',
         min: v => v.length >= 6 || 'Min 6 characters',
     };
-
-    @Prop(Function) changeComponent;
-    @Prop() responseMessage;
-    @Mutation('authorization/setResponseMessage') setResponseMessage;
-    @Action('authorization/signUp') signUp;
 
     @Watch('menu')
     menuWatch (val) {
@@ -102,26 +102,6 @@ class SignUp extends Vue {
         return ['darken-4 red', 'error', 'darken-4 lime', 'warning', 'success'][this.progressText()]
     }
 
-//     async register() {
-//         try {
-//             const response = await this.$axios.post('/auth/email/register', {
-//                 birthdaydate: new Date(this.registerData.birthdaydate),
-//                 ...this.registerData
-//             });
-//
-//             this.setResponseMessage(response);
-//             // await this.$auth.loginWith('local', {
-//             //     data: {
-//             //         email: this.email,
-//             //         password: this.password
-//             //     },
-//             // });
-//
-//             this.$router.push('/auth/sign-in');
-//         } catch ({response: {data}}) {
-//             this.setResponseMessage(data.error);
-//         }
-//     }
 }
 
 export default SignUp;
