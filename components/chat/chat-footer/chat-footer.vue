@@ -4,6 +4,8 @@
             <div class="chat-footer__container">
                 <MessageInput
                         :sendMessage="sendMessage"
+                        :setQuestionType="setQuestionType"
+                        :questionType="questionType"
                         :inputType="inputType"
                         :options="options"
                         :onBackMessage="onBackMessage"

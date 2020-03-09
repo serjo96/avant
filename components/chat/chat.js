@@ -24,6 +24,7 @@ class Chat extends Vue {
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
+	@Mutation('chat/setQuestionType') setQuestionType;
 	lastMessages = [];
 
 

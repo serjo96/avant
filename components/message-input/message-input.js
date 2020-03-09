@@ -7,8 +7,10 @@ import { Prop } from "vue-property-decorator";
 })
 class MessageInput extends Vue {
 	@Prop({ default: 'field'}) inputType;
+	@Prop(String) questionType;
 	@Prop(Function) sendMessage;
 	@Prop(Function) onBackMessage;
+	@Prop(Function) setQuestionType;
 	@Prop(Array) options;
 	@Prop(Number) counterUserMessages;
 	messageInput = '';
@@ -59,6 +61,7 @@ class MessageInput extends Vue {
 			const messageToString = this.selectedItems.join(', ');
 			this.$refs.chatAutocomplete.blur();
 			this.selectedItems = [];
+			this.setQuestionType(`${this.questionType}_list`);
 			this.sendMessage(messageToString);
 		}
 	}

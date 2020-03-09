@@ -20,7 +20,9 @@
         </div>
         <ChatFooter
                 :sendMessage="onSendMessage"
+                :setQuestionType="setQuestionType"
                 :inputType="chatSettings.inputType"
+                :questionType="questionType"
                 :options="chatSettings.options"
                 :onBackMessage="onBackMessage"
                 :counterUserMessages="counterUserMessages"

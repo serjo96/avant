@@ -9,7 +9,9 @@ import {Prop} from "vue-property-decorator";
 })
 class ChatFooter extends Vue {
 	@Prop(String) inputType;
+	@Prop(String) questionType;
 	@Prop(Function) sendMessage;
+	@Prop(Function) setQuestionType;
 	@Prop(Function) onBackMessage;
 	@Prop(Array) options;
 	@Prop(Number) counterUserMessages;

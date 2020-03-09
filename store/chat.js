@@ -89,7 +89,7 @@ class Chat extends VuexModule {
 			isLoading: true,
 			date: new Date().toISOString()
 		};
-		setIndexDB([userMessage]);
+		setIndexDB([ userMessage ]);
 
 		messagesArr.push(userMessage);
 		messagesArr.push(fakeMessage);
@@ -118,17 +118,19 @@ class Chat extends VuexModule {
 			if ( acc.length && lastElement.userID === next.userID ) {
 				lastElement.isGroup = true;
 			}
+
 			if ( messagesLength === index ) {
 				nextElement = { ...nextElement, isGroup: false }
 			}
-			//
-			// if ( acc.length && lastElement.userID !== next.userID ) {
-			// 	nextElement = { ...nextElement, isGroup: false }
-			// }
 
 			acc.push(nextElement);
 			return acc;
 		}, []);
+	}
+
+	@Mutation
+	setQuestionType(newQuestionType) {
+		this.questionType = newQuestionType;
 	}
 
 }
