@@ -43,7 +43,7 @@ class Chat extends VuexModule {
 	}
 
 	@Action
-	async sendMessage({message, chatSessionID,questionType, userID }){
+	async sendMessage({ message, chatSessionID, questionType, userID }){
 		const messagesLength = this.messages.length;
 		const { data } = await axios.post('/chat/send-message', {
 			message: message,
@@ -52,7 +52,7 @@ class Chat extends VuexModule {
 			userID
 		});
 		const messageData = data.data.messageData;
-		this.context.commit('setMessages', {messageData , messagesLength })
+		this.context.commit('setMessages', { messageData , messagesLength })
 	}
 
 	@Mutation
@@ -75,7 +75,7 @@ class Chat extends VuexModule {
 	}
 
 	@Mutation
-	async setUserMessage({ message, userID}) {
+	async setUserMessage({ message, userID }) {
 		let messagesArr = this.messages;
 		const userMessage = {
 			messageUID: v4(),
