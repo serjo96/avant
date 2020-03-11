@@ -12,8 +12,6 @@ import ChangePassword from "~/components/reset-password/change-password/change-p
 class ResetPassword extends Vue {
     @State(state => state.authorization.resetPasswordComponent) resetPasswordComponent;
     @State(state => state.authorization.responseMessage) responseMessage;
-
-
 }
 
 export default ResetPassword;
