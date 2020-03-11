@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import Component, { Mutation, Action } from 'nuxt-class-component';
 import { Prop } from "vue-property-decorator";
+import Component, { Mutation, Action } from 'nuxt-class-component';
 
 
 @Component({})
@@ -9,19 +9,19 @@ class ResetPasswordEmail extends Vue {
 	@Mutation('authorization/clearResponseData') clearResponseData;
 	@Action('authorization/resetPassword') resetPassword;
 	@Prop() responseMessage;
+	email = '';
+	valid = true;
 	emailRules =  [
 			v => !!v || 'E-mail is required',
 			v => /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(v) || 'E-mail must be valid'
 	];
-	email = '';
-	valid = true;
 
 
 	get formValidate(){
 		return this.$refs.form.validate();
 	}
 
-	async onSubmit(){
+	onSubmit(){
 		if(this.formValidate){
 			this.resetPassword({
 				data: {
