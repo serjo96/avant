@@ -38,6 +38,8 @@
                             label="Password"
                             solo
                             prepend-inner-icon="lock"
+                            hint="Min 6 characters"
+                            persistent-hint
                             v-model="registerData.password"
                             :append-icon="showPassword ? 'visibility' : 'visibility_off'"
                             :rules="[passwordRules.required, passwordRules.min]"
