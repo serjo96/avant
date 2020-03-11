@@ -65,6 +65,31 @@ class Message extends Vue {
 		}
 	}
 
+	get illnessDegree() {
+		let text = '';
+		let color = '';
+
+		switch (true) {
+			case this.messageData.probability < 33:
+				text = 'low probability';
+				color = 'red';
+				break;
+			case this.messageData.probability >= 33 && this.messageData.probability < 66:
+				text = 'mid probability';
+				color = 'yellow accent-4';
+				break;
+			case this.messageData.probability >= 66:
+				text = 'high probability';
+				color = 'green accent-4';
+				break;
+		}
+
+		return {
+			color,
+			text
+		}
+	}
+
 }
 
 export default Message;

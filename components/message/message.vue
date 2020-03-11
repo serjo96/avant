@@ -14,19 +14,30 @@
                 <div class="message-info__time primary--text">{{transformDate}}</div>
             </div>
 
-            <div class="message__body">
-                <div class="message-wrapper">
+            <div class="message-body">
+                <div class="message-body__content">
                     <TypingSpinner :isLoading="isLoading"></TypingSpinner>
 
-                    <div class="message__container">
-                        <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
+                    <div class="message-body__container">
+                        <div class="message-body__header">
+                            <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
 
+                            <div v-if="messageData.probability"
+                                 class="illness-degree"
+                            >
+                                <div class="illness-degree__text">{{illnessDegree.text}}</div>
+                                <v-progress-linear
+                                        :color="illnessDegree.color"
+                                        :value="messageData.probability">
+                                </v-progress-linear>
+                            </div>
 
-                            <p v-if="messageData.message"
-                               class="message__text"
-                               v-html="$md.render(messageData.message)"
-                            ></p>
+                        </div>
 
+                        <p v-if="messageData.message"
+                           class="message__text"
+                           v-html="$md.render(messageData.message)"
+                        ></p>
 
                         <div :class="collapseClass">
                             <div class="collapse__content">

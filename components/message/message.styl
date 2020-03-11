@@ -1,16 +1,11 @@
 .message {
   &__title {
-    margin-bottom: 10px
     text-transform: uppercase
-    font-size: 20px
+    font-size: 15px
     font-weight: bold
   }
 
-  &__container {
-    flex: 1;
-    position: relative;
-    opacity: 1;
-  }
+
 
   &__content {
     &:not(:last-child) {
@@ -44,7 +39,7 @@
         display: none
       }
     }
-    .message__body {
+    .message-body {
       &:before {
         visibility: hidden
       }
@@ -52,17 +47,27 @@
   }
 }
 
-.message__body {
+.message-body {
   position: relative
   min-width: 42px;
   max-width: 82%;
   box-sizing: content-box;
   min-height: 1.35em;
   display: inline-block;
-  //overflow: hidden;
   padding: 16px 24px;
   border-radius: 3px;
   box-shadow: none;
+  &__header {
+    display: flex
+    justify-content: space-between
+    align-items: flex-start;
+    margin-bottom: 10px
+  }
+  &__container {
+    flex: 1;
+    position: relative;
+    opacity: 1;
+  }
 }
 
 
@@ -103,7 +108,7 @@
 }
 
 .message-outgoing {
-  .message__body {
+  .message-body {
     transition: opacity .5s,background-color .75s,color .75s
     box-shadow: 0 1px 28px 0 rgba(90,60,122,.22)
     max-width: 82%
@@ -136,7 +141,7 @@
       .message-info__avatar-wrapper {
         visibility: visible;
       }
-      + .message__body {
+      + .message-body {
         &:before {
           opacity: 1;
         }
@@ -152,7 +157,7 @@
     flex-direction: row-reverse
   }
 
-  .message__body {
+  .message-body {
     background: #40c4ff
     color: #fff
   }
@@ -167,7 +172,7 @@
     }
   }
 
-  .message__container {
+  .message-body__container {
     display: flex
     justify-container: flex-end
   }
@@ -214,3 +219,16 @@
   }
 }
 
+.illness-degree {
+  width: 100px;
+  &__line {
+    width: 100%;
+    height: 2px;
+    margin-bottom: 3px
+    background: #000
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 14px
+  }
+}
