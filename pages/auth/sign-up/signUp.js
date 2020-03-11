@@ -9,6 +9,7 @@ class SignUp extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
     @Mutation('authorization/setResponseMessage') setResponseMessage;
+    @Mutation('authorization/setEmail') setEmail;
     @Action('authorization/signUp') signUp;
     registerData = {
         email: '',
@@ -41,6 +42,7 @@ class SignUp extends Vue {
 
     async onSubmit(){
         if ( this.$refs.form.validate() ) {
+            this.setEmail(this.registerData.email);
             await this.signUp({
                 data: this.registerData,
                 methods: {
@@ -82,7 +84,7 @@ class SignUp extends Vue {
         return progress;
     }
 
-    get passwordStatus(){
+    get passwordStatus() {
         const passwordStatus  = {
             0: 'Very weak',
             1: 'Weak',

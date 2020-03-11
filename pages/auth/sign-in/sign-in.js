@@ -11,7 +11,9 @@ import { Action, Mutation } from 'vuex-class';
 class SignIn extends Vue {
     @Prop(Function) changeComponent;
     @Prop() responseMessage;
+    @Mutation('authorization/setEmail') setEmail;
     @Action('authorization/login') login;
+    @Action('authorization/resentConfirm') resentConfirm;
     email = '';
     password = '';
     valid = true;
@@ -31,6 +33,7 @@ class SignIn extends Vue {
 
     async onLogin() {
         try {
+            this.setEmail(this.email);
             await this.login({
                 data : {
                     email: this.email,
@@ -44,12 +47,6 @@ class SignIn extends Vue {
         } catch (e) {
             console.error(e);
         }
-    }
-
-    async resentConfirm() {
-        await this.$axios.post('/auth/email/register', {
-            ...this.registerData
-        });
     }
 
 }

@@ -7,6 +7,7 @@ import { removeUser } from "~/utils/auth";
 	stateFactory: true,
 })
 class Authorization extends VuexModule {
+	email = '';
 	resetPasswordComponent = 'ResetPasswordEmail';
 	responseMessage = {
 		message: '',
@@ -77,6 +78,7 @@ class Authorization extends VuexModule {
 				...data
 			});
 			this.context.commit('setResponseMessage', response);
+			saveUserEmail();
 			methods.router.push('/auth/sign-in');
 		} catch ({response: { data }}) {
 			this.context.commit('setResponseMessage', data.error);
@@ -97,12 +99,14 @@ class Authorization extends VuexModule {
 	}
 
 	@Action
-	async resentConfirm(registerData) {
-		await axios.post('/auth/email/register', {
-			registerData
-		});
+	async resentConfirm() {
+		await axios.get(`/email/resend-verification/${this.email}`);
 	}
 
+	@Mutation
+	setEmail(email) {
+		this.email = email;
+	}
 }
 
 export default Authorization;
