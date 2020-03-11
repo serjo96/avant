@@ -28,7 +28,7 @@ class ChatLayout extends Vue {
 	}
 
 	mounted() {
-		this.setChatHeight();
+		setTimeout(()=> this.setChatHeight(), 0);
 		window.addEventListener('resize', this.setChatHeight);
 	}
 
