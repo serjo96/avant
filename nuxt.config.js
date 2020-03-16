@@ -18,7 +18,10 @@ module.exports = {
     linkExactActiveClass: 'your-custom-exact-active-link',
   },
   markdownit: {
-    injected: true
+    injected: true,
+    use: [
+        'markdown-it-emoji'
+    ]
   },
   optimizedImages: {
     optimizeImages: true
