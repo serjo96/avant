@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Component from 'nuxt-class-component';
 import { Prop } from "vue-property-decorator";
 import avatar from '~/assets/doctor_yellow.svg';
-import { dateHelper } from '~/helpers/dateHelper.js';
+import { timeHelper } from '~/helpers/dateHelper.js';
 import TypingSpinner from "~/components/typing-spinner/typing-spinner.vue";
 
 
@@ -19,7 +19,7 @@ class Message extends Vue {
 	collapse = true;
 
 	get transformDate () {
-		return dateHelper(this.messageDate);
+		return timeHelper(this.messageDate);
 	}
 
 	get incomingMessage() {
