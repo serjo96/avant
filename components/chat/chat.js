@@ -1,15 +1,15 @@
 import Vue from 'vue';
-import  {Getter, Mutation, State, Action} from 'nuxt-class-component';
+import { Watch } from "vue-property-decorator";
+import Component from "vue-class-component";
+import  { Getter, Mutation, State, Action } from 'nuxt-class-component';
 import Message from "~/components/message/message.vue";
 import ChatHeader from "~/components/chat/chat-header/chat-header.vue";
 import ChatFooter from "~/components/chat/chat-footer/chat-footer.vue";
-import {Watch} from "vue-property-decorator";
-import axios from 'axios';
-import Component from "vue-class-component";
+import MessagesDelimiter from "~/components/messages-delimiter/messages-delimiter.vue";
 
 
 @Component({
-	components: { Message, ChatHeader, ChatFooter }
+	components: { Message, MessagesDelimiter, ChatHeader, ChatFooter }
 })
 class Chat extends Vue {
 	@State(state => state.user.userData) user;
@@ -21,9 +21,11 @@ class Chat extends Vue {
 	@Action('chat/getLocalHistory') getLocalHistory;
 	@Action('chat/sendMessage') sendMessage;
 	@Action('chat/initChat') initChat;
+	@Action('chat/restartChat') restartChat;
 	@Mutation('chat/setMessages') setMessages;
 	@Mutation('chat/setUserMessage') setUserMessage;
 	@Mutation('chat/setFakeIncomingMessage') setFakeIncomingMessage;
+	@Mutation('chat/setDelimiterMessage') setDelimiterMessage;
 	@Mutation('chat/setQuestionType') setQuestionType;
 	lastMessages = [];
 
@@ -104,11 +106,12 @@ class Chat extends Vue {
 		setTimeout(()=> this.$refs.chatBody.scrollTop = this.$refs.chatBody.scrollHeight);
 	}
 
-	async restartChat() {
+	async handlerRestartChat() {
+		this.setDelimiterMessage();
 		this.setFakeIncomingMessage();
 		this.scrollToBottom();
 		try {
-			await this.initChat(this.user.userID);
+			await this.restartChat(this.user.userID);
 		} catch (e) {
 			console.log(e)
 		} finally {

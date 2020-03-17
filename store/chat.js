@@ -35,6 +35,28 @@ class Chat extends VuexModule {
 
 
 	@Action
+	async restartChat(userID) {
+		const { data } = await axios.post('/chat/init', {
+				userID,
+			});
+		const messagesLength = this.messages.length;
+		const messageData = data.data.messageData;
+		this.context.commit('setMessages', { messageData, messagesLength })
+	}
+
+	@Mutation
+	setDelimiterMessage() {
+		let messagesArr = this.messages;
+		let delimiterMessage = {
+			delimiter: true,
+			date: new Date().toISOString()
+		};
+		messagesArr.push(delimiterMessage);
+		this.messages = messagesArr;
+		setIndexDB([ delimiterMessage ]);
+	}
+
+	@Action
 	async getLocalHistory() {
 		const initialMessages = process.browser ? await getMessagesFromIndexDB() : null;
 		if ( initialMessages ) {

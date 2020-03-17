@@ -1,20 +1,27 @@
 <template>
     <div class="chat" :style="{height: getPageHeight}">
         <ChatHeader
-                :restartChat="restartChat"
+                :restartChat="handlerRestartChat"
         ></ChatHeader>
         <div class="chat-body" ref="chatBody">
             <div class="container">
                 <div class="chat-body__wrapper" v-if="messages.length">
-                    <Message
-                            v-for="message in formattedMessages"
-                            :key="message.messageUID"
-                            :groupMessage="message.isGroup"
-                            :messageDate="message.date"
-                            :messageData="message"
-                            :isLoading="message.isLoading"
-                    >
-                    </Message>
+                    <Fragment v-for="message in formattedMessages"
+                              :key="message.messageUID">
+                        <Message
+                                v-if="!message.delimiter"
+                                :groupMessage="message.isGroup"
+                                :messageDate="message.date"
+                                :messageData="message"
+                                :isLoading="message.isLoading"
+                        >
+                        </Message>
+                        <MessagesDelimiter
+                                v-if="message.delimiter"
+                                :messageDate="message.date"
+                        ></MessagesDelimiter>
+                    </Fragment>
+
                 </div>
             </div>
         </div>
