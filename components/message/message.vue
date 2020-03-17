@@ -20,7 +20,10 @@
 
                     <div class="message-body__container">
                         <div class="message-body__header">
-                            <h3 class="message__title" v-if="messageData.title">{{messageData.title}}</h3>
+                            <h3 class="message__title"
+                                v-if="messageData.title"
+                                v-html="$md.render(messageData.title)"
+                            ></h3>
 
                             <div v-if="messageData.probability"
                                  class="illness-degree"
