@@ -78,7 +78,6 @@ class Authorization extends VuexModule {
 				...data
 			});
 			this.context.commit('setResponseMessage', response);
-			saveUserEmail();
 			methods.router.push('/auth/sign-in');
 		} catch ({response: { data }}) {
 			this.context.commit('setResponseMessage', data.error);
@@ -93,7 +92,19 @@ class Authorization extends VuexModule {
 			this.context.commit('setResponseMessage', res);
 			// methods.router.push('/auth/sign-in');
 		} catch ({response: { data }}) {
-			console.log(data)
+			this.context.commit('setResponseMessage', data.error);
+		}
+	}
+
+	@Action
+	async changePassword({ data , methods }) {
+		try {
+			await axios.post('/auth/email/change-password', {
+				newPassword: data.newPassword,
+				newPasswordToken: data.newPasswordToken
+			});
+			methods.router.push('/auth/sign-in');
+		} catch ({response: { data }}) {
 			this.context.commit('setResponseMessage', data.error);
 		}
 	}
@@ -107,6 +118,7 @@ class Authorization extends VuexModule {
 	setEmail(email) {
 		this.email = email;
 	}
+
 }
 
 export default Authorization;

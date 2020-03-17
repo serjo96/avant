@@ -62,7 +62,6 @@
                             {{passwordStatus}}
                         </div>
                     </div>
-
                 </div>
 
                 <v-select

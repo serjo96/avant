@@ -1,11 +1,10 @@
 .message {
+  display: flex
   &__title {
     text-transform: uppercase
     font-size: 15px
     font-weight: bold
   }
-
-
 
   &__content {
     &:not(:last-child) {
@@ -24,10 +23,6 @@
     &:hover {
       border-color: transparent
     }
-  }
-
-  &__margin {
-    display: flex
   }
 
   &--group {
@@ -153,10 +148,7 @@
 
 
 .message-incoming {
-  .message__margin {
-    flex-direction: row-reverse
-  }
-
+  flex-direction: row-reverse
   .message-body {
     background: #40c4ff
     color: #fff
@@ -178,13 +170,13 @@
   }
 }
 
-.message-incoming:not(:first-child) .message__margin,
-.message-outgoing:not(:first-child) .message__margin {
+.message-incoming:not(:first-child) ,
+.message-outgoing:not(:first-child) {
   margin-top: 15px;
 }
 
-.message-incoming + .message-incoming .message__margin,
-.message-outgoing + .message-outgoing .message__margin {
+.message-incoming + .message-incoming,
+.message-outgoing + .message-outgoing {
   margin-top: 2px;
 }
 
