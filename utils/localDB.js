@@ -4,7 +4,6 @@ export const setIndexDB = async (messagesArr) =>  {
 	try {
 		const db = await openDB('Chat', 1, {
 		upgrade(db) {
-			console.log(22);
 			// Create a store of objects
 				const store = db.createObjectStore('messages', {
 					// The 'id' property of the object will be the key.
