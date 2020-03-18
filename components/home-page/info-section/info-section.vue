@@ -2,17 +2,7 @@
     <section class="description-section">
         <div class="section-base">
             <Container>
-                <div class="description-section__content">
-                    <div class="description">
-                        <h1 class="description__title">Hippocrates AI system </h1>
-                        <p class="description__text">The service is available for adults (18+) under a disclaimer that informs about the fact that the medical advices are AI, computer-based estimates and cannot replace a certified medical specialist.</p>
-                        <p class="description__text">The service is not intended to replace a “human” doctor’s medical advice but to provide a medical tips, based on known, public domain, medical information available on experts’ medical web sites, text books and similar.</p>
-                        <p class="description__text">The service is intended to provide medical advices and tips according to the latest medical standards and knowledge.</p>
-                    </div>
-                    <div class="description-section__icon">
-                        <img src="~assets/heart.png" alt="">
-                    </div>
-                </div>
+                <p>This tool does not provide medical advice It is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis or treatment. Never ignore professional medical advice in seeking treatment because of something you have read on the Hippocrates Site. If you think you may have a medical emergency, immediately call your doctor or dial 911.  © 2020 GBT, Inc. All rights reserved.</p>
             </Container>
         </div>
     </section>

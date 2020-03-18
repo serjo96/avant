@@ -1,6 +1,7 @@
 <template>
   <Fragment>
     <DescriptionSection />
+    <InfoSection />
 <!--    <Advantages />-->
     <AboutSection />
     <StepSection></StepSection>
