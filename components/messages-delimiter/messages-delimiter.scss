@@ -4,10 +4,13 @@
   &__date {
 	margin-bottom: 5px;
 	text-align: center;
+	font-weight: 300;
+	color: #949494;
   }
   &__line {
-	height: 1px;
-	background: #000;
+	height: 2px;
+	background: #e4e4e4;
+	border-radius: 10px;
 	width: 100%;
   }
 }
