@@ -41,7 +41,7 @@ class MessageInput extends Vue {
 		if (!date) return null;
 
 		const [year, month, day] = date.split('-');
-		return `${month}-${day}-${year}`;
+		return `${year}-${month}-${day}`;
 	}
 
 	get computedDateFormatted () {
