@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import Component from 'nuxt-class-component';
+import { Action } from "vuex-class";
 
 
 @Component({
 })
 class ChangePassword extends Vue {
+	@Action('authorization/changePassword') changePassword;
 	newPassword = '';
 	confirmPassword = '';
 	showPassword = false;
@@ -78,15 +80,15 @@ class ChangePassword extends Vue {
 	async onSubmit() {
 		const newPasswordToken = this.$route.query.token;
 		if ( this.$refs.form.validate() ) {
-			try {
-				await this.$axios.post('/auth/email/change-password', {
-					newPassword: this.newPassword,
-					newPasswordToken
+			this.changePassword({
+					data: {
+						newPassword: this.newPassword,
+						newPasswordToken
+					},
+					methods: {
+						router: this.$router
+					}
 				});
-				this.$router.push('/auth/sign-in');
-			} catch (e) {
-				console.error(e)
-			}
 
 		}
 	}
