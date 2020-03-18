@@ -133,3 +133,27 @@ body, .v-application {
 .v-application--wrap {
   min-height: auto;
 }
+.message__content--description {
+  p {
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  table {
+    border-spacing: 3px;
+    border-collapse: separate;
+  }
+  th, td {
+    text-align: center;
+    padding: 0 10px;
+    vertical-align: middle;
+    height: 50px;
+  }
+  th {
+    color: #fff;
+    background: #f0b579;
+    vertical-align: middle;
+  }
+  tr {
+    background: #ecf0f1;
+  }
+}
