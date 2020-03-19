@@ -78,13 +78,13 @@
                 <div
                         :class="{
                         'response-message__text' : true,
-                        'red darken-2': !responseMessage.status
+                        'red darken-2': !responseMessage.success
                        }"
                 >
                     {{responseMessage.message}}
                 </div>
                 <button
-                        v-if="responseMessage.confirm"
+                        v-if="showResetConfirm"
                         class="response-message__resend-confirm"
                         @click="resentConfirm"
                 >

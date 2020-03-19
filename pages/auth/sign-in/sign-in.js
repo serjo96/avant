@@ -26,6 +26,10 @@ class SignIn extends Vue {
         required: value => !!value || 'Required.',
     };
 
+    get showResetConfirm(){
+        return this.responseMessage.code && this.responseMessage.code === 'auth-0003';
+    }
+
 
     get formValidate(){
         return this.$refs.form.validate()

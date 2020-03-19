@@ -11,7 +11,9 @@ class Authorization extends VuexModule {
 	resetPasswordComponent = 'ResetPasswordEmail';
 	responseMessage = {
 		message: '',
+		code: '',
 		status: false,
+		success: false,
 		confirm: false
 	};
 
@@ -25,6 +27,7 @@ class Authorization extends VuexModule {
 		this.responseMessage = {
 			message: '',
 			status: false,
+			success: false,
 			confirm: false
 		};
 	}
@@ -111,7 +114,12 @@ class Authorization extends VuexModule {
 
 	@Action
 	async resentConfirm() {
-		await axios.get(`/email/resend-verification/${this.email}`);
+		try {
+			const res = await axios.get(`/auth/email/resend-verification/${this.email}`);
+			this.context.commit('setResponseMessage', res);
+		} catch ({response: { data }}) {
+			this.context.commit('setResponseMessage', data.error);
+		}
 	}
 
 	@Mutation
