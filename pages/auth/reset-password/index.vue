@@ -4,8 +4,19 @@
             <div class="reset-password__title">Reset password</div>
             <component
                     :is="resetPasswordComponent"
-                    :responseMessage="responseMessage"
             ></component>
+
+            <div v-if="showResetConfirm" class="response-message">
+                <div
+                        :class="{
+                        'response-message__text' : true,
+                        'red darken-2': !responseMessage.status
+                       }"
+                >
+                    {{responseMessage.message}}
+                </div>
+            </div>
+
             <v-btn
                     class="reset-password__buck-navigate white--text"
                     color="light-blue darken-1"

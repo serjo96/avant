@@ -8,7 +8,6 @@ class ResetPasswordEmail extends Vue {
 	@Mutation('authorization/setResponseMessage') setResponseMessage;
 	@Mutation('authorization/clearResponseData') clearResponseData;
 	@Action('authorization/resetPassword') resetPassword;
-	@Prop() responseMessage;
 	email = '';
 	valid = true;
 	emailRules =  [
