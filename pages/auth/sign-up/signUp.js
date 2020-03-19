@@ -104,6 +104,10 @@ class SignUp extends Vue {
         return ['darken-4 red', 'error', 'darken-4 lime', 'warning', 'success'][this.progressText()]
     }
 
+    get showResetConfirm(){
+        return this.responseMessage.code && this.responseMessage.code === 'auth-0003';
+    }
+
 }
 
 export default SignUp;

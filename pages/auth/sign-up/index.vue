@@ -120,7 +120,7 @@
             </v-btn>
 
             <div
-                    v-if="responseMessage.message"
+                    v-if="showResetConfirm"
                     class="response-message">
                 <div
                         :class="{
