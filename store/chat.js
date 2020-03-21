@@ -1,6 +1,6 @@
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
-import { v4 } from 'uuid';
 import axios from 'axios';
+import { v4 } from 'uuid';
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import { setIndexDB, getMessagesFromIndexDB } from "~/utils/localDB";
 import mergeMessageArray from "~/utils/mergeMessageArray";
 
@@ -9,11 +9,7 @@ import mergeMessageArray from "~/utils/mergeMessageArray";
 })
 class Chat extends VuexModule {
 	messages = [
-		{
-			message: '',
-			isLoading: true,
-			date: new Date().toISOString()
-		}
+
 	];
 	sendingMessageError = false;
 	questionType  = '';
@@ -30,7 +26,7 @@ class Chat extends VuexModule {
 		});
 		const messagesLength = this.messages.length;
 		const messageData = data.data.messageData;
-		this.context.commit('setMessages', { messageData, messagesLength })
+		this.context.commit('setMessages', { messageData, messagesLength });
 	}
 
 
@@ -58,8 +54,8 @@ class Chat extends VuexModule {
 
 	@Action
 	async getLocalHistory() {
-		const initialMessages = process.browser ? await getMessagesFromIndexDB() : null;
-		if ( initialMessages ) {
+		const initialMessages = process.browser ? await getMessagesFromIndexDB() : [];
+		if ( initialMessages.length ) {
 			this.context.commit('setInitialMessages', initialMessages);
 		}
 	}

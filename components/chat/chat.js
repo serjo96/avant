@@ -38,9 +38,10 @@ class Chat extends Vue {
 
 	async mounted() {
 		await this.getLocalHistory();
-		if (this.messages.length) {
+		if (this.messages.length >= 1) {
 			this.setDelimiterMessage();
 		}
+		this.setFakeIncomingMessage();
 		await this.initChat(this.user.userID);
 	}
 
