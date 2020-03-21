@@ -6,7 +6,7 @@ import { dateHelper } from '~/helpers/dateHelper.js';
 @Component({
 })
 class MessagesDelimiter extends Vue {
-	@Prop(Date) messageDate;
+	@Prop([ String, Date ]) messageDate;
 
 	get transformDate () {
 		return dateHelper(this.messageDate);
