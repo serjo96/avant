@@ -24,7 +24,7 @@
                     to="sign-in"
             >
                 <v-icon left dark>arrow_back_ios</v-icon>
-                Buck to login
+                Back to login
             </v-btn>
         </div>
     </div>
