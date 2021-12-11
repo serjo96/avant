@@ -15,7 +15,7 @@
                     v-model="valid"
                     @keyup.native.enter="onLogin"
             >
-                <div class="login__inputs">
+                <div class="inputs">
                     <div class="login__input">
                         <v-text-field
                                 v-model="email"
